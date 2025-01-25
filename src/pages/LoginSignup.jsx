@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { login, signup } from '../store/actions/user.actions'
 
-export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen }) {
+export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLoginSignup }) {
     const [isLoginFailed, setIsLoginFailed] = useState(false)
-
     const [caredentials, setCaredentials] = useState({
         username: '',
         password: '',
@@ -24,6 +23,7 @@ export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen }) {
             console.log('Logging in with:', caredentials.username, caredentials.password)
             try{
                 login(caredentials)
+                closeLoginSignup()
             }catch{
                 setIsLoginFailed(true)
             }

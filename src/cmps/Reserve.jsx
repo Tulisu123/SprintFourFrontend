@@ -3,8 +3,11 @@ import { useSelector } from 'react-redux'
 import { DatePickerCmp } from './DatePickerCmp'
 import { setFiterBy } from '../store/actions/stay.actions';
 import { parsePrice } from '../services/util.service'
+import { userService } from '../services/user';
+import { useNavigate } from 'react-router-dom';
 
 export function Reserve() {
+    const navigate = useNavigate()
 
     const stay = useSelector(storeState => storeState.stayModule.stay)
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
@@ -16,7 +19,7 @@ export function Reserve() {
     const [checkOutDate, setCheckOutDate] = useState(filterBy.checkOutDate || null);
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const [reserve, setReserve] = useState({ start: checkInDate, end: checkOutDate, guests: 1, price: totalPrice })
+    const [reserve, setReserve] = useState({ start: checkInDate, end: checkOutDate, guests: 1, price: totalPrice, user: userService.getLoggedinUser() })
 
     function toggleIsDatePickerOpen() {
         setIsDatePickerOpen(!isDatePickerOpen)
@@ -137,7 +140,27 @@ export function Reserve() {
     }
 
     function onReserve() {
-        console.log('reserve:', reserve)
+        const stayId = stay._id
+        const reserveDetails = {
+            start: reserve.start,
+            end: reserve.end,
+            guests: reserve.guests,
+            price: reserve.price,
+            days: getNumberOfDays(checkInDate,checkOutDate)
+        }
+        console.log('reserve:', reserveDetails)
+
+        const urlParams = new URLSearchParams({
+            stayId,
+            start: reserveDetails.start.toISOString(), // Ensure proper date formatting
+            end: reserveDetails.end.toISOString(),
+            guests: reserveDetails.guests,
+            price: reserveDetails.price,
+            days: reserveDetails.days,
+        }).toString()
+
+        navigate(`/reservation-summary?${urlParams}`)
+
     }
 
     return (
