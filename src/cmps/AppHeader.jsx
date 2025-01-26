@@ -74,57 +74,57 @@ export function AppHeader({ isHomepage }) {
 
 	function onSearchFromHeader(ev) {
 		ev.preventDefault()
-	
+
 		const filterByToUpdate = {
 			txt: where,
 			minCapacity: getTotalGuests(),
 			checkInDate,
 			checkOutDate
 		}
-	
+
 		setIsExpanded(false)
 		setInputModal(null)
 		setFiterBy(filterByToUpdate)
-	
+
 		if (location.pathname.includes('stay')) {
 			navigate('/')
 		}
 	}
-	
-	function onUserLogout(){
+
+	function onUserLogout() {
 		logout()
 	}
 
-	function onManageBooking(){
+	function onManageBooking() {
 		console.log('Moving to manage places page')
 		navigate('/manage-booking')
 
 	}
 
-	async function onLogoClick(){
+	async function onLogoClick() {
 		console.log('click on logo')
 		setIsExpanded(false)
 		const filterByToUpdate = stayService.getDefaultFilter()
 		await setFiterBy(filterByToUpdate)
 	}
 
-	function onAddStay(){
+	function onAddStay() {
 		console.log('Startying to add stay form Header')
 		navigate('/add-stay')
 	}
 
 	return (
 		<>
-			<div className="headers">
-				{isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop" onClick={() => setIsLoginSignupOpen(false)}/>}
+			<div className="headers main-container full">
+				{isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop" onClick={() => setIsLoginSignupOpen(false)} />}
 
 				<header
-					className={`app-header`}
+					className={`app-header main-container full grid`}
 					onClick={isMenuOpen}
 				>
 					<nav className={`${isExpanded ? 'expand' : ''} ${!isHomepage ? 'in-stay-details' : ''}`}>
-						<NavLink to="/" className="logo"  onClick={onLogoClick}>
-							<Logo/>
+						<NavLink to="/" className="logo" onClick={onLogoClick}>
+							<Logo />
 							<h1>airbnb</h1>
 						</NavLink>
 						<HeaderFilter
@@ -140,7 +140,7 @@ export function AppHeader({ isHomepage }) {
 							onSearchFromHeader={onSearchFromHeader}
 						/>
 						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} />}
-						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking}/>}
+						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking} />}
 						{!user && isLoginSignupOpen.isOpen && (
 							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
 						)}
