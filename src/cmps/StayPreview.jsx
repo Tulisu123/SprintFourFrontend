@@ -82,7 +82,7 @@ export function StayPreview({ stay }) {
                                 className="wishlist-btn"
                                 onClick={handleWishlistToggle}
                             >
-                                <i class="fa-regular fa-heart"></i>
+                                <i className="fa-regular fa-heart"></i>
                             </button>
                             <div className="carousel-controls">
                                 <button
@@ -90,14 +90,14 @@ export function StayPreview({ stay }) {
                                     onClick={handlePrev}
                                     disabled={currentIndex === 0}
                                 >
-                                    <i class="fa-solid fa-arrow-left"></i>
+                                    <i className="fa-solid fa-arrow-left"></i>
                                 </button>
                                 <button
                                     className="next-btn"
                                     onClick={handleNext}
                                     disabled={currentIndex === stay.imgUrls.length - 1}
                                 >
-                                    <i class="fa-solid fa-arrow-right"></i>
+                                    <i className="fa-solid fa-arrow-right"></i>
                                 </button>
                             </div>
                             <div className="carousel-indicators">
@@ -164,7 +164,7 @@ export function StayPreview({ stay }) {
                             </button>
                         </div>
                         <form>
-                            <div class="input-wrapper">
+                            <div className="input-wrapper">
                                 <input
                                     type="text"
                                     id="wishlist-name"
@@ -178,14 +178,14 @@ export function StayPreview({ stay }) {
                             </div>
                             <div className="modal-actions">
                                 <button type="button"
-                                    class="clear-btn"
+                                    className="clear-btn"
                                     onClick={() => setWishlistName('')}
                                 >
                                     Clear
                                 </button>
                                 <button
                                     type="submit"
-                                    class="create-btn"
+                                    className="create-btn"
                                     disabled={wishlistName.length === 0}
                                 >
                                     Create

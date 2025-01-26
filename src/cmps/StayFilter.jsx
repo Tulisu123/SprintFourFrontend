@@ -53,7 +53,6 @@ export function StayFilter() {
                         { title: 'Cabins', img: '../../src/assets/assets/icons/filter bar icons/asset 15.jpeg' },
                         { title: 'Countryside', img: '../../src/assets/assets/icons/filter bar icons/asset 16.jpeg' },
                         { title: 'Lakefront', img: '../../src/assets/assets/icons/filter bar icons/asset 17.jpeg' },
-                        { title: 'Islands', img: '../../src/assets/assets/icons/filter bar icons/asset 18.jpeg' },
                         { title: 'Design', img: '../../src/assets/assets/icons/filter bar icons/asset 19.jpeg' },
                         { title: 'Off-the-grid', img: '../../src/assets/assets/icons/filter bar icons/asset 20.jpeg' },
                         { title: 'Farms', img: '../../src/assets/assets/icons/filter bar icons/asset 21.jpeg' },
