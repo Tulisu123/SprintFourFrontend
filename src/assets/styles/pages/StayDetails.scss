@@ -100,8 +100,8 @@
 .stay-details-info {
     display: grid;
     padding-top: 26px;
-    // grid-template-columns: 0.6fr 0.4fr;
-    gap: 5%;
+    grid-template-columns: 6fr 4fr;
+    // gap: 5%;
     width: 100%;
 
     position: relative;
@@ -190,20 +190,21 @@
 .stay-reserve-container {
     grid-column: 2;
     position: relative;
+    margin-inline-start: 8.33%;
 }
 
 .stay-reserve {
+    position: sticky;
+    top: 170px;
     justify-self: end;
     border: 1px solid rgb(221, 221, 221);
     padding: 24px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
 
-    width: 372px;
+    width: 100%;
     height: max-content;
 
-    position: sticky;
-    top: 170px;
 
     color: rgb(34, 34, 34);
 
