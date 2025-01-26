@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { login, signup } from '../store/actions/user.actions'
+import { userService } from '../services/user';
 
 export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLoginSignup }) {
     const [isLoginFailed, setIsLoginFailed] = useState(false)
-    const [caredentials, setCaredentials] = useState({
-        username: '',
-        password: '',
-        fullname: ''
-    })
+    const [caredentials, setCaredentials] = useState(userService.getEmptyUser())
 
     const handleChange = (ev) => {
         const { name, value } = ev.target;

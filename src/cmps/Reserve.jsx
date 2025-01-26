@@ -33,7 +33,7 @@ export function Reserve() {
             const { start, end } = findDefaultDateRange(reservedDates)
             setCheckInDate(start)
             setCheckOutDate(end)
-            updateFilterBy(start, end)
+            // updateFilterBy(start, end)
         } else {
             setCheckInDate(new Date(filterBy.checkInDate))
             setCheckOutDate(new Date(filterBy.checkOutDate))
@@ -72,7 +72,6 @@ export function Reserve() {
 
     function onChangeCheckIn(checkInFromDatePicker) {
         setCheckInDate(checkInFromDatePicker);
-        // updateFilterBy(checkInFromDatePicker, checkOutDate);
         setReserve((prevReserve) => ({
             ...prevReserve,
             start: checkInFromDatePicker,
@@ -81,33 +80,42 @@ export function Reserve() {
 
     function onChangeCheckOut(checkOutFromDatePicker) {
         setCheckOutDate(checkOutFromDatePicker);
-        // updateFilterBy(checkInDate, checkOutFromDatePicker); // Ensure `filterBy` is updated
         setReserve((prevReserve) => ({
             ...prevReserve,
             end: checkOutFromDatePicker,
-        }));
+        }))
     }
+
 
     function findDefaultDateRange(reservedDates) {
         const today = new Date()
+        today.setHours(0, 0, 0, 0) // Normalize today to midnight
         const disabledDates = calculateDisabledDates(reservedDates)
         const availableDates = []
         let currentDate = new Date(today)
-
+    
         while (availableDates.length < 3) {
-            if (!disabledDates.some((d) => d.getTime() === currentDate.getTime())) {
-                availableDates.push(new Date(currentDate));
+            const isDisabled = disabledDates.some(
+                (d) =>
+                    d.getDate() === currentDate.getDate() &&
+                    d.getMonth() === currentDate.getMonth() &&
+                    d.getFullYear() === currentDate.getFullYear()
+            )
+            if (!isDisabled) {
+                availableDates.push(new Date(currentDate))// Add the available date
             }
-            currentDate.setDate(currentDate.getDate() + 1)
+            currentDate.setDate(currentDate.getDate() + 1) // Move to the next day
         }
         return {
             start: availableDates[0],
             end: availableDates[2],
         }
     }
+    
+    
 
     function calculateDisabledDates(reservedDates) {
-        const disabledDates = [];
+        const disabledDates = []
         reservedDates.forEach(({ start, end }) => {
             let currDate = new Date(start)
             const endDate = new Date(end)
@@ -148,7 +156,6 @@ export function Reserve() {
             price: reserve.price,
             days: getNumberOfDays(checkInDate,checkOutDate)
         }
-        console.log('reserve:', reserveDetails)
 
         const urlParams = new URLSearchParams({
             stayId,
@@ -188,7 +195,7 @@ export function Reserve() {
                 <div className={`check-out-container ${isDatePickerOpen ? 'open' : ''}`} onClick={toggleIsDatePickerOpen}>
                     <label className='reserve-labels'>CHECKOUT</label>
                     <div className="checkout-date info-date">
-                        {filterBy.checkOutDate ? formatDate(checkOutDate) : 'Add date'}
+                        {checkOutDate ? formatDate(checkOutDate) : 'Add date'}
                     </div>
                 </div>
                 <div className="stay-reserve-guests">

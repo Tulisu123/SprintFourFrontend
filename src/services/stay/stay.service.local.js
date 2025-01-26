@@ -70,7 +70,9 @@ async function save(stay) {
             _id: stay._id,
             price: stay.price,
             capacity: stay.capacity,
+            reservedDates:stay.reservedDates
         }
+        console.log('staytToSave', stayToSave)
         savedStay = await storageService.put(STORAGE_KEY, stayToSave)
     } else {
         const stayToSave = {
@@ -179,8 +181,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "622f3403e36c59e6164faf93",
-                "fullname": "Patty And Beckett",
+                "_id": "S4dPn",
+                "fullname": "User 1",
                 "location": "Eureka, California, United States",
                 "responseTime": "within an hour",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/542dba0c-eb1b-4ab3-85f3-94d3cc8f87a4.jpg?aki_policy=profile_small",
@@ -311,7 +313,7 @@ function _createStays() {
                 {
                     "start": "2025-01-03",
                     "end": "2025-01-10"
-                },
+                }
             ]
         },
         {
@@ -325,7 +327,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437327/epcnh2tzpafwmvi3srcp.jpg"
             ],
-            "price": '2,000',
+            "price": "2,000",
             "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est ferm\u00e9e avec une lit double. Vous aurez acc\u00e8s \u00e0 une salle de bain avec une douche, terrasse. L'appartement est climatis\u00e9.  Votre chambre est \u00e9quip\u00e9 d'une connexion Wi-Fi illimit\u00e9. Vous serez proche du centre ville, au pied du pont Jacques Cartier et \u00e0 distance de marche de toutes les commodit\u00e9s (m\u00e9tro, supermarch\u00e9, pharmacie",
             "capacity": 2,
             "amenities": [
@@ -347,8 +349,8 @@ function _createStays() {
             ],
             "roomType": "Private room",
             "host": {
-                "_id": "622f3401e36c59e6164fabab",
-                "fullname": "Angel",
+                "_id": "pZFT4",
+                "fullname": "User 2",
                 "location": "Montreal, Qu\u00e9bec, Canada",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/12be1141-74de-4f04-bf28-82c3ed589d11.jpg?aki_policy=profile_small",
                 "pictureUrl": "https://randomuser.me/api/portraits/men/1.jpg",
@@ -423,7 +425,7 @@ function _createStays() {
                 {
                     "start": "2025-02-08",
                     "end": "2025-02-11"
-                },
+                }
             ]
         },
         {
@@ -437,7 +439,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436553/hbkx9lwxjd0wabqk0bmo.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436912/xle8ueqxjeazbs4bp09p.jpg"
             ],
-            "price": '1,340',
+            "price": "1,340",
             "summary": "O apartamento fica perto de arte e cultura e dos mais belos monumentos da cidade. Belos jardins e paisagens da cidade e do rio Douro ficam perto e podem ser apreciadas.  Existem restaurantes t\u00edpicos e de comida internacional ao redor do apartamento.   O espa\u00e7o fica numa rua t\u00edpica da cidade, cheia da sua magia e magnetismo e \u00e9 muito pratico e confort\u00e1vel. O espa\u00e7o \u00e9 excelente para quem pretende visitar e conhecer a zona hist\u00f3rica e tur\u00edstica do Porto. Transportes p\u00fablicos ficam pr\u00f3ximos.",
             "capacity": 4,
             "amenities": [
@@ -497,8 +499,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "622f3403e36c59e6164fb266",
-                "fullname": "Maria",
+                "_id": "cveg7",
+                "fullname": "User 3",
                 "location": "Porto, Porto District, Portugal",
                 "responseTime": "within an hour",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/c9b876fc-b30e-4951-8f88-af9add00939e.jpg?aki_policy=profile_small",
@@ -728,7 +730,7 @@ function _createStays() {
                 {
                     "start": "2025-03-14",
                     "end": "2025-03-16"
-                },
+                }
             ]
         },
         {
@@ -742,7 +744,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436334/nqgdwv3ljfkrbvynoetv.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436983/pivldxmrxssnhyzixhes.jpg"
             ],
-            "price": '1,955',
+            "price": "1,955",
             "summary": "A spacious, art-filled one-bedroom apartment near the express train (28 minutes to Times Square) and a Citibike station. Sample Bed-Stuy life at a nearby French restaurant,  a sunny Haitian cafe, a boutique grocery and more. We do NOT discriminate based on race, religion or sexual orientation.",
             "capacity": 2,
             "amenities": [
@@ -768,8 +770,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "622f3402e36c59e6164fac46",
-                "fullname": "Shaila & Alex",
+                "_id": "H3qQF",
+                "fullname": "User 4",
                 "location": "New York, New York, United States",
                 "responseTime": "within an hour",
                 "thumbnailUrl": "https://a0.muscache.com/im/users/6334250/profile_pic/1368287493/original.jpg?aki_policy=profile_small",
@@ -1021,7 +1023,7 @@ function _createStays() {
                 {
                     "start": "2025-04-03",
                     "end": "2025-04-09"
-                },
+                }
             ]
         },
         {
@@ -1035,7 +1037,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436460/qi3vkpts37b4k0dedosc.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437017/gjyzgdjngyrhfrj2loxz.jpg"
             ],
-            "price": '3,000',
+            "price": "3,000",
             "summary": "Mi piso est\u00e1 en el centro de Barcelona. Cerca del metro, las ramblas, los museos, el Portal del \u00c1ngel, Plaza Catalu\u00f1a. Mi alojamiento es bueno para turistas, aventureros, y viajeros de negocios....y tiene ascensor.",
             "capacity": 2,
             "amenities": [
@@ -1053,8 +1055,8 @@ function _createStays() {
             ],
             "roomType": "Private room",
             "host": {
-                "_id": "622f3407e36c59e6164fbdae",
-                "fullname": "Mari\u00e1n",
+                "_id": "Wl0m8",
+                "fullname": "User 5",
                 "location": "Barcelona, Catalonia, Spain",
                 "thumbnailUrl": "https://a0.muscache.com/im/users/31635864/profile_pic/1429604852/original.jpg?aki_policy=profile_small",
                 "pictureUrl": "https://randomuser.me/api/portraits/women/3.jpg",
@@ -1121,7 +1123,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436827/znh7gqzbwb4wm6bdziy7.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437250/o8uutj3t2bvfafvxkr9j.jpg"
             ],
-            "price": '2,456',
+            "price": "2,456",
             "summary": "Lit room with balcony. The apartment is in the center, just meters from the Palau de la Musica Catalana. Well connected, a few minutes from Las Ramblas and the Born. Very close to the beach and Ciutadella Park",
             "capacity": 2,
             "amenities": [
@@ -1145,8 +1147,8 @@ function _createStays() {
             ],
             "roomType": "Private room",
             "host": {
-                "_id": "622f3404e36c59e6164fb63a",
-                "fullname": "Isabel",
+                "_id": "hwTN9",
+                "fullname": "User 6",
                 "location": "Barcelona, Catalonia, Spain",
                 "responseTime": "within an hour",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/72a579ce-37d7-466e-9c25-9876ee8de037.jpg?aki_policy=profile_small",
@@ -1412,7 +1414,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436334/nqgdwv3ljfkrbvynoetv.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436481/tqwkxtbalipudzhivoag.jpg"
             ],
-            "price": '1,110',
+            "price": "1,110",
             "summary": "Welcome! Upgrades Added as of January 2018 This listing is located in the Spanish Harlem Section of Manhattan. I offer a cozy apartment that has great transportation in and out the city! The area has a lot of ethnic restaurants and a lot of local, active residents. This residence is great for a quick, inexpensive stay in New York whether its for business, travel, or personal purposes. I am glad to welcome all guests!",
             "capacity": 3,
             "amenities": [
@@ -1445,8 +1447,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "622f3405e36c59e6164fb914",
-                "fullname": "Kevin",
+                "_id": "G95CU",
+                "fullname": "User 7",
                 "location": "New York, New York, United States",
                 "responseTime": "within a few hours",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/61b62b90-e38b-4609-a3c4-ff5ff06b5c08.jpg?aki_policy=profile_small",
@@ -1749,8 +1751,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "622f3401e36c59e6164fab5c",
-                "fullname": "Apartments2Enjoy",
+                "_id": "x143V",
+                "fullname": "User 8",
                 "location": "Porto, Porto District, Portugal",
                 "responseTime": "within a day",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/f3e85f0c-e28d-4698-9da9-2f203aea1f3d.jpg?aki_policy=profile_small",
@@ -2002,7 +2004,7 @@ function _createStays() {
                 {
                     "start": "2025-01-20",
                     "end": "2025-01-27"
-                },
+                }
             ]
         },
         {
@@ -2016,7 +2018,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg"
             ],
-            "price": '3,458',
+            "price": "3,458",
             "summary": "The neighbourhood is a quiet, family residential area, 20 minutes by bus from the historic center of Porto and 20 minutes from the beach (Matosinhos - where you may eat very GOOD fish!). You will love to stay in a very spacious, familiar and bright room, where you can enjoy a large and flowery garden, comfortable kitchen and laundry with washer and dryer machine. My space is good for couples, solo adventures, and business travelers!",
             "capacity": 2,
             "amenities": [
@@ -2041,8 +2043,8 @@ function _createStays() {
             ],
             "roomType": "Private room",
             "host": {
-                "_id": "622f3404e36c59e6164fb54f",
-                "fullname": "Patr\u00edcia Sousa Casimiro",
+                "_id": "WlVTz",
+                "fullname": "User 9",
                 "location": "Senhora da Hora, Porto, Portugal",
                 "responseTime": "a few days or more",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/87b9ccba-154a-4546-8cbe-8bdb25ddb36c.jpg?aki_policy=profile_small",
@@ -2129,7 +2131,7 @@ function _createStays() {
                 {
                     "start": "2025-04-05",
                     "end": "2025-04-09"
-                },
+                }
             ]
         },
         {
@@ -2143,7 +2145,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436460/qi3vkpts37b4k0dedosc.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg"
             ],
-            "price": '2,990',
+            "price": "2,990",
             "summary": "Welcome if you want to stay at a cozy flat with local experience.:) It is in the center of Istanbul.The neighborhood is safe and close to attractions.Transportation is easy. I will help you always.",
             "capacity": 2,
             "amenities": [
@@ -2160,8 +2162,8 @@ function _createStays() {
             ],
             "roomType": "Private room",
             "host": {
-                "_id": "622f3402e36c59e6164fae4d",
-                "fullname": "Nihat",
+                "_id": "gDVsb",
+                "fullname": "User 10",
                 "location": "Istanbul",
                 "responseTime": "within an hour",
                 "thumbnailUrl": "https://a0.muscache.com/im/pictures/user/6bf03261-e7ac-4e0e-8121-3828612bbb6a.jpg?aki_policy=profile_small",
@@ -2413,7 +2415,7 @@ function _createStays() {
                 {
                     "start": "2025-02-20",
                     "end": "2025-02-22"
-                },
+                }
             ]
         },
         {
@@ -2427,7 +2429,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437168/vbmfmdmwrxt7xfwbsw7c.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436376/phpltehcr6uq9lh5jlax.jpg"
             ],
-            "price": '1,827',
+            "price": "1,827",
             "summary": "Description for New Stay 1",
             "capacity": 4,
             "amenities": [
@@ -2439,8 +2441,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_10",
-                "fullname": "Host 1",
+                "_id": "S4dPn",
+                "fullname": "User 1",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2469,7 +2471,7 @@ function _createStays() {
                 {
                     "start": "2025-02-20",
                     "end": "2025-02-21"
-                },
+                }
             ]
         },
         {
@@ -2483,7 +2485,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436571/fvqbazrysqpymjlhhdqu.jpg"
             ],
-            "price": '3,500',
+            "price": "3,500",
             "summary": "Description for New Stay 2",
             "capacity": 4,
             "amenities": [
@@ -2495,8 +2497,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_11",
-                "fullname": "Host 2",
+                "_id": "pZFT4",
+                "fullname": "User 2",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2525,7 +2527,7 @@ function _createStays() {
                 {
                     "start": "2025-01-06",
                     "end": "2025-01-10"
-                },
+                }
             ]
         },
         {
@@ -2551,8 +2553,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_12",
-                "fullname": "Host 3",
+                "_id": "cveg7",
+                "fullname": "User 3",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2581,7 +2583,7 @@ function _createStays() {
                 {
                     "start": "2025-03-28",
                     "end": "2025-03-31"
-                },
+                }
             ]
         },
         {
@@ -2595,7 +2597,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436460/qi3vkpts37b4k0dedosc.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg"
             ],
-            "price": '2,090',
+            "price": "2,090",
             "summary": "Description for New Stay 4",
             "capacity": 4,
             "amenities": [
@@ -2607,8 +2609,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_13",
-                "fullname": "Host 4",
+                "_id": "H3qQF",
+                "fullname": "User 4",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2637,7 +2639,7 @@ function _createStays() {
                 {
                     "start": "2025-01-22",
                     "end": "2025-01-25"
-                },
+                }
             ]
         },
         {
@@ -2651,7 +2653,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436937/mkbcjfockxezgrvimska.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg"
             ],
-            "price": '3,105',
+            "price": "3,105",
             "summary": "Description for New Stay 5",
             "capacity": 4,
             "amenities": [
@@ -2663,8 +2665,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_14",
-                "fullname": "Host 5",
+                "_id": "Wl0m8",
+                "fullname": "User 5",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2693,7 +2695,7 @@ function _createStays() {
                 {
                     "start": "2025-02-18",
                     "end": "2025-02-25"
-                },
+                }
             ]
         },
         {
@@ -2707,7 +2709,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437017/gjyzgdjngyrhfrj2loxz.jpg"
             ],
-            "price": '2,255',
+            "price": "2,255",
             "summary": "Description for New Stay 6",
             "capacity": 4,
             "amenities": [
@@ -2719,8 +2721,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_15",
-                "fullname": "Host 6",
+                "_id": "hwTN9",
+                "fullname": "User 6",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2763,7 +2765,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436376/phpltehcr6uq9lh5jlax.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
             ],
-            "price": '2,162',
+            "price": "2,162",
             "summary": "Description for New Stay 7",
             "capacity": 4,
             "amenities": [
@@ -2775,8 +2777,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_16",
-                "fullname": "Host 7",
+                "_id": "G95CU",
+                "fullname": "User 7",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2805,7 +2807,7 @@ function _createStays() {
                 {
                     "start": "2025-01-08",
                     "end": "2025-01-15"
-                },
+                }
             ]
         },
         {
@@ -2831,8 +2833,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_17",
-                "fullname": "Host 8",
+                "_id": "x143V",
+                "fullname": "User 8",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2861,7 +2863,7 @@ function _createStays() {
                 {
                     "start": "2025-01-27",
                     "end": "2025-02-03"
-                },
+                }
             ]
         },
         {
@@ -2875,7 +2877,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437040/oarfkdxx7gyyvcynvwko.jpg"
             ],
-            "price": '5,014',
+            "price": "5,014",
             "summary": "Description for New Stay 9",
             "capacity": 4,
             "amenities": [
@@ -2887,8 +2889,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_18",
-                "fullname": "Host 9",
+                "_id": "WlVTz",
+                "fullname": "User 9",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2917,7 +2919,7 @@ function _createStays() {
                 {
                     "start": "2025-04-05",
                     "end": "2025-04-11"
-                },
+                }
             ]
         },
         {
@@ -2931,7 +2933,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437241/wt0seud4ot4cmdrztdzz.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436394/kscsvxyn0uro9tjhefeb.jpg"
             ],
-            "price": '1,038',
+            "price": "1,038",
             "summary": "Description for New Stay 10",
             "capacity": 4,
             "amenities": [
@@ -2943,8 +2945,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_19",
-                "fullname": "Host 10",
+                "_id": "gDVsb",
+                "fullname": "User 10",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -2987,7 +2989,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436376/phpltehcr6uq9lh5jlax.jpg"
             ],
-            "price": '8,715',
+            "price": "8,715",
             "summary": "Description for New Stay 11",
             "capacity": 4,
             "amenities": [
@@ -2999,8 +3001,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_20",
-                "fullname": "Host 11",
+                "_id": "S4dPn",
+                "fullname": "User 1",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3029,7 +3031,7 @@ function _createStays() {
                 {
                     "start": "2025-02-19",
                     "end": "2025-02-23"
-                },
+                }
             ]
         },
         {
@@ -3043,7 +3045,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437310/tus71yfpnvgulenrli6a.jpg"
             ],
-            "price": '4,072',
+            "price": "4,072",
             "summary": "Description for New Stay 12",
             "capacity": 4,
             "amenities": [
@@ -3055,8 +3057,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_21",
-                "fullname": "Host 12",
+                "_id": "pZFT4",
+                "fullname": "User 2",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3085,7 +3087,7 @@ function _createStays() {
                 {
                     "start": "2025-03-13",
                     "end": "2025-03-15"
-                },
+                }
             ]
         },
         {
@@ -3111,8 +3113,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_22",
-                "fullname": "Host 13",
+                "_id": "cveg7",
+                "fullname": "User 3",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3141,7 +3143,7 @@ function _createStays() {
                 {
                     "start": "2025-04-09",
                     "end": "2025-04-14"
-                },
+                }
             ]
         },
         {
@@ -3155,7 +3157,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436827/znh7gqzbwb4wm6bdziy7.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437250/o8uutj3t2bvfafvxkr9j.jpg"
             ],
-            "price": '5,282',
+            "price": "5,282",
             "summary": "Description for New Stay 14",
             "capacity": 4,
             "amenities": [
@@ -3167,8 +3169,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_23",
-                "fullname": "Host 14",
+                "_id": "H3qQF",
+                "fullname": "User 4",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3197,7 +3199,7 @@ function _createStays() {
                 {
                     "start": "2025-01-30",
                     "end": "2025-02-01"
-                },
+                }
             ]
         },
         {
@@ -3211,7 +3213,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436334/nqgdwv3ljfkrbvynoetv.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg"
             ],
-            "price": '1,238',
+            "price": "1,238",
             "summary": "Description for New Stay 15",
             "capacity": 4,
             "amenities": [
@@ -3223,8 +3225,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_24",
-                "fullname": "Host 15",
+                "_id": "Wl0m8",
+                "fullname": "User 5",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3253,7 +3255,7 @@ function _createStays() {
                 {
                     "start": "2025-02-17",
                     "end": "2025-02-24"
-                },
+                }
             ]
         },
         {
@@ -3267,7 +3269,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436334/nqgdwv3ljfkrbvynoetv.jpg"
             ],
-            "price": '1,398',
+            "price": "1,398",
             "summary": "Description for New Stay 16",
             "capacity": 4,
             "amenities": [
@@ -3279,8 +3281,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_25",
-                "fullname": "Host 16",
+                "_id": "hwTN9",
+                "fullname": "User 6",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3309,7 +3311,7 @@ function _createStays() {
                 {
                     "start": "2025-01-31",
                     "end": "2025-02-04"
-                },
+                }
             ]
         },
         {
@@ -3335,8 +3337,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_26",
-                "fullname": "Host 17",
+                "_id": "G95CU",
+                "fullname": "User 7",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3365,7 +3367,7 @@ function _createStays() {
                 {
                     "start": "2025-02-23",
                     "end": "2025-02-27"
-                },
+                }
             ]
         },
         {
@@ -3391,8 +3393,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_27",
-                "fullname": "Host 18",
+                "_id": "x143V",
+                "fullname": "User 8",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3435,7 +3437,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437330/mmhkmfvg8o3freucyekc.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg"
             ],
-            "price": '1,587',
+            "price": "1,587",
             "summary": "Description for New Stay 19",
             "capacity": 4,
             "amenities": [
@@ -3447,8 +3449,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_28",
-                "fullname": "Host 19",
+                "_id": "WlVTz",
+                "fullname": "User 9",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3477,7 +3479,7 @@ function _createStays() {
                 {
                     "start": "2025-03-27",
                     "end": "2025-04-02"
-                },
+                }
             ]
         },
         {
@@ -3491,7 +3493,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436937/mkbcjfockxezgrvimska.jpg"
             ],
-            "price": '1,195',
+            "price": "1,195",
             "summary": "Description for New Stay 20",
             "capacity": 4,
             "amenities": [
@@ -3503,8 +3505,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_29",
-                "fullname": "Host 20",
+                "_id": "gDVsb",
+                "fullname": "User 10",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3533,7 +3535,7 @@ function _createStays() {
                 {
                     "start": "2025-03-19",
                     "end": "2025-03-21"
-                },
+                }
             ]
         },
         {
@@ -3559,8 +3561,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_30",
-                "fullname": "Host 21",
+                "_id": "S4dPn",
+                "fullname": "User 1",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3589,7 +3591,7 @@ function _createStays() {
                 {
                     "start": "2025-02-14",
                     "end": "2025-02-16"
-                },
+                }
             ]
         },
         {
@@ -3615,8 +3617,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_31",
-                "fullname": "Host 22",
+                "_id": "pZFT4",
+                "fullname": "User 2",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3645,7 +3647,7 @@ function _createStays() {
                 {
                     "start": "2025-03-29",
                     "end": "2025-04-03"
-                },
+                }
             ]
         },
         {
@@ -3671,8 +3673,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_32",
-                "fullname": "Host 23",
+                "_id": "cveg7",
+                "fullname": "User 3",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3715,7 +3717,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436855/khyvb5q3yzcqaoscuppz.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
             ],
-            "price": '8,218',
+            "price": "8,218",
             "summary": "Description for New Stay 24",
             "capacity": 4,
             "amenities": [
@@ -3727,8 +3729,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_33",
-                "fullname": "Host 24",
+                "_id": "H3qQF",
+                "fullname": "User 4",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3757,7 +3759,7 @@ function _createStays() {
                 {
                     "start": "2025-04-06",
                     "end": "2025-04-12"
-                },
+                }
             ]
         },
         {
@@ -3783,8 +3785,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_34",
-                "fullname": "Host 25",
+                "_id": "Wl0m8",
+                "fullname": "User 5",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3839,8 +3841,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_35",
-                "fullname": "Host 26",
+                "_id": "hwTN9",
+                "fullname": "User 6",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3869,7 +3871,7 @@ function _createStays() {
                 {
                     "start": "2025-01-11",
                     "end": "2025-01-17"
-                },
+                }
             ]
         },
         {
@@ -3883,7 +3885,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436453/ndl8odasqgnyquvsbalp.jpg"
             ],
-            "price": '1,298',
+            "price": "1,298",
             "summary": "Description for New Stay 27",
             "capacity": 4,
             "amenities": [
@@ -3895,8 +3897,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_36",
-                "fullname": "Host 27",
+                "_id": "G95CU",
+                "fullname": "User 7",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3925,7 +3927,7 @@ function _createStays() {
                 {
                     "start": "2025-07-09",
                     "end": "2025-07-13"
-                },
+                }
             ]
         },
         {
@@ -3951,8 +3953,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_37",
-                "fullname": "Host 28",
+                "_id": "x143V",
+                "fullname": "User 8",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -3981,7 +3983,7 @@ function _createStays() {
                 {
                     "start": "2025-09-23",
                     "end": "2025-09-26"
-                },
+                }
             ]
         },
         {
@@ -3995,7 +3997,7 @@ function _createStays() {
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
                 "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436827/znh7gqzbwb4wm6bdziy7.jpg"
             ],
-            "price": '2,068',
+            "price": "2,068",
             "summary": "Description for New Stay 29",
             "capacity": 4,
             "amenities": [
@@ -4007,8 +4009,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_38",
-                "fullname": "Host 29",
+                "_id": "WlVTz",
+                "fullname": "User 9",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -4037,7 +4039,7 @@ function _createStays() {
                 {
                     "start": "2025-10-14",
                     "end": "2025-10-20"
-                },
+                }
             ]
         },
         {
@@ -4063,8 +4065,8 @@ function _createStays() {
             ],
             "roomType": "Entire home/apt",
             "host": {
-                "_id": "host_39",
-                "fullname": "Host 30",
+                "_id": "gDVsb",
+                "fullname": "User 10",
                 "location": "Somewhere, Earth",
                 "responseTime": "within a day",
                 "thumbnailUrl": "http://example.com/host.jpg",
@@ -4093,7 +4095,7 @@ function _createStays() {
                 {
                     "start": "2025-08-31",
                     "end": "2025-09-07"
-                },
+                }
             ]
         }
     ]
