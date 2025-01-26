@@ -7,7 +7,7 @@
     justify-content: center;
     background-color: white;
     z-index: 1000;
-    
+
     .in-stay-details {
         margin-inline: 380px;
     }
@@ -20,17 +20,18 @@
 
         position: relative;
 
-        margin-inline: 40px;
+        // margin-inline: 40px;
+        margin-top: 20px;
         transition: height 0.9s ease-out;
 
-        .header-user-section{
+        .header-user-section {
             display: flex;
             height: max-content;
             align-items: center;
             gap: 3em;
             cursor: pointer;
 
-            p{
+            p {
                 color: rgb(34, 34, 34);
                 display: flex;
                 font-weight: 500;
@@ -40,6 +41,7 @@
                 height: max-content;
             }
         }
+
         //logo
         .logo {
             display: flex;
@@ -185,7 +187,7 @@
                     color: #707070;
                     font-size: 14px;
                     line-break: strict;
-                    
+
                 }
             }
 
@@ -271,6 +273,7 @@
         margin-top: 30px;
     }
 }
+
 .modal-backdrop {
     background-color: rgb(34, 34, 34);
     opacity: 0.4;
