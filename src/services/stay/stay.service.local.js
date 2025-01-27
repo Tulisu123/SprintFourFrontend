@@ -72,7 +72,7 @@ async function save(stay) {
             capacity: stay.capacity,
             reservedDates:stay.reservedDates
         }
-        console.log('staytToSave', stayToSave)
+        console.log('staytToSave',stayToSave)
         savedStay = await storageService.put(STORAGE_KEY, stayToSave)
     } else {
         const stayToSave = {

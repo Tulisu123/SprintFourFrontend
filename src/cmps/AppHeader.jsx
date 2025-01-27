@@ -92,8 +92,13 @@ export function AppHeader({ isHomepage }) {
 	}
 	
 	function onUserLogout(){
-		console.log('Logout button clicked');
 		logout()
+	}
+
+	function onManageBooking(){
+		console.log('Moving to manage places page')
+		navigate('/manage-booking')
+
 	}
 
 	async function onLogoClick(){
@@ -130,7 +135,7 @@ export function AppHeader({ isHomepage }) {
 							onSearchFromHeader={onSearchFromHeader}
 						/>
 						{<HeaderUserControls onToggleMenu={onToggleMenu} />}
-						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout}/>}
+						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking}/>}
 						{!user && isLoginSignupOpen.isOpen && (
 							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
 						)}

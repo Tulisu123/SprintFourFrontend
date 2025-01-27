@@ -19,6 +19,7 @@ import { Login } from './pages/Login.jsx'
 import { Signup } from './pages/Signup.jsx'
 import { StayFilter } from './cmps/StayFilter.jsx'
 import { ReservePage } from './pages/ReservePage.jsx'
+import { ManageBooking } from './pages/ManageBooking.jsx'
 
 export function RootCmp() {
     const isHomePage = useSelector(storeState => storeState.systemModule.isHomePage)
@@ -28,6 +29,7 @@ export function RootCmp() {
             <main>
                 <Routes>
                     <Route path="/" element={<StayIndex />} />
+                    <Route path="/manage-booking" element={<ManageBooking />} />
                     <Route path="/reservation-summary" element={<ReservePage />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="/photos" element={<PhotosPage />} />

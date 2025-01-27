@@ -28,16 +28,17 @@ export function ReservePage() {
 
 
     const [finalReserve, setFinalReserve] = useState({
-        _id: userService.generateId(),
         stayId: stayId,
+        stayName: stay.name,
         start: start,
         end: end,
         guests: guests,
         price: price,
         days: days,
-        host:stay.host._id,
+        host: stay.host._id,
         status: 'Pending',
-        userId:user._id || ''
+        userId: user?._id || '',
+        username: user?.fullname || '',
     })
 
 
@@ -64,7 +65,7 @@ export function ReservePage() {
 
     async function onBookReserve() {
         await book(finalReserve)
-        // navigate('/')
+        navigate('/')
     }
 
     return (
@@ -138,19 +139,6 @@ export function ReservePage() {
                                         <li>Treat your Host’s home like your own</li>
                                     </ul>
                                 </section>
-                                <section className="agreement">
-                                    <p>
-                                        By selecting the button below, I agree to the{" "}
-                                        <a href="#">Host's House Rules</a>, <a href="#">Ground rules for guests</a>,{" "}
-                                        <a href="#">Airbnb's Rebooking and Refund Policy</a>, and that Airbnb can{" "}
-                                        <a href="#">charge my payment method</a> if I'm responsible for damage.
-                                    </p>
-                                    <p>
-                                        I also agree to the <a href="#">updated Terms of Service</a>,{" "}
-                                        <a href="#">Payments Terms of Service</a>, and I acknowledge the{" "}
-                                        <a href="#">Privacy Policy</a>.
-                                    </p>
-                                </section>
                                 <button className="reserve-btn" onClick={onBookReserve}>Request to book</button>
                             </div>}
                         </section>
@@ -169,37 +157,39 @@ export function ReservePage() {
                     </div>
 
                     {/* Right Column */}
-                    <aside className="price-summary">
-                        <div className="stay-info">
-                            <img
-                                src={stay && stay.imgUrls[0]}
-                                alt={stay && stay.name}
-                                className="stay-image"
-                            />
-                            <div className="stay-details">
-                                <h3>{stay && stay.name}</h3>
-                                <p>{stay && stay.type}</p>
-                                <p className='reviews'>⭐ 5.00 ({stay && stay.revi} reviews) • Superhost</p>
+                    <div className="price-summary-container">
+                        <aside className="price-summary">
+                            <div className="stay-info">
+                                <img
+                                    src={stay && stay.imgUrls[0]}
+                                    alt={stay && stay.name}
+                                    className="stay-image"
+                                />
+                                <div className="stay-details">
+                                    <h3>{stay && stay.name}</h3>
+                                    <p>{stay && stay.type}</p>
+                                    <p className='reviews'>⭐ 5.00 ({stay && stay.revi} reviews) • Superhost</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="price-details">
-                            <h2>Price details</h2>
-                            <div className="price-item">
-                                <p>₪ {stay && stay.price} x {days} nights</p>
-                                <p>₪ 300.30</p>
+                            <div className="price-details">
+                                <h2>Price details</h2>
+                                <div className="price-item">
+                                    <p>₪ {stay && stay.price} x {days} nights</p>
+                                    <p>₪ 300.30</p>
+                                </div>
+                                <div className="price-item">
+                                    <p>Airbnb service fee</p>
+                                    <p>₪ 31.00</p>
+                                </div>
+                                <div className="border"></div>
+                                <div className="price-item total-price">
+                                    <p>Total (₪)</p>
+                                    <p>₪ {stay && price}</p>
+                                </div>
                             </div>
-                            <div className="price-item">
-                                <p>Airbnb service fee</p>
-                                <p>₪ 31.00</p>
-                            </div>
-                            <div className="border"></div>
-                            <div className="price-item total-price">
-                                <p>Total (₪)</p>
-                                <p>₪ {stay && price}</p>
-                            </div>
-                        </div>
-                    </aside>
+                        </aside>
+                    </div>
                 </div>
             </div>
             <AppFooter />

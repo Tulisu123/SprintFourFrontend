@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux"
 
-export function HeaderAuthMenu({ onToggleLoginSignupDialog,onUserLogout }) {
+export function HeaderAuthMenu({ onToggleLoginSignupDialog,onUserLogout,onManageBooking }) {
 	const user = useSelector((storeState) => storeState.userModule.user)
     if(user) return (
         <div className="auth-menu">
-            Hello, {user.fullname}
-            <button onClick={onUserLogout}>logout</button>
+            <label className="auth-menu-item" onClick={onUserLogout}>Logout</label>
+            <label className="auth-menu-item" onClick={onManageBooking}>Manage your places</label>
+
         </div>
     )
     return (
