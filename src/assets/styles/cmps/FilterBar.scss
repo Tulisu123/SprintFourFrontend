@@ -120,6 +120,10 @@
             pointer-events: all;
             opacity: 1;
         }
+
+        &:not(.shown) {
+            display: none;
+        }
     }
 
     .prev-filters-btn {
@@ -158,11 +162,18 @@
 
             &::after {
                 opacity: 1;
-                background-color: $main-writing-color;
+                background-color: $border-color;
             }
 
             img {
                 filter: none;
+            }
+        }
+
+        &.active {
+            &::after {
+                opacity: 1;
+                background-color: $main-writing-color;
             }
         }
 
