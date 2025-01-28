@@ -1,30 +1,49 @@
+// .app-header
 .app-header {
     box-sizing: border-box;
     min-height: 80px;
     border-bottom: 1px solid lightgrey;
     display: flex;
-    // align-items: center;
+    justify-content: center;
     background-color: white;
     z-index: 1000;
-
+    
     .in-stay-details {
         margin-inline: 380px;
     }
 
     nav {
         display: flex;
+        align-items: center;
         justify-content: space-between;
         width: 100%;
 
         position: relative;
 
         margin-inline: 40px;
-        margin-top: 20px;
         transition: height 0.9s ease-out;
 
+        .header-user-section{
+            display: flex;
+            height: max-content;
+            align-items: center;
+            gap: 3em;
+            cursor: pointer;
+
+            p{
+                color: rgb(34, 34, 34);
+                display: flex;
+                font-weight: 500;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                height: max-content;
+            }
+        }
         //logo
         .logo {
             display: flex;
+            justify-content: center;
             font-weight: bold;
             font-family: 'Airbnb Cereal VF', sans-serif;
             text-decoration: none;
@@ -38,7 +57,6 @@
             }
         }
 
-        //filter
         .filter-container {
             border: 1px solid #DDDD;
             box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
@@ -249,6 +267,8 @@
 
     nav.expand {
         height: 168px;
+        align-items: unset;
+        margin-top: 30px;
     }
 }
 .modal-backdrop {

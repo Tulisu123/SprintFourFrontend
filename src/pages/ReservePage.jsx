@@ -8,7 +8,6 @@ import Logo from '../cmps/Logo'
 import { AppFooter } from '../cmps/AppFooter';
 import { LoginSignup } from './LoginSignup';
 import { CheckIcon } from '../cmps/CheckIcon';
-import { userService } from '../services/user';
 import { book } from '../store/actions/reservations.actions';
 
 export function ReservePage() {

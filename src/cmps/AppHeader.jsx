@@ -108,13 +108,18 @@ export function AppHeader({ isHomepage }) {
 		await setFiterBy(filterByToUpdate)
 	}
 
+	function onAddStay(){
+		console.log('Startying to add stay form Header')
+		navigate('/add-stay')
+	}
+
 	return (
 		<>
 			<div className="headers">
 				{isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop" onClick={() => setIsLoginSignupOpen(false)}/>}
 
 				<header
-					className={`app-header full`}
+					className={`app-header`}
 					onClick={isMenuOpen}
 				>
 					<nav className={`${isExpanded ? 'expand' : ''} ${!isHomepage ? 'in-stay-details' : ''}`}>
@@ -134,18 +139,16 @@ export function AppHeader({ isHomepage }) {
 							isHomepage={isHomepage}
 							onSearchFromHeader={onSearchFromHeader}
 						/>
-						{<HeaderUserControls onToggleMenu={onToggleMenu} />}
+						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} />}
 						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking}/>}
 						{!user && isLoginSignupOpen.isOpen && (
 							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
 						)}
 					</nav>
-
 				</header >
 				{!isExpanded && isHomepage && (
 					<StayFilter />
 				)}
-
 			</div>
 			{inputModal && isExpanded && (
 				<>
