@@ -33,7 +33,7 @@ export function AmenitiesList({ stay, amenities, isModalActive }) {
 
 
     return (
-        <div className="amenities-list">
+        <div className={`amenities-list ${isModalActive ? 'list-modal' : ''}`}>
             <ul>
                 {amenitiesToRender.map((amenity) => {
                     return (
