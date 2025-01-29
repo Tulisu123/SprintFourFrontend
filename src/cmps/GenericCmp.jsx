@@ -8,7 +8,7 @@ export function GenericCmp({
     height = '511px',
     backgroundColor = 'white',
     position = 'fixed',
-    top = '48%',
+    top = '27.5rem',
     left = '50%',
     transform = 'translate(-50%, -50%)',
     boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)',
