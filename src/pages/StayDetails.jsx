@@ -147,7 +147,6 @@ export function StayDetails() {
               </div>
               <p>
                 <strong>Hosted by {stay.host.fullname}</strong>
-                <strong>Hosted by {stay.host.fullname}</strong>
               </p>
               {/* <button onClick={onAddStayMsg}>Add Stay Message</button> */}
             </div>
