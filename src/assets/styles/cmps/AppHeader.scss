@@ -286,3 +286,9 @@
     left: 0;
     z-index: 1;
 }
+
+@-moz-document url-prefix() {
+    .expand .filter-search {
+        position: absolute;
+    }
+}
