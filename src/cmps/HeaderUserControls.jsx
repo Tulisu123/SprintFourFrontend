@@ -4,7 +4,7 @@ export function HeaderUserControls({ onToggleMenu, onAddStay }) {
     return (
         <>
             <div className="header-user-section">
-                <p onClick={onAddStay} className="add">Airbnb your home</p>
+                <button onClick={onAddStay} className="add">Airbnb your home</ button>
                 <button className="user-controls" onClick={onToggleMenu}>
                     <div className="controls-container">
                         <svg className="user-controls-actions"

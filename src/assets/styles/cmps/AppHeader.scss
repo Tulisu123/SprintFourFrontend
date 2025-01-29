@@ -240,6 +240,24 @@
             margin-inline-start: 14px;
         }
 
+        .add {
+            background-color: white;
+            font-family: 'Airbnb Cereal VF', sans-serif;
+            font-size: 0.875rem;
+            color: #222222;
+            font-weight: 500;
+            line-height: 1.125rem;
+            height: 42px;
+            border-radius: 22px;
+            border: none;
+            padding: 12px;
+
+            &:hover {
+                background-color: #f7f7f7;
+            }
+
+        }
+
         .auth-menu {
             position: absolute;
             top: 50px;
