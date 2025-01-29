@@ -1,31 +1,100 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../cmps/Logo";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { GuestSelector } from "../cmps/GuestSelector";
+import { stayService } from "../services/stay";
+import { useSelector } from "react-redux";
+import { addStay } from "../store/actions/stay.actions";
 
 export function StayAdd() {
-    const views = ['initial', 'labels', 'guests', 'amenities'] // Define ordered views
+    const views = ['initial', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
-    const [selectedAmenities, setSelectedAmenities] = useState([]);
+    const [selectedAmenities, setSelectedAmenities] = useState([])
+    const [imgUrls, setImgUrls] = useState([])
+    const fileInputRef = useRef(null)
+    const [pricePerNight, setPricePerNight] = useState('')
+    const user = useSelector((storeState) => storeState.userModule.user);
+
     const amenitiesList = [
         { name: 'Wifi' },
         { name: 'TV' },
         { name: 'Kitchen' },
         { name: 'Washer' },
-        { name: 'Free parking on premises'},
-        { name: 'Paid parking on premises'},
-        { name: 'Air conditioning'},
-        { name: 'Dedicated workspace'},
-    ];
+        { name: 'Free parking on premises' },
+        { name: 'Paid parking on premises' },
+        { name: 'Air conditioning' },
+        { name: 'Dedicated workspace' },
+    ]
+
+    const [location, setLocation] = useState({
+        name: '',
+        summary: '',
+        address: '',
+        city: '',
+        country: '',
+        countryCode: '',
+    })
+
+    function isLocationComplete() {
+        return (
+            location.address &&
+            location.city &&
+            location.country &&
+            location.countryCode
+        )
+    }
+
+    async function onAddPlace() {
+        const newPlace = stayService.getEmptyStay()
+        newPlace.capacity = getGuestsNumber()
+        // newPlace.host._id = user._id
+        // newPlace.host.fullname = user.fullname
+        newPlace.loc.country = location.country
+        newPlace.loc.countryCode = location.countryCode
+        newPlace.loc.address = location.address
+        newPlace.loc.city = location.city
+        newPlace.amenities = selectedAmenities
+        newPlace.price = pricePerNight
+        newPlace.imgUrls = imgUrls
+        newPlace.summary = location.summary
+        newPlace.name = location.name
+        
+        await addStay(newPlace)
+
+    }
+
+    function handlePriceChange(event) {
+        setPricePerNight(event.target.value);
+    }
+
+    function getGuestsNumber() {
+        const { adults, children, infants, pets } = guests;
+        return adults + children + infants + pets;
+    }
+
+    function handleFileChange(event) {
+        const files = event.target.files
+        if (!files.length) return
+
+        const newImages = Array.from(files).map((file) => URL.createObjectURL(file))
+        setImgUrls((prev) => [...prev, ...newImages])
+    }
+
+    function handleAddPhotos() {
+        fileInputRef.current.click();
+    }
+
     function onAddLabel(label) {
         console.log(label);
     }
+
     function toggleAmenity(amenity) {
         setSelectedAmenities((prev) =>
             prev.includes(amenity) ? prev.filter((item) => item !== amenity) : [...prev, amenity]
         )
     }
+
     function goToNextView() {
         const currentIndex = views.indexOf(view);
         if (currentIndex < views.length - 1) {
@@ -37,6 +106,45 @@ export function StayAdd() {
         const currentIndex = views.indexOf(view);
         if (currentIndex > 0) {
             setView(views[currentIndex - 1]);
+        }
+    }
+
+    function handleLocationInputChange(event) {
+        const { name, value } = event.target;
+        setLocation((prev) => ({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
+    function handleDetailsInputChange(event) {
+        const { name, value } = event.target;
+        setDetails((prev) => ({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
+
+    //get current position
+    function getLatAndLng() { //generated
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    setLocation((prev) => ({
+                        ...prev,
+                        lat: latitude,
+                        lng: longitude,
+                    }));
+                },
+                (error) => {
+                    console.error("Error getting location", error);
+                    alert("Unable to fetch your location. Please enter it manually.");
+                }
+            );
+        } else {
+            alert("Geolocation is not supported by this browser.");
         }
     }
 
@@ -148,22 +256,144 @@ export function StayAdd() {
                         </div>
                     </div>
                 )}
-
                 {view === 'photos' && (
                     <div className="photos-view">
                         <div className="desc-container">
-                            <p className="desc">Add some photos of your place</p>
+                            <h2>Add some photos of your place</h2>
+                            <p>You’ll need 5 photos to get started. You can add more or make changes later.</p>
                         </div>
-                        <p>Photo upload UI here</p>
+
+                        <div className="photo-upload-container">
+                            <div className="photo-upload-box">
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    accept="image/*"
+                                    multiple
+                                    style={{ display: "none" }}
+                                    onChange={handleFileChange}
+                                />
+                                {imgUrls.length <= 5 && (
+                                    <>
+                                        <img
+                                            src="https://a0.muscache.com/im/pictures/mediaverse/mys-amenities-n8/original/c83b2a87-3be4-43c9-ad47-12dd2aee24c4.jpeg"
+                                            alt="Camera Icon"
+                                            className="camera-icon"
+                                        />
+                                        <button className="upload-btn" onClick={handleAddPhotos}>
+                                            Add photos
+                                        </button>
+                                        <div className="uploaded-images">
+                                            {imgUrls.map((url, index) => (
+                                                <div key={index} className="photo-item">
+                                                    <img src={url} alt={`Uploaded ${index}`} className="uploaded-img" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 )}
-
                 {view === 'pricing' && (
                     <div className="pricing-view">
                         <div className="desc-container">
-                            <p className="desc">Set a price for your place</p>
+                            <h2>Set a price for your place</h2>
+                            <p>Guests will see this price per night when they book your place.</p>
                         </div>
-                        <p>Pricing input UI here</p>
+
+                        <div className="price-input-container">
+                            <label htmlFor="price-input">Price per night ($)</label>
+                            <input
+                                id="price-input"
+                                type="number"
+                                min="1"
+                                placeholder="Enter a price"
+                                value={pricePerNight}
+                                onChange={handlePriceChange}
+                            />
+                        </div>
+
+                        {pricePerNight === '' && (
+                            <p className="warning-text">Please set a price to proceed.</p>
+                        )}
+                    </div>
+                )}
+                {view === 'location' && (
+                    <div className="location-view">
+                        <div className="desc-container">
+                            <h2>Add more details about your place</h2>
+                            <p>Guests will see these details when they book your place.</p>
+                        </div>
+
+                        <div className="location-form">
+                            <label>
+                                Address:
+                                <input
+                                    type="text"
+                                    name="address"
+                                    value={location.address}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter address"
+                                />
+                            </label>
+
+                            <label>
+                                City:
+                                <input
+                                    type="text"
+                                    name="city"
+                                    value={location.city}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter city"
+                                />
+                            </label>
+
+                            <label>
+                                Country:
+                                <input
+                                    type="text"
+                                    name="country"
+                                    value={location.country}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter country"
+                                />
+                            </label>
+
+                            <label>
+                                Country Code:
+                                <input
+                                    type="text"
+                                    name="countryCode"
+                                    value={location.countryCode}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter country code"
+                                />
+                            </label>
+
+                            <label>
+                                Name:
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={location.name}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter name"
+                                />
+                            </label>
+                            <label>
+                                Summary:
+                                <textarea
+                                    type="text"
+                                    name="summary"
+                                    value={location.summary}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter summary"
+                                    className="summary-input"
+                                />
+                            </label>
+                        </div>
                     </div>
                 )}
             </main>
@@ -175,9 +405,12 @@ export function StayAdd() {
                         Back
                     </button>
                 )}
-                <button onClick={goToNextView} className="next-btn">
-                    Next
-                </button>
+                {view !== 'location' ? (
+                    <button onClick={goToNextView} className="next-btn">
+                        Next
+                    </button>
+                ) : <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                }
             </footer>
         </section>
     );

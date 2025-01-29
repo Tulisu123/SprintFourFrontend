@@ -75,14 +75,7 @@ async function save(stay) {
         console.log('staytToSave',stayToSave)
         savedStay = await storageService.put(STORAGE_KEY, stayToSave)
     } else {
-        const stayToSave = {
-            loc: stay.loc,
-            price: stay.price,
-            capacity: stay.capacity,
-            // Later, owner is set by the backend
-            owner: userService.getLoggedinUser(),
-            msgs: []
-        }
+        const stayToSave = stay
         savedStay = await storageService.post(STORAGE_KEY, stayToSave)
     }
     return savedStay
