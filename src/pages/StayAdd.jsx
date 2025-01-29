@@ -1,19 +1,49 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../cmps/Logo";
 import { useState } from "react";
-
+import { GuestSelector } from "../cmps/GuestSelector";
 
 export function StayAdd() {
+    const views = ['initial', 'labels', 'guests', 'amenities'] // Define ordered views
     const [view, setView] = useState('initial');
+    const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
+    const [selectedAmenities, setSelectedAmenities] = useState([]);
+    const amenitiesList = [
+        { name: 'Wifi' },
+        { name: 'TV' },
+        { name: 'Kitchen' },
+        { name: 'Washer' },
+        { name: 'Free parking on premises'},
+        { name: 'Paid parking on premises'},
+        { name: 'Air conditioning'},
+        { name: 'Dedicated workspace'},
+    ];
+    function onAddLabel(label) {
+        console.log(label);
+    }
+    function toggleAmenity(amenity) {
+        setSelectedAmenities((prev) =>
+            prev.includes(amenity) ? prev.filter((item) => item !== amenity) : [...prev, amenity]
+        )
+    }
+    function goToNextView() {
+        const currentIndex = views.indexOf(view);
+        if (currentIndex < views.length - 1) {
+            setView(views[currentIndex + 1]);
+        }
+    }
 
-    function onAddLabel(label){
-        console.log(label)
+    function goToPreviousView() {
+        const currentIndex = views.indexOf(view);
+        if (currentIndex > 0) {
+            setView(views[currentIndex - 1]);
+        }
     }
 
     return (
         <section className="add-flow">
             {/* Header */}
-            <header>
+            <header className="add-header">
                 <NavLink>
                     <Logo />
                 </NavLink>
@@ -28,7 +58,6 @@ export function StayAdd() {
                     <>
                         <div className="desc-container">
                             <p className="desc">It’s easy to get started on Airbnb</p>
-
                         </div>
                         <div className="details">
                             <div className="item item-one">
@@ -58,8 +87,9 @@ export function StayAdd() {
 
                 {view === 'labels' && (
                     <div className="labels-view">
-                        <div className="desc-container"><p className="desc">Which of these best describes your place?</p></div>
-                        
+                        <div className="desc-container">
+                            <p className="desc">Which of these best describes your place?</p>
+                        </div>
                         <div className="labels-grid">
                             {[
                                 'House',
@@ -78,30 +108,76 @@ export function StayAdd() {
                                 'Dome',
                                 'Earth home',
                             ].map((label) => (
-                                <div className="label-item" key={label} onClick={()=> onAddLabel(label)}>
-                                    {/* <img
-                                        src={`/path-to-icons/${label.toLowerCase().replace(/\s+/g, '-')}.png`}
-                                        alt={label}
-                                    /> */}
+                                <div className="label-item" key={label} onClick={() => onAddLabel(label)}>
                                     <span>{label}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 )}
+                {view === 'guests' && (
+                    <div className="guests-view">
+                        <div className="desc-container">
+                            <h2>Share some basics about your place</h2>
+                            <p>You’ll add more details later, like bed types.</p>
+                        </div>
+                        <GuestSelector guests={guests} setGuests={setGuests} />
+
+                    </div>
+                )}
+                {view === 'amenities' && (
+                    <div className="amenities-view">
+                        <div className="desc-container">
+                            <h2>Tell guests what your place has to offer</h2>
+                            <p>You can add more amenities after you publish your listing.</p>
+                        </div>
+
+                        <h3>What about these guest favorites?</h3>
+
+                        <div className="amenities-grid">
+                            {amenitiesList.map(({ name, icon }) => (
+                                <div
+                                    key={name}
+                                    className={`amenity-item ${selectedAmenities.includes(name) ? 'selected' : ''}`}
+                                    onClick={() => toggleAmenity(name)}
+                                >
+                                    <span className="icon">{icon}</span>
+                                    <span>{name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {view === 'photos' && (
+                    <div className="photos-view">
+                        <div className="desc-container">
+                            <p className="desc">Add some photos of your place</p>
+                        </div>
+                        <p>Photo upload UI here</p>
+                    </div>
+                )}
+
+                {view === 'pricing' && (
+                    <div className="pricing-view">
+                        <div className="desc-container">
+                            <p className="desc">Set a price for your place</p>
+                        </div>
+                        <p>Pricing input UI here</p>
+                    </div>
+                )}
             </main>
 
             {/* Footer */}
-            <footer>
-                {view === 'initial' ? (
-                    <button onClick={() => setView('labels')} className="reserve-btn">
-                        Get started
-                    </button>
-                ) : (
-                    <button onClick={() => setView('initial')} className="reserve-btn">
+            <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
+                {view !== 'initial' && (
+                    <button onClick={goToPreviousView} className="back-btn">
                         Back
                     </button>
                 )}
+                <button onClick={goToNextView} className="next-btn">
+                    Next
+                </button>
             </footer>
         </section>
     );
