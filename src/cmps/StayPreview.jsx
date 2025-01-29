@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import HeartIcon from './HeartIcon'
 
 export function StayPreview({ stay }) {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -82,7 +83,7 @@ export function StayPreview({ stay }) {
                                 className="wishlist-btn"
                                 onClick={handleWishlistToggle}
                             >
-                                <i className="fa-regular fa-heart"></i>
+                                <HeartIcon></HeartIcon>
                             </button>
                             <div className="carousel-controls">
                                 <button
