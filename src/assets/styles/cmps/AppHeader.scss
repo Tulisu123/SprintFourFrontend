@@ -14,14 +14,14 @@
 
     nav {
         display: flex;
-        align-items: center;
+        // align-items: center;
         justify-content: space-between;
         width: 100%;
 
         position: relative;
 
         // margin-inline: 40px;
-        margin-top: 20px;
+        margin-top: 16px;
         transition: height 0.9s ease-out;
 
         .header-user-section {
@@ -50,6 +50,7 @@
             font-family: 'Airbnb Cereal VF', sans-serif;
             text-decoration: none;
             cursor: pointer;
+            padding-block-start: 7px;
 
             h1 {
                 color: #ff385c;
@@ -271,7 +272,7 @@
     nav.expand {
         height: 168px;
         align-items: unset;
-        margin-top: 30px;
+        // margin-top: 30px;
     }
 }
 
