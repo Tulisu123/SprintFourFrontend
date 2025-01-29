@@ -169,7 +169,7 @@ export function StayAdd() {
             </main>
 
             {/* Footer */}
-            <footer className={view === 'initial' ? 'initial-footer' : ''}>
+            <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
                 {view !== 'initial' && (
                     <button onClick={goToPreviousView} className="back-btn">
                         Back
