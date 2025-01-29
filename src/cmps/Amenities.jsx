@@ -1,6 +1,9 @@
 import { AmenitiesList } from './AmenitiesList.jsx';
+import { SET_APP_MODAL_AMENITIES } from "../store/reducers/system.reducer.js";
+import { useEffect } from 'react';
 
-export function Amenities({ stay, isModalActive = false }) {
+export function Amenities({ stay, isModalActive = false, handleShowMore, setAmenitiesToRender }) {
+
     const amenitiesWithIcon = [
         'Wifi',
         'Air conditioning',
@@ -23,9 +26,15 @@ export function Amenities({ stay, isModalActive = false }) {
         "Ethernet connection",
         "Patio or balcony",
     ]
+    // useEffect(() => {
+    //     if (stay.amenities.every(amenity => amenitiesWithIcon.includes(amenity))) {
+    //         console.log('amenitiesToRender', amenitiesToRender)
+    //         setAmenitiesToRender(stay.amenities.filter(amenity => amenitiesWithIcon.includes(amenity)))
+    //     }
+    // }, [])
+
 
     let amenitiesToRender = stay.amenities.filter(amenity => amenitiesWithIcon.includes(amenity))
-
 
 
     return (

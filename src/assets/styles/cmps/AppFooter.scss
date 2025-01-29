@@ -5,8 +5,8 @@
     padding: 0.7rem 5rem;
     background-color: #f8f8f8;
     border-top: 1px solid #ddd;
-    font-size: 0.9rem;
-    position: relative;
+    font-size: 0.875rem;
+    color: rgb(34, 34, 34);
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -14,13 +14,14 @@
     z-index: 1000;
 
     p {
-        color: #222222;
+
         text-align: left;
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.125;
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
+        width: inherit;
 
         a {
             color: #222222;
@@ -34,12 +35,15 @@
 
     .footer-right {
         display: flex;
-        font-size: 0.9rem;
         gap: 1rem;
         align-items: center;
+        font-weight: 500;
+        width: inherit;
+        justify-content: end;
 
         span {
             cursor: default;
+            width: max-content;
         }
 
         .clickable {

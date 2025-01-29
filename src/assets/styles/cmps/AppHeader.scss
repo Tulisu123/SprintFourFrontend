@@ -3,34 +3,35 @@
     box-sizing: border-box;
     min-height: 80px;
     border-bottom: 1px solid lightgrey;
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
     background-color: white;
     z-index: 1000;
-    
-    .in-stay-details {
-        margin-inline: 380px;
-    }
+
+    // .in-stay-details {
+    //     // margin-inline: 380px;
+    // }
 
     nav {
         display: flex;
-        align-items: center;
+        // align-items: center;
         justify-content: space-between;
         width: 100%;
 
         position: relative;
 
-        margin-inline: 40px;
+        // margin-inline: 40px;
+        margin-top: 16px;
         transition: height 0.9s ease-out;
 
-        .header-user-section{
+        .header-user-section {
             display: flex;
             height: max-content;
             align-items: center;
             gap: 3em;
             cursor: pointer;
 
-            p{
+            p {
                 color: rgb(34, 34, 34);
                 display: flex;
                 font-weight: 500;
@@ -40,6 +41,7 @@
                 height: max-content;
             }
         }
+
         //logo
         .logo {
             display: flex;
@@ -48,6 +50,7 @@
             font-family: 'Airbnb Cereal VF', sans-serif;
             text-decoration: none;
             cursor: pointer;
+            padding-block-start: 7px;
 
             h1 {
                 color: #ff385c;
@@ -162,6 +165,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border: none;
             }
 
             .short {
@@ -185,7 +189,7 @@
                     color: #707070;
                     font-size: 14px;
                     line-break: strict;
-                    
+
                 }
             }
 
@@ -234,6 +238,25 @@
 
         .user-controls-profile {
             color: rgb(106, 106, 106);
+            margin-inline-start: 14px;
+        }
+
+        .add {
+            background-color: white;
+            font-family: 'Airbnb Cereal VF', sans-serif;
+            font-size: 0.875rem;
+            color: #222222;
+            font-weight: 500;
+            line-height: 1.125rem;
+            height: 42px;
+            border-radius: 22px;
+            border: none;
+            padding: 12px;
+
+            &:hover {
+                background-color: #f7f7f7;
+            }
+
         }
 
         .auth-menu {
@@ -268,9 +291,10 @@
     nav.expand {
         height: 168px;
         align-items: unset;
-        margin-top: 30px;
+        // margin-top: 30px;
     }
 }
+
 .modal-backdrop {
     background-color: rgb(34, 34, 34);
     opacity: 0.4;
@@ -280,4 +304,10 @@
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+@-moz-document url-prefix() {
+    .expand .filter-search {
+        position: absolute;
+    }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router'
+import { Routes, Route, useHref } from 'react-router'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -24,10 +24,14 @@ import { StayAdd } from './pages/StayAdd.jsx'
 
 export function RootCmp() {
     const isHomePage = useSelector(storeState => storeState.systemModule.isHomePage)
+    let href = useHref(null)
+    const regex = /^\/([^\/]*)/
+    const match = href.match(regex)
+    const hrefFirstWord = match ? match[1] : ''
 
     return (
-        <div className="main-container">
-            <main>
+        <div >
+            <main className={`main-container ${hrefFirstWord}`}>
                 <Routes>
                     <Route path="/" element={<StayIndex />} />
                     <Route path="/add-stay" element={<StayAdd />} />
@@ -46,7 +50,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             {/* <AppFooter /> */}
-        </div>
+        </div >
     )
 }
 
