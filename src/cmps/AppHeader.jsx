@@ -139,7 +139,7 @@ export function AppHeader({ isHomepage }) {
 							isHomepage={isHomepage}
 							onSearchFromHeader={onSearchFromHeader}
 						/>
-						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} />}
+						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} user={user} />}
 						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking} />}
 						{!user && isLoginSignupOpen.isOpen && (
 							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />

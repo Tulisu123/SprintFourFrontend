@@ -306,6 +306,23 @@
     z-index: 1;
 }
 
+.user-profile-letter {
+    background-color: $main-writing-color;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-content: center;
+
+    div {
+        position: relative;
+        top: -1.5px;
+    }
+
+
+}
+
 @-moz-document url-prefix() {
     .expand .filter-search {
         position: absolute;
