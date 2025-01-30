@@ -44,6 +44,7 @@ export async function addStay(stay) {
         throw err
     }
 }
+
 export async function clearStay() {
     try {
         const clearedStay = { stay: null }

@@ -14,7 +14,8 @@ export function StayAdd() {
     const [imgUrls, setImgUrls] = useState([])
     const fileInputRef = useRef(null)
     const [pricePerNight, setPricePerNight] = useState('')
-    const user = useSelector((storeState) => storeState.userModule.user);
+    const user = useSelector((storeState) => storeState.userModule.user)
+    const [labels, setLabels] = useState([])
 
     const amenitiesList = [
         { name: 'Wifi' },
@@ -59,7 +60,8 @@ export function StayAdd() {
         newPlace.imgUrls = imgUrls
         newPlace.summary = location.summary
         newPlace.name = location.name
-        
+        newPlace.labels = labels
+
         await addStay(newPlace)
 
     }
@@ -86,7 +88,9 @@ export function StayAdd() {
     }
 
     function onAddLabel(label) {
-        console.log(label);
+        setLabels(prev =>
+            prev.includes(label) ? prev.filter((label) => label !== label) : [...prev, label]
+        )
     }
 
     function toggleAmenity(amenity) {
@@ -116,15 +120,6 @@ export function StayAdd() {
             [name]: value,
         }))
     }
-
-    function handleDetailsInputChange(event) {
-        const { name, value } = event.target;
-        setDetails((prev) => ({
-            ...prev,
-            [name]: value,
-        }))
-    }
-
 
     //get current position
     function getLatAndLng() { //generated
@@ -216,7 +211,7 @@ export function StayAdd() {
                                 'Dome',
                                 'Earth home',
                             ].map((label) => (
-                                <div className="label-item" key={label} onClick={() => onAddLabel(label)}>
+                                <div className={`label-item ${labels.includes(label) ? 'selected' : ''}`} key={label} onClick={() => onAddLabel(label)}>
                                     <span>{label}</span>
                                 </div>
                             ))}
