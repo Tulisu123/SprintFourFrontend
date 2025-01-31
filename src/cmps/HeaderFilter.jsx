@@ -44,7 +44,8 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
 
     function formatDate(date) {
         if (!date) return
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const parsedDate = typeof date === 'string' ? new Date(date) : date
+        return parsedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
     }
 
     function formGuests(guests) {
