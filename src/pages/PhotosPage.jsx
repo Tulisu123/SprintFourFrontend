@@ -40,13 +40,25 @@ export function PhotosPage() {
 
     return (
         <div className="photo-gallery-page">
-            <button className="back-btn" onClick={() => navigate(-1)}>
-                <img
-                    src="/src/assets/icons/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
-                    className="icon"
-                    alt="Back"
-                />
-            </button>
+            <header className="app-header">
+                <button className="back-btn" onClick={() => navigate(-1)}>
+                    <img
+                        src="/src/assets/icons/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
+                        className="icon"
+                        alt="Back"
+                    />
+                </button>
+                <div className="actions-container">
+                    <button className="action-btn">
+                        <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                        <span className="action-text">Share</span>
+                    </button>
+                    <button className="action-btn">
+                        <i className="fa-regular fa-heart"></i>
+                        <span className="action-text">Save</span>
+                    </button>
+                </div>
+            </header>
             <div className="photo-gallery">
                 {imgUrls.map((url, index) => (
                     <img

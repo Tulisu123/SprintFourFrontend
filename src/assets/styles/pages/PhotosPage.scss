@@ -1,6 +1,44 @@
 .photo-gallery-page {
-    padding: 20px;
     text-align: center;
+
+    .app-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        border: none;
+        background-color: #ffffff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .actions-container {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 16px;
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 5px;
+        border: none;
+        background: none;
+        font-size: 0.850rem;
+        color: #222222;
+        cursor: pointer;
+    }
+
+    .action-btn:hover {
+        border-radius: 5px;
+        background-color: #f3f3f3;
+    }
+
+    .action-text {
+        text-decoration: underline;
+    }
 
     .back-btn {
         display: flex;
