@@ -5,7 +5,7 @@ import { DatePickerCmp } from './DatePickerCmp';
 import { SuggestedLocations } from './SuggestedLocations';
 import { GuestSelector } from './GuestSelector';
 
-export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, checkInDate, checkOutDate, guests, setGuests, where, setWhere, isHomepage, onSearchFromHeader, inputModal, setInputModal }) {
+export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, guests, setGuests, where, setWhere, isHomepage, onSearchFromHeader, inputModal, setInputModal, checkInDate, setCheckInDate, checkOutDate, setCheckOutDate }) {
     const isClicking = useRef(false)
     const stay = useSelector(storeState => storeState.stayModule.stay)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)

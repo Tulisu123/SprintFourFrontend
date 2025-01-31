@@ -129,7 +129,9 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 							setIsExpanded={setIsExpanded}
 							toggleIsFilterOpen={toggleIsFilterOpen}
 							checkInDate={checkInDate}
+							setCheckInDate={setCheckInDate}
 							checkOutDate={checkOutDate}
+							setCheckOutDate={setCheckOutDate}
 							guests={guests}
 							setGusets={setGuests}
 							where={where}
