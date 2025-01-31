@@ -46,7 +46,7 @@
         .logo {
             display: flex;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 500;
             font-family: 'Airbnb Cereal VF', sans-serif;
             text-decoration: none;
             cursor: pointer;
@@ -128,7 +128,7 @@
             }
 
             .filter-label {
-                font-weight: bold;
+                font-weight: 500;
                 font-size: 12px;
             }
 
@@ -274,7 +274,7 @@
             flex-direction: column;
 
             .login-action {
-                font-weight: bold;
+                font-weight: 500;
             }
 
             .auth-menu-item {
