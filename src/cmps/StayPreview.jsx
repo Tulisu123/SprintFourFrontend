@@ -91,7 +91,7 @@ export function StayPreview({ stay }) {
                                     onClick={handlePrev}
                                     disabled={currentIndex === 0}
                                 >
-                                    <i class="fa-solid fa-chevron-left"></i>
+                                    <i className="fa-solid fa-chevron-left"></i>
                                 </button>
                                 <button
                                     className="next-btn"
