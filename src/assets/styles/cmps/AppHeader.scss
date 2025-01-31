@@ -29,7 +29,10 @@
             height: max-content;
             align-items: center;
             gap: 3em;
-            cursor: pointer;
+
+            button {
+                cursor: pointer;
+            }
 
             p {
                 color: rgb(34, 34, 34);
