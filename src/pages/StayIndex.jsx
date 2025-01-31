@@ -17,6 +17,7 @@ import { AppHeader } from '../cmps/AppHeader.jsx';
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [isMapVisible, setIsMapVisible] = useState(false)
 
     useEffect(() => {
         loadStays(filterBy)
@@ -24,11 +25,15 @@ export function StayIndex() {
 
     useEffect(() => {
         renderFilterBar(true)
-        
+
         return () => {
             renderFilterBar(false)
         }
     }, [])
+
+    function toggleMap() {
+        setIsMapVisible(!isMapVisible)
+    }
 
     async function onRemoveStay(stayId) {
         try {
@@ -71,7 +76,17 @@ export function StayIndex() {
                 <StayList
                     stays={stays}
                     onRemoveStay={onRemoveStay}
-                    onUpdateStay={onUpdateStay} />
+                    onUpdateStay={onUpdateStay}
+                />
+                <button className="show-map-btn" onClick={toggleMap}>
+                    Show map <i class="fa-regular fa-map"></i>
+                </button>
+                {isMapVisible && (
+                    <div className="map-overlay">
+                        <h3>Map</h3>
+                        <button onClick={toggleMap}>Close Map</button>
+                    </div>
+                )}
             </main>
             <AppFooter />
         </>
