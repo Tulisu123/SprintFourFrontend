@@ -15,7 +15,7 @@ export function DatePickerCmp({ onChangeCheckIn, onChangeCheckOut,checkInDate,ch
     }, [])
 
     function trimDate(date) {
-        return new Date(date.getFullYear(), date.getMonth(), date.getDate())
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12)
     }
 
     const [selectionRange, setSelectionRange] = useState({
@@ -25,26 +25,21 @@ export function DatePickerCmp({ onChangeCheckIn, onChangeCheckOut,checkInDate,ch
     })
 
 
+    function formatDateISO(date) {
+        return date.toISOString().split('T')[0]  // Returns "YYYY-MM-DD"
+    }
+    
     const handleSelect = (ranges) => {
         let { startDate, endDate } = ranges.selection
-
         startDate = trimDate(startDate)
         endDate = trimDate(endDate)
-        
-        if (startDate > endDate) {
-            [startDate, endDate] = [endDate, startDate]
-        }
-
-        setSelectionRange({
-            ...ranges.selection,
-            startDate,
-            endDate,
-        })
-
-        console.log('startdate', startDate)
-
-        onChangeCheckIn(startDate)
-        onChangeCheckOut(endDate)
+    
+        if (startDate > endDate) [startDate, endDate] = [endDate, startDate]
+    
+        setSelectionRange({ ...ranges.selection, startDate, endDate })
+    
+        onChangeCheckIn(formatDateISO(startDate))  // Pass formatted date
+        onChangeCheckOut(formatDateISO(endDate))
     }
 
     return (

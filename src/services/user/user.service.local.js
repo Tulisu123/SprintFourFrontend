@@ -1,4 +1,5 @@
 import { storageService } from '../async-storage.service';
+import { loadFromStorage } from "../util.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser';
 createDemoData()
@@ -49,7 +50,7 @@ async function addBookingToUser(bookingId, userId) {
     console.log('Adding booking id to reservations')
     const user = await getById(userId)
     if (user.reservetions.find(bookId => bookId === bookingId)) return
-    
+
     user.reservetions.push(bookingId)
 
     return await storageService.put('user', user)
@@ -65,8 +66,9 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png';
     const userToPost = {
-        _id: userCred._id || _generateId(),
+        _id: userCred._id || generateId(),
         fullname: userCred.fullname,
+        username: userCred.username,
         imgUrl: userCred.imgUrl,
         reservetions: userCred.reservetions || [],
         isAdmin: userCred.isAdmin || false,
@@ -98,7 +100,7 @@ function saveLoggedinUser(user) {
 
 // Demo data creation function
 async function createDemoData() {
-    if (storageService.get('user')) return
+    if (loadFromStorage('user')) return
     const demoUsers = Array.from({ length: 10 }, (_, i) => ({
         _id: `u10${i + 1}`,
         fullname: `User ${i + 1}`,

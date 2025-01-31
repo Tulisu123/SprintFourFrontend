@@ -9,6 +9,7 @@ export const stayService = {
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
+    console.log('getting stays from remote')
     return httpService.get(`stay`, filterBy)
 }
 

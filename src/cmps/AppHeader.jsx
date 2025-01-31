@@ -162,7 +162,7 @@ export function AppHeader({ isHomepage }) {
 						</GenericCmp>
 					)}
 					{inputModal === 'suggested-locations' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='428px' left='33%'>
+						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='428px' left='14.6rem'>
 							<SuggestedLocations
 								setWhere={setWhere}
 								onClose={() => toggleIsFilterOpen(null)}

@@ -15,11 +15,15 @@ function getEmptyStay() {
             lat: 0,
             lng: 0,
         },
+        amenities:[],
+        imgUrls:[],
         price: getRandomIntInclusive(200, 1500),
         capacity: getRandomIntInclusive(1, 10),
         msgs: [],
         host:{_id:'', fullname:'', pictureUrl:'https://randomuser.me/api/portraits/men/1.jpg'},
-        type:''
+        type:'',
+        name:'',
+        summary:''
     }
 }
 
