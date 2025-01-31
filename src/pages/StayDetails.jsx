@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { AppHeader } from "../cmps/AppHeader.jsx"
+import { Footer } from "../cmps/Footer.jsx"
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadStay, addStayMsg } from '../store/actions/stay.actions'
 import { ReviewSection } from '../cmps/ReviewSection.jsx'
@@ -177,7 +178,10 @@ export function StayDetails() {
         </div>
         <LocationDetails stay={stay} />
         {stay.reviews.length > 0 &&
-          <ReviewSection stay={stay} handleShowMore={handleShowMore} isModalActive={isModalActive} setReviewIdxToScroll={setReviewIdxToScroll} />}
+          <ReviewSection stay={stay} handleShowMore={handleShowMore} isModalActive={isModalActive}
+            setReviewIdxToScroll={setReviewIdxToScroll} />}
+        {/* Footer */}
+        <Footer />
       </section >
     </>
   )
