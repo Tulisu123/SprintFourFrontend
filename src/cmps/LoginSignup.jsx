@@ -14,12 +14,12 @@ export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLogi
         }))
     }
 
-    const handleSubmit = (ev) => {
+    const handleSubmit = async (ev) => {
         ev.preventDefault();
         if (isLoginSignupOpen.action === 'login') {
             console.log('Logging in with:', caredentials.username, caredentials.password)
             try {
-                login(caredentials)
+                await login(caredentials)
                 closeLoginSignup()
             } catch {
                 setIsLoginFailed(true)
