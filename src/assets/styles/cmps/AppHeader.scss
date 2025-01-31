@@ -227,8 +227,7 @@
 
         .user-controls .controls-container {
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -239,6 +238,8 @@
         .user-controls-profile {
             color: rgb(106, 106, 106);
             margin-inline-start: 14px;
+            width: 32px;
+            height: 32px;
         }
 
         .add {
@@ -303,17 +304,14 @@
     height: 32px;
     display: grid;
     place-content: center;
-
-    div {
-        position: relative;
-        top: -1.5px;
-    }
-
-
 }
 
 @-moz-document url-prefix() {
     .expand .filter-search {
         position: absolute;
+    }
+
+    .user-profile-letter div {
+        top: -1px;
     }
 }
