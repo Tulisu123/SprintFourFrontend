@@ -15,7 +15,7 @@ import { stayService } from '../services/stay';
 import { logout } from '../store/actions/user.actions';
 
 
-export function AppHeader({ isHomepage }) {
+export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing }) {
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -26,7 +26,7 @@ export function AppHeader({ isHomepage }) {
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false)
 	const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
-	const [inputModal, setInputModal] = useState(null)
+
 
 	const [checkInDate, setCheckInDate] = useState('')
 	const [checkOutDate, setCheckOutDate] = useState('')
@@ -138,6 +138,7 @@ export function AppHeader({ isHomepage }) {
 							setWhere={setWhere}
 							isHomepage={isHomepage}
 							onSearchFromHeader={onSearchFromHeader}
+							setInputModal={setInputModal}
 						/>
 						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} user={user} />}
 						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking} />}
@@ -153,7 +154,7 @@ export function AppHeader({ isHomepage }) {
 			{inputModal && isExpanded && (
 				<>
 					{inputModal === 'date-picker' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)}>
+						<GenericCmp onClose={() => toggleIsFilterOpen(null)} isClosing={isClosing} setIsClosing={setIsClosing} >
 							<DatePickerCmp
 								onClose={() => setIsExpanded(false)}
 								onChangeCheckIn={(date) => setCheckInDate(date)}

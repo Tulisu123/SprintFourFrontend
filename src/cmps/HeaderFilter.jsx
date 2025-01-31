@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, checkInDate, checkOutDate, guests, where, setWhere, isHomepage, onSearchFromHeader }) {
+export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, checkInDate, checkOutDate, guests, where, setWhere, isHomepage, onSearchFromHeader, setInputModal }) {
     const isClicking = useRef(false)
     const stay = useSelector(storeState => storeState.stayModule.stay)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
@@ -12,6 +12,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
             if (isClicking.current) return; // Prevent scroll logic if clicking
             if (isExpanded) {
                 setIsExpanded(false)
+                setInputModal(null)
             }
         }
         // Attach scroll event listener
@@ -134,7 +135,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
                         </div>
                         <div className="filter-action-container short who">
                             <label className="filter-label add-guests">
-                            {filterBy.minCapacity ? `${filterBy.minCapacity} guests` : 'Add guests'}
+                                {filterBy.minCapacity ? `${filterBy.minCapacity} guests` : 'Add guests'}
                             </label>
                         </div>
                         <button className="filter-search short-btn">

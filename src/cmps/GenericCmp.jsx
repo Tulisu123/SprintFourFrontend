@@ -13,20 +13,17 @@ export function GenericCmp({
     transform = 'translate(-50%, -50%)',
     boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)',
     right,
-    bottom
+    bottom,
+    isClosing,
+    setIsClosing
 }) {
-    const [isClosing, setIsClosing] = useState(false);
+
 
     function handleClick(event) {
         event.stopPropagation(); // Prevent clicks inside the content from propagating
     }
 
-    function handleClose() {
-        setIsClosing(true);
-        setTimeout(() => {
-            onClose();
-        }, 100);
-    }
+
 
     const blockStyle = {
         borderRadius,
@@ -44,11 +41,6 @@ export function GenericCmp({
 
     return (
         <>
-            <div
-                className={`backdrop-container ${isClosing ? 'closing' : ''}`}
-                onClick={handleClose}
-            >
-            </div>
             <div className="block" style={blockStyle} onClick={handleClick}>
                 {children}
             </div>

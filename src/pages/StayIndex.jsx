@@ -17,6 +17,8 @@ import { AppHeader } from '../cmps/AppHeader.jsx';
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [inputModal, setInputModal] = useState(null)
+    const [isClosing, setIsClosing] = useState(false)
 
     useEffect(() => {
         loadStays(filterBy)
@@ -24,7 +26,7 @@ export function StayIndex() {
 
     useEffect(() => {
         renderFilterBar(true)
-        
+
         return () => {
             renderFilterBar(false)
         }
@@ -37,6 +39,14 @@ export function StayIndex() {
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
+    }
+
+    function handleClose() {
+        setIsClosing(true)
+        setInputModal(null)
+        setTimeout(() => {
+            onClose();
+        }, 100);
     }
 
     async function onAddStay() {
@@ -66,7 +76,13 @@ export function StayIndex() {
 
     return (
         <>
-            <AppHeader isHomepage={true}></AppHeader>
+            {inputModal && !isClosing && <div
+                className={`backdrop-container ${isClosing ? 'closing' : ''}`}
+                onClick={handleClose}
+            >
+            </div>}
+
+            <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing}></AppHeader>
             <main className="stay-index">
                 <StayList
                     stays={stays}
