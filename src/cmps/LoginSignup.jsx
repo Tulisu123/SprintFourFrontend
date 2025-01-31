@@ -18,10 +18,10 @@ export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLogi
         ev.preventDefault();
         if (isLoginSignupOpen.action === 'login') {
             console.log('Logging in with:', caredentials.username, caredentials.password)
-            try{
+            try {
                 login(caredentials)
                 closeLoginSignup()
-            }catch{
+            } catch {
                 setIsLoginFailed(true)
             }
         } else if (isLoginSignupOpen.action === 'signup') {
@@ -35,8 +35,8 @@ export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLogi
     }
 
     return (
-        <div className="login-signup-page" onClick={handleClick}>
-            <h1 style={{paddingTop: isLoginSignupOpen.action === 'signup' ? '20px' : '0'}}>{isLoginSignupOpen.action === 'login' ? 'Login' : 'Signup'}</h1>
+        <div className="login-signup" onClick={handleClick}>
+            <h1 style={{ paddingTop: isLoginSignupOpen.action === 'signup' ? '20px' : '0' }}>{isLoginSignupOpen.action === 'login' ? 'Login' : 'Signup'}</h1>
             <form onSubmit={handleSubmit}>
                 {isLoginFailed && <p className="failed-login-err">Operation failed, please try again</p>}
                 <div className="form-group">

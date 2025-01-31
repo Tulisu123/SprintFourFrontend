@@ -7,6 +7,7 @@ import { renderFilterBar } from '../store/actions/system.actions.js';
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay/'
 import { userService } from '../services/user'
+import { LoginSignup } from '../cmps/LoginSignup.jsx';
 
 import { StayList } from '../cmps/StayList'
 import { StayFilter } from '../cmps/StayFilter'
@@ -19,6 +20,8 @@ export function StayIndex() {
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
     const [inputModal, setInputModal] = useState(null)
     const [isClosing, setIsClosing] = useState(false)
+    const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
+    const user = useSelector((storeState) => storeState.userModule.user);
 
     useEffect(() => {
         loadStays(filterBy)
@@ -82,7 +85,13 @@ export function StayIndex() {
             >
             </div>}
 
-            <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing}></AppHeader>
+            {isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop login" onClick={() => setIsLoginSignupOpen(false)} />}
+
+            {!user && isLoginSignupOpen.isOpen && (
+                <LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
+            )}
+
+            <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
             <main className="stay-index">
                 <StayList
                     stays={stays}

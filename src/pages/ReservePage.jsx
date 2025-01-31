@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Logo from '../cmps/Logo'
 import { AppFooter } from '../cmps/AppFooter';
-import { LoginSignup } from './LoginSignup';
+import { LoginSignup } from '../cmps/LoginSignup';
 import { CheckIcon } from '../cmps/CheckIcon';
 import { book } from '../store/actions/reservations.actions';
 

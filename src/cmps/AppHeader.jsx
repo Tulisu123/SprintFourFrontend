@@ -4,7 +4,6 @@ import { HeaderFilter } from './HeaderFilter';
 import { useState } from 'react';
 import { HeaderUserControls } from './HeaderUserControls';
 import { HeaderAuthMenu } from './HeaderAuthMenu';
-import { LoginSignup } from '../pages/LoginSignup';
 import { GenericCmp } from './GenericCmp';
 import { DatePickerCmp } from './DatePickerCmp';
 import { SuggestedLocations } from './SuggestedLocations';
@@ -15,17 +14,15 @@ import { stayService } from '../services/stay';
 import { logout } from '../store/actions/user.actions';
 
 
-export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing }) {
+export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen }) {
 	const navigate = useNavigate()
 	const location = useLocation()
 
-	const user = useSelector((storeState) => storeState.userModule.user);
 	const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
 	const stay = useSelector(storeState => storeState.stayModule.stay)
 
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false)
-	const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
 
 
 	const [checkInDate, setCheckInDate] = useState('')
@@ -116,7 +113,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 	return (
 		<>
 			<div className="headers main-container full">
-				{isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop" onClick={() => setIsLoginSignupOpen(false)} />}
+
 
 				<header
 					className={`app-header main-container full grid`}
@@ -144,9 +141,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 						/>
 						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} user={user} />}
 						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking} />}
-						{!user && isLoginSignupOpen.isOpen && (
-							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
-						)}
+
 					</nav>
 				</header >
 				{!isExpanded && isHomepage && (
