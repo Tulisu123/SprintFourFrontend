@@ -88,9 +88,9 @@ export function StayAdd() {
     }
 
     function onAddLabel(label) {
-        setLabels(prev =>
+        setLabels(prev => 
             prev.includes(label) ? prev.filter((label) => label !== label) : [...prev, label]
-        )
+    )
     }
 
     function toggleAmenity(amenity) {

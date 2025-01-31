@@ -112,7 +112,7 @@ export function StayDetails() {
             alt="Side Extra Image"
             onClick={handleImgShowAllPhotos}
           />
-          {/* <button className={`show-all-btn ${isClicked ? 'clicked' : ''}`}
+          <button className={`show-all-btn ${isClicked ? 'clicked' : ''}`}
             onClick={handleShowAllPhotos}
           >
             <img
@@ -121,7 +121,7 @@ export function StayDetails() {
               alt="Show All Photos"
             />
             Show all photos
-          </button> */}
+          </button>
         </div>
         <div className="stay-details-info">
           <section className='details-content'>
