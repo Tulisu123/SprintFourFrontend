@@ -1,10 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { GenericCmp } from './GenericCmp';
+import { DatePickerCmp } from './DatePickerCmp';
+import { SuggestedLocations } from './SuggestedLocations';
+import { GuestSelector } from './GuestSelector';
 
-export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, checkInDate, checkOutDate, guests, where, setWhere, isHomepage, onSearchFromHeader, setInputModal }) {
+export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, checkInDate, checkOutDate, guests, setGuests, where, setWhere, isHomepage, onSearchFromHeader, inputModal, setInputModal }) {
     const isClicking = useRef(false)
     const stay = useSelector(storeState => storeState.stayModule.stay)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+
+    // useEffect(() => {
+    //     // Scroll event handler
+    //     const handleScroll = () => {
+    //         if (isClicking.current) return; // Prevent scroll logic if clicking
+    //         if (isExpanded) {
+    //             setIsExpanded(false)
+    //         }
+    //     }
+    //     // Attach scroll event listener
+    //     window.addEventListener('scroll', handleScroll)
+
+    //     // Cleanup event listener on component unmount
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll)
+    //     };
+    // }, [isExpanded, setIsExpanded])
 
     useEffect(() => {
         // Scroll event handler
@@ -23,6 +44,10 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
             window.removeEventListener('scroll', handleScroll)
         };
     }, [isExpanded, setIsExpanded])
+
+    useEffect(() => {
+        console.log('inputModal from headerfilter', inputModal)
+    }, [inputModal])
 
     const handleClick = () => {
         isClicking.current = true // Mark as clicking
@@ -116,6 +141,38 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
                             <path fill="none" d="M13 24a11 11 0 1 0 0-22 11 11 0 0 0 0 22zm8-3 9 9"></path>
                         </svg>
                     </button>
+
+                    {inputModal && isExpanded && (
+                        <>
+                            {inputModal === 'date-picker' && (
+                                <GenericCmp onClose={() => toggleIsFilterOpen(null)}>
+                                    <DatePickerCmp
+                                        onClose={() => setIsExpanded(false)}
+                                        onChangeCheckIn={(date) => setCheckInDate(date)}
+                                        onChangeCheckOut={(date) => setCheckOutDate(date)}
+                                    />
+                                </GenericCmp>
+                            )}
+                            {inputModal === 'suggested-locations' && (
+                                <GenericCmp onClose={() => toggleIsFilterOpen(null)} width='428px' left='14.6rem'>
+                                    <SuggestedLocations
+                                        setWhere={setWhere}
+                                        onClose={() => toggleIsFilterOpen(null)}
+                                    />
+                                </GenericCmp>
+                            )}
+                            {inputModal === 'guest-selector' && (
+                                <GenericCmp onClose={() => toggleIsFilterOpen(null)} width='417px' left='66%' top='43%' height='417px'>
+                                    <GuestSelector
+                                        guests={guests}
+                                        setGuests={setGuests}
+                                        onClose={() => toggleIsFilterOpen(null)}
+                                    />
+                                </GenericCmp>
+                            )}
+                        </>
+                    )
+                    }
                 </form>
 
             )}
@@ -152,6 +209,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, ch
                                 <path fill="none" d="M13 24a11 11 0 1 0 0-22 11 11 0 0 0 0 22zm8-3 9 9"></path>
                             </svg>
                         </button>
+
                     </form>
                 </React.Fragment>
             )}

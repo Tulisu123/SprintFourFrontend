@@ -134,9 +134,11 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 							checkInDate={checkInDate}
 							checkOutDate={checkOutDate}
 							guests={guests}
+							setGusets={setGuests}
 							where={where}
 							setWhere={setWhere}
 							isHomepage={isHomepage}
+							inputModal={inputModal}
 							onSearchFromHeader={onSearchFromHeader}
 							setInputModal={setInputModal}
 						/>
@@ -151,37 +153,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 					<StayFilter />
 				)}
 			</div>
-			{inputModal && isExpanded && (
-				<>
-					{inputModal === 'date-picker' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} isClosing={isClosing} setIsClosing={setIsClosing} >
-							<DatePickerCmp
-								onClose={() => setIsExpanded(false)}
-								onChangeCheckIn={(date) => setCheckInDate(date)}
-								onChangeCheckOut={(date) => setCheckOutDate(date)}
-							/>
-						</GenericCmp>
-					)}
-					{inputModal === 'suggested-locations' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='428px' left='14.6rem'>
-							<SuggestedLocations
-								setWhere={setWhere}
-								onClose={() => toggleIsFilterOpen(null)}
-							/>
-						</GenericCmp>
-					)}
-					{inputModal === 'guest-selector' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='417px' left='66%' top='43%' height='417px'>
-							<GuestSelector
-								guests={guests}
-								setGuests={setGuests}
-								onClose={() => toggleIsFilterOpen(null)}
-							/>
-						</GenericCmp>
-					)}
-				</>
-			)
-			}
+
 		</>
 	);
 }
