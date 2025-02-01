@@ -24,6 +24,7 @@ export function GuestSelector({ guests, setGuests }) {
                     </div>
                     <div className="guest-controls">
                         <button
+                            type="button"
                             className="guest-btn decrement"
                             onClick={() => handleDecrement(key)}
                             disabled={value === 0}
@@ -36,6 +37,7 @@ export function GuestSelector({ guests, setGuests }) {
                         </button>
                         <span className="guest-count">{value}</span>
                         <button
+                            type="button"
                             className="guest-btn increment"
                             onClick={() => handleIncrement(key)}
                         >
