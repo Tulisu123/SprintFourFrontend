@@ -42,7 +42,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 		return () => {
 			window.removeEventListener('keydown', handleKeyDown);
 		}
-	}, [inputModal, setInputModal])
+	}, [inputModal])
 
 	function onToggleMenu() {
 		setIsAuthMenuOpen(!isAuthMenuOpen)
