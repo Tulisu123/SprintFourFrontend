@@ -181,7 +181,7 @@ export function StayDetails() {
           <ReviewSection stay={stay} handleShowMore={handleShowMore} isModalActive={isModalActive}
             setReviewIdxToScroll={setReviewIdxToScroll} />}
         {/* Footer */}
-        <Footer />
+        {/* <Footer /> */}
       </section >
     </>
   )
