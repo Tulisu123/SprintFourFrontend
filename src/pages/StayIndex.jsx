@@ -15,13 +15,9 @@ import { StayFilter } from '../cmps/StayFilter'
 import { AppFooter } from '../cmps/AppFooter.jsx'
 import { AppHeader } from '../cmps/AppHeader.jsx';
 
-export function StayIndex() {
+export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, isLoginSignupOpen, setIsLoginSignupOpen, user, handleClose }) {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-    const [inputModal, setInputModal] = useState(null)
-    const [isClosing, setIsClosing] = useState(false)
-    const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
-    const user = useSelector((storeState) => storeState.userModule.user);
 
     useEffect(() => {
         loadStays(filterBy)
@@ -42,14 +38,6 @@ export function StayIndex() {
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
-    }
-
-    function handleClose() {
-        setIsClosing(true)
-        setInputModal(null)
-        setTimeout(() => {
-            onClose();
-        }, 100);
     }
 
     async function onAddStay() {

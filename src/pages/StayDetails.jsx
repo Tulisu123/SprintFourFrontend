@@ -16,7 +16,7 @@ import { LocationDetails } from '../cmps/LocationDetails.jsx'
 import { SET_APP_MODAL_REVIEWS } from "../store/reducers/system.reducer.js"
 import { store } from "../store/store.js";
 
-export function StayDetails() {
+export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing, isLoginSignupOpen, setIsLoginSignupOpen, user, handleClose }) {
   const { stayId } = useParams()
   const stay = useSelector(storeState => storeState.stayModule.stay)
   const [isLoading, setIsLoading] = useState(true);
@@ -73,7 +73,19 @@ export function StayDetails() {
 
   return (
     <>
-      <AppHeader isHomepage={false}></AppHeader>
+      {inputModal && !isClosing && <div
+        className={`backdrop-container ${isClosing ? 'closing' : ''}`}
+        onClick={handleClose}
+      >
+      </div>}
+
+      {isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop login" onClick={() => setIsLoginSignupOpen(false)} />}
+
+      {!user && isLoginSignupOpen.isOpen && (
+        <LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
+      )}
+
+      <AppHeader isHomepage={false} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
       <section className="stay-details">
         {appModal &&
           <AppModal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} reviewIdxToScroll={reviewIdxToScroll} />}
