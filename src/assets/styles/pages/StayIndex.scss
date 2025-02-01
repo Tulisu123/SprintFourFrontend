@@ -14,8 +14,6 @@
         margin-inline-end: 0;
     }
 }
-
-
 .modal-backdrop {
     background-color: rgb(34, 34, 34);
     opacity: 0.4;
@@ -29,4 +27,32 @@
     &.login {
         z-index: 1001;
     }
+}
+
+.show-map-btn {
+    position: fixed;
+    top: 89%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222222;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.map-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
 }
