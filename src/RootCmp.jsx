@@ -37,9 +37,9 @@ export function RootCmp() {
     function handleClose() {
         // setIsClosing(true)
         setInputModal(null)
-        setTimeout(() => {
-            onClose();
-        }, 100);
+        // setTimeout(() => {
+        //     onClose();
+        // }, 100);
     }
 
     return (
