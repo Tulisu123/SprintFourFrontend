@@ -82,11 +82,11 @@ export function StayDetails() {
           {stay.name}
           <div className="actions-container">
             <button className="action-btn">
-              <i class="fa-solid fa-arrow-up-from-bracket"></i>
+              <i className="fa-solid fa-arrow-up-from-bracket"></i>
               <span className="action-text">Share</span>
             </button>
             <button className="action-btn">
-              <i class="fa-regular fa-heart"></i>
+              <i className="fa-regular fa-heart"></i>
               <span className="action-text">Save</span>
             </button>
           </div>
