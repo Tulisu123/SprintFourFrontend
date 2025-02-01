@@ -147,7 +147,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 							checkOutDate={checkOutDate}
 							setCheckOutDate={setCheckOutDate}
 							guests={guests}
-							setGusets={setGuests}
+							setGuests={setGuests}
 							where={where}
 							setWhere={setWhere}
 							isHomepage={isHomepage}
