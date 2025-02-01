@@ -48,19 +48,29 @@ export function StayAdd() {
 
     async function onAddPlace() {
         const newPlace = stayService.getEmptyStay()
-        newPlace.capacity = getGuestsNumber()
-        // newPlace.host._id = user._id
-        // newPlace.host.fullname = user.fullname
-        newPlace.loc.country = location.country
-        newPlace.loc.countryCode = location.countryCode
-        newPlace.loc.address = location.address
-        newPlace.loc.city = location.city
-        newPlace.amenities = selectedAmenities
-        newPlace.price = pricePerNight
-        newPlace.imgUrls = imgUrls
-        newPlace.summary = location.summary
         newPlace.name = location.name
+        newPlace.type = ''
+        newPlace.imgUrls = imgUrls
+        newPlace.price = pricePerNight
+        newPlace.summary = location.summary
+        newPlace.capacity = getGuestsNumber()
+        newPlace.amenities = selectedAmenities
+        newPlace.roomType = ''
+        newPlace.host = {}
+        newPlace.loc = {
+            country: location.country,
+            countryCode: location.countryCode,
+            city: location.city,
+            address: location.address,
+            // lat: location.lat,
+            // lng: location.lng,
+        }
+        newPlace.reviews = []
+        newPlace.likedByUsers = []
         newPlace.labels = labels
+        newPlace.reservedDates = []
+        newPlace.equipment = {}
+        newPlace.reservedDates = []
 
         await addStay(newPlace)
 
@@ -88,9 +98,9 @@ export function StayAdd() {
     }
 
     function onAddLabel(label) {
-        setLabels(prev => 
+        setLabels(prev =>
             prev.includes(label) ? prev.filter((label) => label !== label) : [...prev, label]
-    )
+        )
     }
 
     function toggleAmenity(amenity) {
