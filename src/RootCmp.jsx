@@ -35,7 +35,7 @@ export function RootCmp() {
     const hrefFirstWord = match ? match[1] : ''
 
     function handleClose() {
-        setIsClosing(true)
+        // setIsClosing(true)
         setInputModal(null)
         setTimeout(() => {
             onClose();
