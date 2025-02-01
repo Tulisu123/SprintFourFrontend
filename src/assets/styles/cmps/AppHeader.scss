@@ -29,7 +29,10 @@
             height: max-content;
             align-items: center;
             gap: 3em;
-            cursor: pointer;
+
+            button {
+                cursor: pointer;
+            }
 
             p {
                 color: rgb(34, 34, 34);
@@ -46,7 +49,7 @@
         .logo {
             display: flex;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 500;
             font-family: 'Airbnb Cereal VF', sans-serif;
             text-decoration: none;
             cursor: pointer;
@@ -128,7 +131,7 @@
             }
 
             .filter-label {
-                font-weight: bold;
+                font-weight: 500;
                 font-size: 12px;
             }
 
@@ -227,8 +230,7 @@
 
         .user-controls .controls-container {
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -239,6 +241,8 @@
         .user-controls-profile {
             color: rgb(106, 106, 106);
             margin-inline-start: 14px;
+            width: 32px;
+            height: 32px;
         }
 
         .add {
@@ -274,7 +278,7 @@
             flex-direction: column;
 
             .login-action {
-                font-weight: bold;
+                font-weight: 500;
             }
 
             .auth-menu-item {
@@ -295,19 +299,22 @@
     }
 }
 
-.modal-backdrop {
-    background-color: rgb(34, 34, 34);
-    opacity: 0.4;
-    width: 100vw;
-    height: 100dvh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.user-profile-letter {
+    background-color: $main-writing-color;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-content: center;
 }
 
 @-moz-document url-prefix() {
     .expand .filter-search {
         position: absolute;
+    }
+
+    .user-profile-letter div {
+        top: -1px;
     }
 }

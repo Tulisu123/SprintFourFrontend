@@ -7,6 +7,7 @@ import { renderFilterBar } from '../store/actions/system.actions.js';
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay/'
 import { userService } from '../services/user'
+import { LoginSignup } from '../cmps/LoginSignup.jsx';
 
 import { StayList } from '../cmps/StayList'
 import { StayFilter } from '../cmps/StayFilter'
@@ -17,6 +18,11 @@ import { AppHeader } from '../cmps/AppHeader.jsx';
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+    const [inputModal, setInputModal] = useState(null)
+    const [isClosing, setIsClosing] = useState(false)
+    const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
+    const user = useSelector((storeState) => storeState.userModule.user)
+
     const [isMapVisible, setIsMapVisible] = useState(false)
 
     useEffect(() => {
@@ -42,6 +48,14 @@ export function StayIndex() {
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
+    }
+
+    function handleClose() {
+        setIsClosing(true)
+        setInputModal(null)
+        setTimeout(() => {
+            onClose();
+        }, 100);
     }
 
     async function onAddStay() {
@@ -71,7 +85,19 @@ export function StayIndex() {
 
     return (
         <>
-            <AppHeader isHomepage={true}></AppHeader>
+            {inputModal && !isClosing && <div
+                className={`backdrop-container ${isClosing ? 'closing' : ''}`}
+                onClick={handleClose}
+            >
+            </div>}
+
+            {isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop login" onClick={() => setIsLoginSignupOpen(false)} />}
+
+            {!user && isLoginSignupOpen.isOpen && (
+                <LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
+            )}
+
+            <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
             <main className="stay-index">
                 <StayList
                     stays={stays}

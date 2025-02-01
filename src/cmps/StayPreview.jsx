@@ -91,14 +91,14 @@ export function StayPreview({ stay }) {
                                     onClick={handlePrev}
                                     disabled={currentIndex === 0}
                                 >
-                                    <i class="fa-solid fa-chevron-left"></i>
+                                    <i className="fa-solid fa-chevron-left"></i>
                                 </button>
                                 <button
                                     className="next-btn"
                                     onClick={handleNext}
                                     disabled={currentIndex === stay.imgUrls.length - 1}
                                 >
-                                    <i class="fa-solid fa-chevron-right"></i>
+                                    <i className="fa-solid fa-chevron-right"></i>
                                 </button>
                             </div>
                             <div className="carousel-indicators">

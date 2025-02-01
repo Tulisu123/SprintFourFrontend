@@ -13,7 +13,8 @@
         :nth-child(1) {
             margin-left: 20px;
         }
-        *{
+
+        * {
             color: #ff385c;
         }
     }
@@ -38,6 +39,7 @@
         .booking-details {
             grid-column: 1;
             max-width: 560px;
+
             .trip-details {
                 grid-column: 1;
 
@@ -96,15 +98,16 @@
                     }
 
                 }
+
                 .agreement {
                     padding-top: 24px;
                     padding-bottom: 24px;
                     font-size: 12px;
 
-                    *{
+                    * {
                         font-weight: 500;
                     }
-                    
+
                 }
             }
         }
@@ -132,9 +135,10 @@
 
 
 
-        .price-summary-container{
+        .price-summary-container {
             position: relative;
         }
+
         .price-summary {
             position: sticky;
             top: 10%;
@@ -265,6 +269,7 @@
     color: #ff4081;
     /* Icon color */
 }
+
 .reserve-btn {
     width: 203px;
     height: 56px;
@@ -274,7 +279,7 @@
     border: none;
     border-radius: 10px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
 
     &:hover {

@@ -20,7 +20,6 @@
 
 /* Modal block styles */
 .block {
-    position: fixed;
     z-index: 1000;
     /* Ensure it's above the backdrop */
     opacity: 1;
@@ -30,6 +29,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 32px;
+    width: 850px;
+    height: 511px;
+    background-color: white;
+    position: absolute;
+    top: 20rem;
+    left: 50%;
+    // transform: translate(-50%, -50%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.block:has(.suggested-locations-container) {
+    width: 428px;
+    height: 500px;
+    top: 19.7rem;
+    left: 13.2rem;
+}
+
+.block:has(.guest-selector) {
+    // width: 408px;
+    width: auto;
+    height: auto;
+    padding-inline: 32px;
+    padding-block: 16px;
+    top: 16.4rem;
+    left: 40.5rem;
+
 }
 
 .block.closing {

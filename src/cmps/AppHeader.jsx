@@ -4,7 +4,6 @@ import { HeaderFilter } from './HeaderFilter';
 import { useState } from 'react';
 import { HeaderUserControls } from './HeaderUserControls';
 import { HeaderAuthMenu } from './HeaderAuthMenu';
-import { LoginSignup } from '../pages/LoginSignup';
 import { GenericCmp } from './GenericCmp';
 import { DatePickerCmp } from './DatePickerCmp';
 import { SuggestedLocations } from './SuggestedLocations';
@@ -15,18 +14,16 @@ import { stayService } from '../services/stay';
 import { logout } from '../store/actions/user.actions';
 
 
-export function AppHeader({ isHomepage }) {
+export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen }) {
 	const navigate = useNavigate()
 	const location = useLocation()
 
-	const user = useSelector((storeState) => storeState.userModule.user);
 	const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
 	const stay = useSelector(storeState => storeState.stayModule.stay)
 
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false)
-	const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
-	const [inputModal, setInputModal] = useState(null)
+
 
 	const [checkInDate, setCheckInDate] = useState('')
 	const [checkOutDate, setCheckOutDate] = useState('')
@@ -116,7 +113,7 @@ export function AppHeader({ isHomepage }) {
 	return (
 		<>
 			<div className="headers main-container full">
-				{isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop" onClick={() => setIsLoginSignupOpen(false)} />}
+
 
 				<header
 					className={`app-header main-container full grid`}
@@ -132,55 +129,28 @@ export function AppHeader({ isHomepage }) {
 							setIsExpanded={setIsExpanded}
 							toggleIsFilterOpen={toggleIsFilterOpen}
 							checkInDate={checkInDate}
+							setCheckInDate={setCheckInDate}
 							checkOutDate={checkOutDate}
+							setCheckOutDate={setCheckOutDate}
 							guests={guests}
+							setGusets={setGuests}
 							where={where}
 							setWhere={setWhere}
 							isHomepage={isHomepage}
+							inputModal={inputModal}
 							onSearchFromHeader={onSearchFromHeader}
+							setInputModal={setInputModal}
 						/>
-						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} />}
+						{<HeaderUserControls onToggleMenu={onToggleMenu} onAddStay={onAddStay} user={user} />}
 						{isAuthMenuOpen && <HeaderAuthMenu onToggleLoginSignupDialog={onToggleLoginSignupDialog} onUserLogout={onUserLogout} onManageBooking={onManageBooking} />}
-						{!user && isLoginSignupOpen.isOpen && (
-							<LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
-						)}
+
 					</nav>
 				</header >
 				{!isExpanded && isHomepage && (
 					<StayFilter />
 				)}
 			</div>
-			{inputModal && isExpanded && (
-				<>
-					{inputModal === 'date-picker' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)}>
-							<DatePickerCmp
-								onClose={() => setIsExpanded(false)}
-								onChangeCheckIn={(date) => setCheckInDate(date)}
-								onChangeCheckOut={(date) => setCheckOutDate(date)}
-							/>
-						</GenericCmp>
-					)}
-					{inputModal === 'suggested-locations' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='428px' left='14.6rem'>
-							<SuggestedLocations
-								setWhere={setWhere}
-								onClose={() => toggleIsFilterOpen(null)}
-							/>
-						</GenericCmp>
-					)}
-					{inputModal === 'guest-selector' && (
-						<GenericCmp onClose={() => toggleIsFilterOpen(null)} width='417px' left='66%' top='43%' height='417px'>
-							<GuestSelector
-								guests={guests}
-								setGuests={setGuests}
-								onClose={() => toggleIsFilterOpen(null)}
-							/>
-						</GenericCmp>
-					)}
-				</>
-			)
-			}
+
 		</>
 	);
 }
