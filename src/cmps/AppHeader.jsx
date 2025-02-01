@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'; import { useSelector } from 'react-redux';
 import Logo from './Logo';
 import { HeaderFilter } from './HeaderFilter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeaderUserControls } from './HeaderUserControls';
 import { HeaderAuthMenu } from './HeaderAuthMenu';
 import { GenericCmp } from './GenericCmp';
@@ -29,6 +29,21 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 	const [checkOutDate, setCheckOutDate] = useState('')
 	const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
 	const [where, setWhere] = useState('')
+
+	useEffect(() => {
+		const handleKeyDown = (event) => {
+			if (inputModal && event.key === 'Escape') {
+				setInputModal(false)
+				setIsClosing(true)
+			}
+		}
+
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+		}
+	}, [inputModal, setInputModal])
 
 	function onToggleMenu() {
 		setIsAuthMenuOpen(!isAuthMenuOpen)
