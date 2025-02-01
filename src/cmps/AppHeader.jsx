@@ -34,7 +34,6 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 		const handleKeyDown = (event) => {
 			if (inputModal && event.key === 'Escape') {
 				setInputModal(false)
-				setIsClosing(true)
 			}
 		}
 
