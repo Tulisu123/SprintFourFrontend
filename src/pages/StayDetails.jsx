@@ -92,7 +92,8 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
 
         <h1 className="stay-details-header">
           {stay.name}
-          <div className="actions-container">
+
+          {/* <div className="actions-container">
             <button className="action-btn">
               <i className="fa-solid fa-arrow-up-from-bracket"></i>
               <span className="action-text">Share</span>
@@ -101,7 +102,8 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
               <i className="fa-regular fa-heart"></i>
               <span className="action-text">Save</span>
             </button>
-          </div>
+          </div> */}
+
         </h1>
 
         <div className="stay-images">
