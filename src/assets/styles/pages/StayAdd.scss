@@ -1,7 +1,7 @@
 .add-flow {
     // display: flex;
     // flex-direction: column;
-    // min-height: 100vh;
+    min-height: 100vh;
     font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
 }
 
@@ -54,6 +54,7 @@
 .main-content {
     flex: 1;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: inherit;
 }
 
 .main-content.initial {
