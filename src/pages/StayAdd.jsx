@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../cmps/Logo";
 import { useState, useRef } from "react";
 import { GuestSelector } from "../cmps/GuestSelector";
@@ -157,12 +157,15 @@ export function StayAdd() {
         <section className="add-flow">
             {/* Header */}
             <header className="add-header">
-                <NavLink>
+                <Link to="/">
                     <Logo className="logo" />
-                </NavLink>
-                <div className="exit">
-                    <button>Exit</button>
-                </div>
+                </Link>
+                <Link to="/">
+                    <div className="exit">
+                        <button>Exit</button>
+                    </div>
+                </Link>
+
             </header>
 
             {/* Main Content */}
@@ -417,6 +420,6 @@ export function StayAdd() {
                 ) : <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
                 }
             </footer>
-        </section>
+        </section >
     );
 }
