@@ -6,7 +6,7 @@ import { stayService } from "../services/stay";
 import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
 
-export function StayAdd() {
+export function StayAdd({ user }) {
     const views = ['initial', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
@@ -14,7 +14,6 @@ export function StayAdd() {
     const [imgUrls, setImgUrls] = useState([])
     const fileInputRef = useRef(null)
     const [pricePerNight, setPricePerNight] = useState('')
-    const user = useSelector((storeState) => storeState.userModule.user)
     const [labels, setLabels] = useState([])
 
     const amenitiesList = [
@@ -56,7 +55,7 @@ export function StayAdd() {
         newPlace.capacity = getGuestsNumber()
         newPlace.amenities = selectedAmenities
         newPlace.roomType = ''
-        newPlace.host = {}
+        newPlace.host = user
         newPlace.loc = {
             country: location.country,
             countryCode: location.countryCode,

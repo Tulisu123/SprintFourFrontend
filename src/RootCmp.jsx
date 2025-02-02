@@ -49,7 +49,7 @@ export function RootCmp() {
                     <Route path="/" element={<StayIndex
                         inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} user={user} handleClose={handleClose}
                     />} />
-                    <Route path="/add-stay" element={<StayAdd />} />
+                    <Route path="/add-stay" element={<StayAdd user={user} />} />
                     <Route path="/manage-booking" element={<ManageBooking />} />
                     <Route path="/reservation-summary" element={<ReservePage />} />
                     <Route path="stay/:stayId" element={<StayDetails
