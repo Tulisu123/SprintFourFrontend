@@ -417,7 +417,10 @@ export function StayAdd() {
                     <button onClick={goToNextView} className="next-btn">
                         Next
                     </button>
-                ) : <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                ) :
+                    <Link to="/">
+                        <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                    </Link>
                 }
             </footer>
         </section >
