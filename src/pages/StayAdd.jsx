@@ -336,19 +336,19 @@ export function StayAdd({ user }) {
 
                         <div className="location-form">
                             {/* <div className="address"> */}
-                            <div className="map"></div>
+                            {/* <div className="map"></div> */}
                             <label>
                                 Address:
-                                <AddressSearch />
+                                {/* <AddressSearch /> */}
                                 {/* <input /> */}
                                 {/* </div> */}
-                                {/* <input
+                                <input
                                     type="text"
                                     name="address"
                                     value={location.address}
                                     onChange={handleLocationInputChange}
                                     placeholder="Enter address"
-                                /> */}
+                                />
                             </label>
 
                             <label>
@@ -412,20 +412,24 @@ export function StayAdd({ user }) {
 
             {/* Footer */}
             <div className="full main-container add-stay stay-add-footer-wrapper">
-                <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
-                    {view !== 'initial' && (
-                        <button onClick={goToPreviousView} className="back-btn">
-                            Back
+                <footer className={'stay-add-footer'}>
+
+                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: (view === 'initial') && 'hidden' }}>
+                        Back
+                    </button>
+
+                    {view === 'initial' ?
+                        <button className="reserve-btn" onClick={goToNextView}>
+                            Get Started
                         </button>
-                    )}
-                    {view !== 'location' ? (
-                        <button onClick={goToNextView} className="next-btn">
-                            Next
-                        </button>
-                    ) :
-                        <Link to="/">
-                            <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                        </Link>
+                        :
+                        view === 'location' ? (
+                            <Link to="/">
+                                <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                            </Link>) :
+                            <button onClick={goToNextView} className="next-btn">
+                                Next
+                            </button>
                     }
                 </footer>
             </div>
