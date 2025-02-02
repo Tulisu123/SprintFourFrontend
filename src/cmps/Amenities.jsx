@@ -41,9 +41,10 @@ export function Amenities({ stay, isModalActive, handleShowMore, setAmenitiesToR
             <div className="container">
                 <h2 className="subtitle">What this place offers</h2>
                 <AmenitiesList amenities={amenitiesToRender} isModalActive={isModalActive} />
-                <span className="regular-white-btn" onClick={() => handleShowMore(SET_APP_MODAL_AMENITIES)} >
-                    Show all {amenitiesToRender.length} amenities
-                </span>
+                {amenitiesToRender.length > 10 &&
+                    <span className="regular-white-btn" onClick={() => handleShowMore(SET_APP_MODAL_AMENITIES)} >
+                        Show all {amenitiesToRender.length} amenities
+                    </span>}
             </div>
         </section>
     )

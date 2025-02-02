@@ -163,7 +163,7 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
               </h3>
               <h4 className='bold-text reviews-summary'>
                 <img src='../../src/assets/assets/icons/general icons/asset 158.svg' />
-                <span>{stay.reviews.length ? '5.0' : 'New'} · </span>
+                <span>{stay.reviews.length ? '5.0  · ' : 'New'}</span>
                 {stay.reviews.length > 0 &&
                   <a className='nostyle underline' onClick={() => { handleShowMore(SET_APP_MODAL_REVIEWS) }}>{stay.reviews.length} review{stay.reviews.length > 1 && 's'}</a>}
               </h4>
