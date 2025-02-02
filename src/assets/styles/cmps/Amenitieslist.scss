@@ -1,7 +1,12 @@
 .amenities {
     margin-block: 48px;
 
+    &.modal-window {
+        margin: 0;
+    }
+
     .subtitle {
+        padding-top: 10px;
         margin-bottom: 24px;
     }
 }
@@ -19,9 +24,14 @@
     li {
         display: flex;
         align-items: center;
-        width: 50% !important;
+        width: 50%;
         padding-bottom: 16px;
 
+        &.amenitie-modal {
+            padding: rem(24px);
+            border-bottom: 1px solid $border-color;
+            width: 100%;
+        }
     }
 
     img {

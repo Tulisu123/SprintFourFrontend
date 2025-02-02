@@ -2,8 +2,7 @@ import { AmenitiesList } from './AmenitiesList.jsx';
 import { SET_APP_MODAL_AMENITIES } from "../store/reducers/system.reducer.js";
 import { useEffect } from 'react';
 
-export function Amenities({ stay, isModalActive = false, handleShowMore, setAmenitiesToRender }) {
-
+export function Amenities({ stay, isModalActive, handleShowMore, setAmenitiesToRender }) {
     const amenitiesWithIcon = [
         'Wifi',
         'Air conditioning',

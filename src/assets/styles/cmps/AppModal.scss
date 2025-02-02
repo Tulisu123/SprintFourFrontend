@@ -9,8 +9,6 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1200;
     // @include scrollbar;
-
-
 }
 
 .modal {
@@ -23,29 +21,51 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
     display: flex;
     border-radius: .75rem;
-    width: fit-content;
+    width: 100%;
     // max-height: 43.3125rem;
     margin: rem(40px) auto rem(12px) auto;
     background-color: #fff;
     z-index: 210;
     position: relative;
-    height: calc(100dvh - rem(52px));
+    max-height: calc(100dvh - rem(52px));
     overflow: scroll;
+
+    .modal-header {
+        position: fixed;
+        background-color: #fff;
+        z-index: 1000000;
+        display: block;
+        overscroll-behavior-block: none;
+    }
 
     button {
         border: none;
         background-color: #fff;
         border-radius: 50%;
-        width: rem(24px);
-        height: rem(24px);
+        width: rem(32px);
+        height: rem(32px);
         display: flex;
         align-items: center;
         justify-content: center;
         margin-inline-end: 1rem;
 
         &:hover {
-            background-color: #B0B0B0;
+            background-color: $header-hover-color;
         }
+    }
+
+    .modal-close-btn {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        right: 9px;
+    }
+
+    .modal-close-btn>* {
+        margin: 0;
+        padding: 0;
+        width: 1rem;
+        height: 1rem;
     }
 
     &.where-modal {
@@ -68,4 +88,22 @@
 
 .modal-open {
     overflow: hidden;
+}
+
+.modal:has(.amenities) {
+    // width: 60%;
+    height: max-content;
+    display: block;
+    padding-inline-start: 24px;
+    padding-block: 0;
+
+    .modal-header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
+        height: 72px;
+        display: grid;
+        align-content: center;
+    }
 }
