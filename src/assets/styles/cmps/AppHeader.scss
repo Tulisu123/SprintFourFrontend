@@ -298,23 +298,3 @@
         // margin-top: 30px;
     }
 }
-
-.user-profile-letter {
-    background-color: $main-writing-color;
-    color: white;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: grid;
-    place-content: center;
-}
-
-@-moz-document url-prefix() {
-    .expand .filter-search {
-        position: absolute;
-    }
-
-    .user-profile-letter div {
-        top: -1px;
-    }
-}
