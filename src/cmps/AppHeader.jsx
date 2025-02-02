@@ -14,7 +14,7 @@ import { stayService } from '../services/stay';
 import { logout } from '../store/actions/user.actions';
 
 
-export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen }) {
+export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen, classNameToAdd }) {
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -126,11 +126,12 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 
 	return (
 		<>
-			<div className="headers main-container full">
+			<div className={'headers main-container full'
+				+ (classNameToAdd ? ` ${classNameToAdd}` : '')}>
 
 
 				<header
-					className={`app-header main-container full grid`}
+					className={`app-header main-container full grid` + (classNameToAdd ? ` ${classNameToAdd}` : '')}
 					onClick={isMenuOpen}
 				>
 					<nav className={`${isExpanded ? 'expand' : ''} ${!isHomepage ? 'in-stay-details' : ''}`}>

@@ -85,7 +85,7 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
         <LoginSignup isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} />
       )}
 
-      <AppHeader isHomepage={false} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
+      <AppHeader isHomepage={false} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} classNameToAdd={'stay'}></AppHeader>
       <section className="stay-details">
         {appModal &&
           <AppModal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} reviewIdxToScroll={reviewIdxToScroll} />}
