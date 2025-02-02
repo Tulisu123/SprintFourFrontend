@@ -1,6 +1,6 @@
 export function ProfilePic({ person }) {
     const personPic = person?.pictureUrl
-    const firstLetter = person?.fullname[0].toUpperCase()
+    const fullName = person?.fullname
     const defaultGeneral = (
         <svg className="user-controls-profile" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
             style={{
@@ -24,7 +24,7 @@ export function ProfilePic({ person }) {
                 {
                     person?.fullname ?
                         <div className='user-profile-letter'>
-                            < div > {person.fullname[0].toUpperCase()}</div >
+                            {fullName && < div > {fullName[0].toUpperCase()}</div >}
                         </div >
                         :
                         defaultGeneral
