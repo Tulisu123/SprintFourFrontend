@@ -158,7 +158,7 @@ export function StayAdd() {
             {/* Header */}
             <header className="add-header">
                 <NavLink>
-                    <Logo />
+                    <Logo className="logo" />
                 </NavLink>
                 <div className="exit">
                     <button>Exit</button>

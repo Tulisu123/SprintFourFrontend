@@ -1,4 +1,4 @@
-.main-container {
+.main-container:not(.add-stay) {
     // margin-inline: 40px;
     display: grid;
     grid-template-columns: minmax(80px, 1fr) minmax(auto, 2560px) minmax(80px, 1fr);
