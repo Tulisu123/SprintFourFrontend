@@ -16,6 +16,7 @@ import { LocationDetails } from '../cmps/LocationDetails.jsx'
 import { SET_APP_MODAL_REVIEWS } from "../store/reducers/system.reducer.js"
 import { store } from "../store/store.js";
 import { ProfilePic } from '../cmps/ProfilePic.jsx'
+import { LoginSignup } from '../cmps/LoginSignup.jsx'
 
 export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing, isLoginSignupOpen, setIsLoginSignupOpen, user, handleClose }) {
   const { stayId } = useParams()

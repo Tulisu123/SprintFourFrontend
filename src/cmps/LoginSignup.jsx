@@ -48,6 +48,7 @@ export function LoginSignup({ isLoginSignupOpen, setIsLoginSignupOpen, closeLogi
                         value={caredentials.username}
                         onChange={handleChange}
                         required
+                        autoFocus
                     />
                 </div>
                 <div className="form-group">
