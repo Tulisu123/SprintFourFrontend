@@ -85,6 +85,14 @@ a.underline {
 
 // Design helpers
 
+.person-image {
+    width: 3rem;
+    height: 3rem;
+
+    img {
+        border-radius: 50%;
+    }
+}
 
 .user-profile-letter {
     background-color: $main-writing-color;

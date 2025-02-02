@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { UserProfilePic } from './UserProfilePic.jsx'
+import { ProfilePic } from './ProfilePic.jsx'
 export function HeaderUserControls({ onToggleMenu, onAddStay, user }) {
 
     return (
@@ -29,7 +29,7 @@ export function HeaderUserControls({ onToggleMenu, onAddStay, user }) {
                             </g>
                         </svg>
                         <button>
-                            <UserProfilePic user={user} />
+                            <ProfilePic person={user} />
                         </button>
 
 

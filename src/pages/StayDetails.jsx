@@ -15,6 +15,7 @@ import { Reserve } from '../cmps/Reserve.jsx'
 import { LocationDetails } from '../cmps/LocationDetails.jsx'
 import { SET_APP_MODAL_REVIEWS } from "../store/reducers/system.reducer.js"
 import { store } from "../store/store.js";
+import { ProfilePic } from '../cmps/ProfilePic.jsx'
 
 export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing, isLoginSignupOpen, setIsLoginSignupOpen, user, handleClose }) {
   const { stayId } = useParams()
@@ -169,9 +170,7 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
             </section>
 
             <div className="stay-host">
-              <div className="host-image">
-                <img src={stay.host.pictureUrl} alt="" />
-              </div>
+              <ProfilePic person={stay.host} />
               <p>
                 <strong>Hosted by {stay.host.fullname}</strong>
               </p>
