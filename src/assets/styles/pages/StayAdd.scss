@@ -44,6 +44,10 @@
         font-size: 0.875rem !important;
         line-height: 1.125rem !important;
         font-weight: 500 !important;
+
+        &:hover {
+            border-color: $main-writing-color;
+        }
     }
 }
 
