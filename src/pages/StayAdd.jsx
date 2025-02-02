@@ -5,7 +5,7 @@ import { GuestSelector } from "../cmps/GuestSelector";
 import { stayService } from "../services/stay";
 import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
-
+import { AddressSearch } from "../cmps/AddressSearch.jsx"
 export function StayAdd({ user }) {
     const views = ['initial', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial');
@@ -153,7 +153,7 @@ export function StayAdd({ user }) {
     }
 
     return (
-        <section className="add-flow">
+        <section className="add-flow main-container add-stay full">
             {/* Header */}
             <header className="add-header">
                 <Link to="/">
@@ -335,15 +335,20 @@ export function StayAdd({ user }) {
                         </div>
 
                         <div className="location-form">
+                            {/* <div className="address"> */}
+                            <div className="map"></div>
                             <label>
                                 Address:
-                                <input
+                                <AddressSearch />
+                                {/* <input /> */}
+                                {/* </div> */}
+                                {/* <input
                                     type="text"
                                     name="address"
                                     value={location.address}
                                     onChange={handleLocationInputChange}
                                     placeholder="Enter address"
-                                />
+                                /> */}
                             </label>
 
                             <label>
@@ -406,22 +411,24 @@ export function StayAdd({ user }) {
             </main>
 
             {/* Footer */}
-            <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
-                {view !== 'initial' && (
-                    <button onClick={goToPreviousView} className="back-btn">
-                        Back
-                    </button>
-                )}
-                {view !== 'location' ? (
-                    <button onClick={goToNextView} className="next-btn">
-                        Next
-                    </button>
-                ) :
-                    <Link to="/">
-                        <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                    </Link>
-                }
-            </footer>
+            <div className="full main-container add-stay stay-add-footer-wrapper">
+                <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
+                    {view !== 'initial' && (
+                        <button onClick={goToPreviousView} className="back-btn">
+                            Back
+                        </button>
+                    )}
+                    {view !== 'location' ? (
+                        <button onClick={goToNextView} className="next-btn">
+                            Next
+                        </button>
+                    ) :
+                        <Link to="/">
+                            <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                        </Link>
+                    }
+                </footer>
+            </div>
         </section >
     );
 }

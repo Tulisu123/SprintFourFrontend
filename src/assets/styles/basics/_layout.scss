@@ -1,4 +1,4 @@
-.main-container:not(.add-stay) {
+.main-container {
     // margin-inline: 40px;
     display: grid;
     grid-template-columns: minmax(80px, 1fr) minmax(auto, 2560px) minmax(80px, 1fr);
@@ -6,6 +6,10 @@
     // margin-inline: 40px;
     &.stay {
         grid-template-columns: minmax(80px, 1fr) minmax(auto, 1120px) minmax(80px, 1fr);
+    }
+
+    &.add-stay {
+        grid-template-columns: minmax(auto, 48px) 1fr minmax(auto, 48px);
     }
 
     >* {

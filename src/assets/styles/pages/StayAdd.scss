@@ -1,14 +1,14 @@
 .add-flow {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    // min-height: 100vh;
     font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
 }
 
 .add-header {
     display: flex;
     justify-content: space-between;
-    padding: 32px 48px 0px;
+    padding-block-start: 32px;
     position: sticky;
     top: 0;
     background: white;
@@ -416,12 +416,19 @@
     }
 
     .location-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
+        // gap: 10px;
         margin-top: 20px;
+        display: grid;
+
+        .map {
+            min-height: 500px;
+            width: 100%;
+            background: gray;
+        }
     }
 
     .location-form label {
@@ -432,11 +439,11 @@
 
     .location-form input,
     .summary-input {
-        padding: 8px;
-        width: 400px;
-        max-width: 400px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        // padding: 8px;
+        // width: 400px;
+        // max-width: 400px;
+        // border: 1px solid #ccc;
+        // border-radius: 4px;
     }
 
     .warning-text {
@@ -481,20 +488,27 @@
     justify-content: end;
 }
 
-.stay-add-footer {
+div.stay-add-footer-wrapper {
     position: sticky;
     bottom: 0;
+    border-top: 1px solid #ddd;
+}
+
+.stay-add-footer {
+
     height: 80px;
     background: white;
-    padding: 1rem;
-    border-top: 1px solid #ddd;
+    // padding: 1rem;
+
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 48px;
+    // padding-inline: 48px;
 
     .back-btn {
+        position: relative;
+        right: 0.625rem;
         height: max-content;
         font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
         font-weight: 500 !important;
