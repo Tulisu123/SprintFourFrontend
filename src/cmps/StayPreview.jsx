@@ -132,12 +132,10 @@ export function StayPreview({ stay }) {
 
                     <h3 className="stay-name"> {stay.name} </h3>
                     <p className="stay-dates">
-                        {stay.reservedDates?.length > 0 ? (
+                        {stay.reservedDates?.length > 0 && (
                             <span className="date-range">
                                 {formatDateRange(stay.reservedDates[0].start, stay.reservedDates[0].end)}
                             </span>
-                        ) : (
-                            <span>No Dates Available</span>
                         )}
                     </p>
                     <p className="stay-price">
