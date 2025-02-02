@@ -28,11 +28,7 @@ export function HeaderUserControls({ onToggleMenu, onAddStay, user }) {
                                 <path d="M2 16h28M2 24h28M2 8h28"></path>
                             </g>
                         </svg>
-                        <button>
-                            <ProfilePic person={user} />
-                        </button>
-
-
+                        <ProfilePic person={user} />
                     </div>
                 </button>
             </div>
