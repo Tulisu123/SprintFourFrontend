@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
 import { AddressSearch } from "../cmps/AddressSearch.jsx"
 
-export function StayAdd({ user }) {
+export function StayAdd() {
     const views = ['initial', 'placeType', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
