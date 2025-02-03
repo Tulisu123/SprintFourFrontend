@@ -101,7 +101,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
                     </div>
                 )} */}
             </main>
-            <AppFooter />
+            {/* <AppFooter /> */}
         </>
     )
 }
