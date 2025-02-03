@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { DatePickerCmp } from './DatePickerCmp'
 import { setFiterBy } from '../store/actions/stay.actions';
-import { parsePrice } from '../services/util.service'
+import { parsePrice, prepareDate } from '../services/util.service'
 import { userService } from '../services/user';
 import { useNavigate } from 'react-router-dom';
 
@@ -93,7 +93,7 @@ export function Reserve() {
         const disabledDates = calculateDisabledDates(reservedDates)
         const availableDates = []
         let currentDate = new Date(today)
-    
+
         while (availableDates.length < 3) {
             const isDisabled = disabledDates.some(
                 (d) =>
@@ -111,8 +111,8 @@ export function Reserve() {
             end: availableDates[2],
         }
     }
-    
-    
+
+
 
     function calculateDisabledDates(reservedDates) {
         const disabledDates = []
@@ -150,17 +150,17 @@ export function Reserve() {
     function onReserve() {
         const stayId = stay._id
         const reserveDetails = {
-            start: reserve.start,
-            end: reserve.end,
+            start: prepareDate(reserve.start),
+            end: prepareDate(reserve.end),
             guests: reserve.guests,
             price: reserve.price,
-            days: getNumberOfDays(checkInDate,checkOutDate)
+            days: getNumberOfDays(checkInDate, checkOutDate)
         }
 
         const urlParams = new URLSearchParams({
             stayId,
-            start: reserveDetails.start.toISOString(), // Ensure proper date formatting
-            end: reserveDetails.end.toISOString(),
+            start: reserveDetails.start,
+            end: reserveDetails.end,
             guests: reserveDetails.guests,
             price: reserveDetails.price,
             days: reserveDetails.days,

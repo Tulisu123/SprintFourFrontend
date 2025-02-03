@@ -9,6 +9,8 @@ import { AppFooter } from '../cmps/AppFooter';
 import { LoginSignup } from '../cmps/LoginSignup';
 import { CheckIcon } from '../cmps/CheckIcon';
 import { book } from '../store/actions/reservations.actions';
+import { makeId } from '../services/util.service';
+import { prepareDate } from '../services/util.service';
 
 export function ReservePage() {
     const navigate = useNavigate()
@@ -27,10 +29,11 @@ export function ReservePage() {
 
 
     const [finalReserve, setFinalReserve] = useState({
+        _id: makeId(),
         stayId: stayId,
         stayName: stay.name,
-        start: start,
-        end: end,
+        start: prepareDate(start),
+        end: prepareDate(end),
         guests: guests,
         price: price,
         days: days,

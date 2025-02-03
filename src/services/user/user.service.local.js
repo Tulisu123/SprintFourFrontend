@@ -2,7 +2,7 @@ import { storageService } from '../async-storage.service';
 import { loadFromStorage } from "../util.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser';
-createDemoData()
+// createDemoData()
 export const userService = {
     login,
     logout,
