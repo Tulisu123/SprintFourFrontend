@@ -1,0 +1,49 @@
+.place-type-selection h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+
+}
+
+.place-type-options {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    gap: 12px;
+}
+
+.place-type-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.place-type-card:hover,
+.place-type-card.selected {
+    border-color: #000;
+    background-color: #f7f7f7;
+}
+
+.place-type-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.place-type-info p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.place-type-icon {
+    font-size: 24px;
+}

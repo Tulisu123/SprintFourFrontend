@@ -7,15 +7,43 @@ import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
 
 export function StayAdd() {
-    const views = ['initial', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
-    const [view, setView] = useState('initial');
+    const views = ['initial', 'placeType', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
+    const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
     const [selectedAmenities, setSelectedAmenities] = useState([])
     const [imgUrls, setImgUrls] = useState([])
     const fileInputRef = useRef(null)
     const [pricePerNight, setPricePerNight] = useState('')
+    const [selectedPlaceType, setSelectedPlaceType] = useState('Entire place')
     const user = useSelector((storeState) => storeState.userModule.user)
     const [labels, setLabels] = useState([])
+
+    const placeTypes = [
+        {
+            type: 'Entire place',
+            description: 'Guests have the whole place to themselves.',
+            icon: <i className="fa-sharp fa-light fa-house"></i>,
+        },
+        {
+            type: 'Private room',
+            description: 'Guests have their own room in a home, plus access to shared spaces.',
+            icon: <i className="fa-sharp fa-light fa-door-open"></i>,
+        },
+        {
+            type: 'Shared room in a hostel',
+            description: (
+                <>
+                    Guests sleep in a shared room in a professionally managed <br />
+                    hostel with staff onsite 24/7.
+                </>
+            ),
+            icon: <i className="fa-sharp fa-light fa-house-user"></i>,
+        },
+    ]
+
+    function handlePlaceTypeSelection(type) {
+        setSelectedPlaceType(type)
+    }
 
     const amenitiesList = [
         { name: 'Wifi' },
@@ -88,9 +116,9 @@ export function StayAdd() {
     }
 
     function onAddLabel(label) {
-        setLabels(prev => 
+        setLabels(prev =>
             prev.includes(label) ? prev.filter((label) => label !== label) : [...prev, label]
-    )
+        )
     }
 
     function toggleAmenity(amenity) {
@@ -218,6 +246,28 @@ export function StayAdd() {
                         </div>
                     </div>
                 )}
+
+                {view === 'placeType' && (
+                    <div className="place-type-selection">
+                        <h2>What type of place will guests have?</h2>
+                        <div className="place-type-options">
+                            {placeTypes.map(({ type, description, icon }) => (
+                                <div
+                                    key={type}
+                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
+                                    onClick={() => handlePlaceTypeSelection(type)}
+                                >
+                                    <div className="place-type-info">
+                                        <h3>{type}</h3>
+                                        <p>{description}</p>
+                                    </div>
+                                    <span className="place-type-icon">{icon}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {view === 'guests' && (
                     <div className="guests-view">
                         <div className="desc-container">
