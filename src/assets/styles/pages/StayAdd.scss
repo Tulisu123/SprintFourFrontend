@@ -1,35 +1,60 @@
 .add-flow {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     min-height: 100vh;
+    font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
 }
 
 .add-header {
     display: flex;
     justify-content: space-between;
-    margin: 50px;
+    padding-block-start: 32px;
     position: sticky;
     top: 0;
     background: white;
     z-index: 100;
 
+    .logo {
+        filter: brightness(0) saturate(100%) invert(12%) sepia(7%) saturate(5%) hue-rotate(325deg) brightness(98%) contrast(96%);
+    }
+
+    // .exit button {
+    //     background: none;
+    //     outline: none;
+    //     border-radius: 24px;
+    //     padding: 10px;
+    //     font-size: 14px;
+    //     color: rgb(34, 34, 34);
+    //     font-weight: 500;
+    //     padding-inline: 15px;
+    //     border: 1px solid lightgray;
+    //     cursor: pointer;
+    // }
+
     .exit button {
         background: none;
-        outline: none;
         border-radius: 24px;
-        padding: 10px;
-        font-size: 14px;
         color: rgb(34, 34, 34);
-        font-weight: 500;
-        padding-inline: 15px;
+
         border: 1px solid lightgray;
         cursor: pointer;
+        width: 108px;
+        height: 40px;
+        font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+        font-size: 0.875rem !important;
+        line-height: 1.125rem !important;
+        font-weight: 500 !important;
+
+        &:hover {
+            border-color: $main-writing-color;
+        }
     }
 }
 
 .main-content {
     flex: 1;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: inherit;
 }
 
 .main-content.initial {
@@ -392,12 +417,19 @@
     }
 
     .location-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
+        // gap: 10px;
         margin-top: 20px;
+        display: grid;
+
+        .map {
+            min-height: 500px;
+            width: 100%;
+            background: gray;
+        }
     }
 
     .location-form label {
@@ -408,11 +440,11 @@
 
     .location-form input,
     .summary-input {
-        padding: 8px;
-        width: 400px;
-        max-width: 400px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        // padding: 8px;
+        // width: 400px;
+        // max-width: 400px;
+        // border: 1px solid #ccc;
+        // border-radius: 4px;
     }
 
     .warning-text {
@@ -457,29 +489,37 @@
     justify-content: end;
 }
 
-.stay-add-footer {
+div.stay-add-footer-wrapper {
     position: sticky;
     bottom: 0;
+    border-top: 1px solid #ddd;
+}
+
+.stay-add-footer {
+
     height: 80px;
     background: white;
-    padding: 1rem;
-    border-top: 1px solid #ddd;
+    // padding: 1rem;
+
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 55px;
+    // padding-inline: 48px;
 
     .back-btn {
+        position: relative;
+        right: 0.625rem;
         height: max-content;
-        font-weight: 500er;
+        font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+        font-weight: 500 !important;
         background: none;
         border: none;
         border-radius: 8px;
         text-decoration: underline;
-        font-size: 16px;
+        font-size: 1rem;
         cursor: pointer;
-        padding: 10px;
+        padding: rem(10px);
     }
 
     .back-btn:hover {
@@ -495,7 +535,8 @@
         background-color: black;
         color: white;
         border-radius: 8px;
-        font-size: 16px;
+        font-family: 'Airbnb Cereal VF', 'AirbnbCereal-med', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+        font-size: 1rem;
         font-weight: 500;
         cursor: pointer;
 

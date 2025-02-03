@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { makeId } from "../services/util.service.js"
 
 export function AmenitiesList({ stay, amenities, isModalActive }) {
+
     const amenitiesWithIcon = [
         'Wifi',
         'Air conditioning',
@@ -37,7 +38,7 @@ export function AmenitiesList({ stay, amenities, isModalActive }) {
             <ul>
                 {amenitiesToRender.map((amenity) => {
                     return (
-                        <li key={makeId()} className="amenity">
+                        <li key={makeId()} className={`amenity ${isModalActive ? 'amenitie-modal' : ''}`}>
 
 
                             <img src={`../../src/assets/assets/icons/amenities/${amenity}.svg`} />

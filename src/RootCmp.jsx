@@ -24,20 +24,37 @@ import { StayAdd } from './pages/StayAdd.jsx'
 
 export function RootCmp() {
     const isHomePage = useSelector(storeState => storeState.systemModule.isHomePage)
+    const [inputModal, setInputModal] = useState(null)
+    const [isClosing, setIsClosing] = useState(false)
+    const [isLoginSignupOpen, setIsLoginSignupOpen] = useState({ isOpen: false, action: null })
+    const user = useSelector((storeState) => storeState.userModule.user)
+
     let href = useHref(null)
     const regex = /^\/([^\/]*)/
     const match = href.match(regex)
     const hrefFirstWord = match ? match[1] : ''
 
+    function handleClose() {
+        // setIsClosing(true)
+        setInputModal(null)
+        // setTimeout(() => {
+        //     onClose();
+        // }, 100);
+    }
+
     return (
         <div >
             <main className={`main-container ${hrefFirstWord}`}>
                 <Routes>
-                    <Route path="/" element={<StayIndex />} />
-                    <Route path="/add-stay" element={<StayAdd />} />
+                    <Route path="/" element={<StayIndex
+                        inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} user={user} handleClose={handleClose}
+                    />} />
+                    <Route path="/add-stay" element={<StayAdd user={user} />} />
                     <Route path="/manage-booking" element={<ManageBooking />} />
                     <Route path="/reservation-summary" element={<ReservePage />} />
-                    <Route path="stay/:stayId" element={<StayDetails />} />
+                    <Route path="stay/:stayId" element={<StayDetails
+                        inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen} user={user} handleClose={handleClose}
+                    />} />
                     <Route path="/photos" element={<PhotosPage />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />

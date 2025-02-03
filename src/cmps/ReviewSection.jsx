@@ -12,9 +12,9 @@ export function ReviewSection({ stay, handleShowMore, isModalActive, setReviewId
 
             <ReviewList stay={stay} isModalActive={isModalActive} handleShowMore={handleShowMore} setReviewIdxToScroll={setReviewIdxToScroll} />
             {/* <button> */}
-            <span className="regular-white-btn" onClick={() => handleShowMore(SET_APP_MODAL_REVIEWS)} >
+            <button className="regular-white-btn" onClick={() => handleShowMore(SET_APP_MODAL_REVIEWS)} >
                 Show all {stay.reviews.length} reviews
-            </span>
+            </button>
             {/* </button> */}
             {/* <ReviewsModal stay={stay} /> */}
         </div >

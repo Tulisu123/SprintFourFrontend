@@ -12,6 +12,7 @@ export const userService = {
 	update,
     getLoggedinUser,
     saveLoggedinUser,
+	addBookingToUser,
 }
 
 function getUsers() {
@@ -55,8 +56,19 @@ async function logout() {
 	return await httpService.post('auth/logout')
 }
 
+async function addBookingToUser(bookingId, userId) {
+	console.log('Adding booking id to reservations on Remote with userId', userId,'and booking id', bookingId)
+	const user = await getById(userId)
+	user.reservations.push(bookingId)
+	
+	const updatedUser = await httpService.put(`user/${userId}`, user)
+	console.log(updatedUser)
+
+	// return await storageService.put('user', user)
+}
+
+
 function getLoggedinUser() {
-	console.log('getting logged in user...', JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) )
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 

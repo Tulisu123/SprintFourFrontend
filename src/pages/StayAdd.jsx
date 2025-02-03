@@ -1,12 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../cmps/Logo";
 import { useState, useRef } from "react";
 import { GuestSelector } from "../cmps/GuestSelector";
 import { stayService } from "../services/stay";
 import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
+import { AddressSearch } from "../cmps/AddressSearch.jsx"
 
-export function StayAdd() {
+export function StayAdd({ user }) {
     const views = ['initial', 'placeType', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
@@ -76,19 +77,29 @@ export function StayAdd() {
 
     async function onAddPlace() {
         const newPlace = stayService.getEmptyStay()
-        newPlace.capacity = getGuestsNumber()
-        // newPlace.host._id = user._id
-        // newPlace.host.fullname = user.fullname
-        newPlace.loc.country = location.country
-        newPlace.loc.countryCode = location.countryCode
-        newPlace.loc.address = location.address
-        newPlace.loc.city = location.city
-        newPlace.amenities = selectedAmenities
-        newPlace.price = pricePerNight
-        newPlace.imgUrls = imgUrls
-        newPlace.summary = location.summary
         newPlace.name = location.name
+        newPlace.type = ''
+        newPlace.imgUrls = imgUrls
+        newPlace.price = pricePerNight
+        newPlace.summary = location.summary
+        newPlace.capacity = getGuestsNumber()
+        newPlace.amenities = selectedAmenities
+        newPlace.roomType = ''
+        newPlace.host = user
+        newPlace.loc = {
+            country: location.country,
+            countryCode: location.countryCode,
+            city: location.city,
+            address: location.address,
+            // lat: location.lat,
+            // lng: location.lng,
+        }
+        newPlace.reviews = []
+        newPlace.likedByUsers = []
         newPlace.labels = labels
+        newPlace.reservedDates = []
+        newPlace.equipment = {}
+        newPlace.reservedDates = []
 
         await addStay(newPlace)
 
@@ -172,15 +183,18 @@ export function StayAdd() {
     }
 
     return (
-        <section className="add-flow">
+        <section className="add-flow main-container add-stay full">
             {/* Header */}
             <header className="add-header">
-                <NavLink>
-                    <Logo />
-                </NavLink>
-                <div className="exit">
-                    <button>Exit</button>
-                </div>
+                <Link to="/">
+                    <Logo className="logo" />
+                </Link>
+                <Link to="/">
+                    <div className="exit">
+                        <button>Exit</button>
+                    </div>
+                </Link>
+
             </header>
 
             {/* Main Content */}
@@ -373,8 +387,13 @@ export function StayAdd() {
                         </div>
 
                         <div className="location-form">
+                            {/* <div className="address"> */}
+                            {/* <div className="map"></div> */}
                             <label>
                                 Address:
+                                {/* <AddressSearch /> */}
+                                {/* <input /> */}
+                                {/* </div> */}
                                 <input
                                     type="text"
                                     name="address"
@@ -444,19 +463,28 @@ export function StayAdd() {
             </main>
 
             {/* Footer */}
-            <footer className={view === 'initial' ? 'stay-add-footer initial-footer' : 'stay-add-footer'}>
-                {view !== 'initial' && (
-                    <button onClick={goToPreviousView} className="back-btn">
+            <div className="full main-container add-stay stay-add-footer-wrapper">
+                <footer className={'stay-add-footer'}>
+
+                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: (view === 'initial') && 'hidden' }}>
                         Back
                     </button>
-                )}
-                {view !== 'location' ? (
-                    <button onClick={goToNextView} className="next-btn">
-                        Next
-                    </button>
-                ) : <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                }
-            </footer>
-        </section>
+
+                    {view === 'initial' ?
+                        <button className="reserve-btn" onClick={goToNextView}>
+                            Get Started
+                        </button>
+                        :
+                        view === 'location' ? (
+                            <Link to="/">
+                                <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                            </Link>) :
+                            <button onClick={goToNextView} className="next-btn">
+                                Next
+                            </button>
+                    }
+                </footer>
+            </div>
+        </section >
     );
 }

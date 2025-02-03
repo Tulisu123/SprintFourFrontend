@@ -8,6 +8,10 @@
         grid-template-columns: minmax(80px, 1fr) minmax(auto, 1120px) minmax(80px, 1fr);
     }
 
+    &.add-stay {
+        grid-template-columns: minmax(auto, 48px) 1fr minmax(auto, 48px);
+    }
+
     >* {
         grid-column: 2;
 

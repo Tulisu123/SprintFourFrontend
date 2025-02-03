@@ -82,3 +82,34 @@ a.underline {
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
+
+// Design helpers
+
+.person-image {
+    width: 3rem;
+    height: 3rem;
+
+    img {
+        border-radius: 50%;
+    }
+}
+
+.user-profile-letter {
+    background-color: $main-writing-color;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-content: center;
+}
+
+@-moz-document url-prefix() {
+    .expand .filter-search {
+        position: absolute;
+    }
+
+    .user-profile-letter div {
+        top: -1px;
+    }
+}

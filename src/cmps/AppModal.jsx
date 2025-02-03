@@ -27,7 +27,7 @@ export function AppModal({ stay, modalType, isModalActive, setIsModalActive, mod
     return (
         <>
             {isModalActive &&
-                <div className="modal-container" onClick={onClose}>
+                <div className="modal-container main-container stay" onClick={onClose}>
 
                     <div className="modal" onClick={onModalClick}>
                         <div className="modal-header">

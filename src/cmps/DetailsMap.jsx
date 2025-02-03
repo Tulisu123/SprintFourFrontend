@@ -7,24 +7,7 @@ import {
 
 const API_KEY = 'AIzaSyDkzO6s6YGwc3GuJIuADmZoM2xyyZrvAiE';
 
-export const DetailsMap = ({ address }) => {
-    const [coordinates, setCoordinates] = useState(null);
-    setKey("AIzaSyDkzO6s6YGwc3GuJIuADmZoM2xyyZrvAiE")
-    useEffect(() => {
-        fromAddress(`${address}`)
-            .then(({ results }) => {
-                const { lat, lng } = results[0].geometry.location;
-                console.log(lat, lng);
-                setCoordinates({ lat, lng });
-            })
-            .catch(console.error);
-
-        return () => {
-            setCoordinates(null)
-        }
-    }, [address])
-
-
+export const DetailsMap = ({ address, coordinates }) => {
     return (
         <APIProvider apiKey={API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
             {coordinates &&

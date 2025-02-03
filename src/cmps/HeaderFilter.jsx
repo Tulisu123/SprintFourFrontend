@@ -110,6 +110,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                             className="filter-action filter-checkin"
                             value={formatDate(checkInDate) || 'Add Dates'}
                             required
+                            readOnly
                         ></input>
                     </div>
                     <div className="filter-action-container" onClick={() => toggleIsFilterOpen('date-picker')}>
@@ -118,6 +119,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                             className="filter-action filter-checkout"
                             value={formatDate(checkOutDate) || 'Add Dates'}
                             required
+                            readOnly
                         ></input>
                     </div>
                     <div className="filter-action-container who" onClick={() => toggleIsFilterOpen('guest-selector')}>
@@ -125,6 +127,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                         <input
                             className="filter-action filter-who"
                             value={formGuests(guests) || "Add guests"}
+                            readOnly
                         ></input>
                     </div>
                     <button className="filter-search long-btn">

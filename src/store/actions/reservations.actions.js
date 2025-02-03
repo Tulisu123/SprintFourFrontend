@@ -2,7 +2,7 @@ import { ADD_RESERVATION, UPDATE_RESERVATION_STATUS, SET_RESERVATIONS } from '..
 import { userService } from '../../services/user'
 import { store } from '../store'
 import { stayService } from '../../services/stay'
-import { reservationService } from '../../services/reservation/reservation.service.local';
+import { reservationService } from '../../services/reservation/'
 
 export async function loadReservationsByUser(hostId) {
     try {
@@ -15,6 +15,7 @@ export async function loadReservationsByUser(hostId) {
 }
 
 export async function book(reservation) {
+    console.log(reservation)
     const host = await userService.getById(reservation.host)
     const stay = await stayService.getById(reservation.stayId)
 
@@ -22,12 +23,13 @@ export async function book(reservation) {
         ...stay,
         reservedDates: [
             ...stay.reservedDates,
-            { start: _shortenDate(reservation.start), end: _shortenDate(reservation.end) }
+            { start: reservation.start, end: reservation.end }
         ]
     }
-    await userService.addBookingToUser(reservation._id, host._id)
-    await stayService.save(stayToUpdate)
-    await addReservation(reservation)
+    console.log('stayToUpdate in action', stayToUpdate)
+    await userService.addBookingToUser(reservation._id, host._id) //todo - V
+    await stayService.save(stayToUpdate) //TODO - backend
+    await addReservation(reservation) // TODO- BACKEND - MONGO
 }
 
 export async function addReservation(reservetion) {
@@ -46,7 +48,7 @@ export async function updateReservationStatus(id, status) {
     store.dispatch({ type: UPDATE_RESERVATION_STATUS, id, status })
     const reserve = await reservationService.getById(id)
     reserve.status = status
-    await reservationService.save(reserve)
+    await reservationService.edit(reserve)
 }
 
 export function setReservations(reservations) {

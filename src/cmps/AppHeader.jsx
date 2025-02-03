@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'; import { useSelector } from 'react-redux';
 import Logo from './Logo';
 import { HeaderFilter } from './HeaderFilter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeaderUserControls } from './HeaderUserControls';
 import { HeaderAuthMenu } from './HeaderAuthMenu';
 import { GenericCmp } from './GenericCmp';
@@ -14,7 +14,7 @@ import { stayService } from '../services/stay';
 import { logout } from '../store/actions/user.actions';
 
 
-export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen }) {
+export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, setIsClosing, user, isLoginSignupOpen, setIsLoginSignupOpen, classNameToAdd }) {
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -29,6 +29,20 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 	const [checkOutDate, setCheckOutDate] = useState('')
 	const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
 	const [where, setWhere] = useState('')
+
+	useEffect(() => {
+		const handleKeyDown = (event) => {
+			if (inputModal && event.key === 'Escape') {
+				setInputModal(false)
+			}
+		}
+
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+		}
+	}, [inputModal])
 
 	function onToggleMenu() {
 		setIsAuthMenuOpen(!isAuthMenuOpen)
@@ -112,11 +126,12 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 
 	return (
 		<>
-			<div className="headers main-container full">
+			<div className={'headers main-container full'
+				+ (classNameToAdd ? ` ${classNameToAdd}` : '')}>
 
 
 				<header
-					className={`app-header main-container full grid`}
+					className={`app-header main-container full grid` + (classNameToAdd ? ` ${classNameToAdd}` : '')}
 					onClick={isMenuOpen}
 				>
 					<nav className={`${isExpanded ? 'expand' : ''} ${!isHomepage ? 'in-stay-details' : ''}`}>
@@ -133,7 +148,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 							checkOutDate={checkOutDate}
 							setCheckOutDate={setCheckOutDate}
 							guests={guests}
-							setGusets={setGuests}
+							setGuests={setGuests}
 							where={where}
 							setWhere={setWhere}
 							isHomepage={isHomepage}
