@@ -66,3 +66,22 @@ export function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+export function prepareDate(longDate){
+    if (!longDate) {
+        console.error('Invalid date:', longDate);
+        return '';
+    }
+
+    // Handle Date object or ISO format
+    if (Object.prototype.toString.call(longDate) === '[object Date]') {
+        return longDate.toISOString().split('T')[0];  // Convert Date to ISO and strip time
+    }
+
+    if (longDate.includes('T')) {
+        return longDate.split('T')[0];  // Strip time if present
+    }
+
+    // If it’s already in YYYY-MM-DD format, return as is
+    return longDate;
+}
