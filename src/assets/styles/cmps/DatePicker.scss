@@ -4,8 +4,15 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 773px;
-    height: 479px;
+    // width: 773px;
+    // height: 479px;
+    max-height: 59dvh;
+
+    .rdrMonthAndYearWrapper {
+        position: absolute;
+        top: -10px;
+        width: 100%;
+    }
 
     .rdrMonthAndYearWrapper .rdrNextPrevButton,
     .rdrPprevButton {
@@ -25,7 +32,7 @@
     }
 
     .rdrNextPrevButton {
-        margin-top: 90px;
+        // margin-top: 90px;
         border-radius: 50%;
         background-color: white;
     }
@@ -196,4 +203,12 @@
 .rdrDay:not(.rdrDayPassive) .rdrEndEdge~.rdrDayNumber span,
 .rdrDay:not(.rdrDayPassive) .rdrSelected~.rdrDayNumber span {
     color: rgb(255, 255, 255);
+}
+
+.rdrCalendarWrapper {
+    position: relative;
+}
+
+button.rdrNextPrevButton:nth-child(1) {
+    position: static;
 }
