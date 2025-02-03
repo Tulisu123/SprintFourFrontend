@@ -417,11 +417,12 @@
     }
 
     .location-form {
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // flex-direction: column;
-        // gap: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+
         margin-top: 20px;
         display: grid;
 
@@ -440,11 +441,11 @@
 
     .location-form input,
     .summary-input {
-        // padding: 8px;
-        // width: 400px;
-        // max-width: 400px;
-        // border: 1px solid #ccc;
-        // border-radius: 4px;
+        padding: 8px;
+        width: 400px;
+        max-width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
     }
 
     .warning-text {
