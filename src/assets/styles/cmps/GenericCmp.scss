@@ -26,13 +26,13 @@
     transform: translate(-50%, -50%) scale(1);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     /* Smooth opening/closing animation */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 
     border-radius: 32px;
-    width: 850px;
-    height: 511px;
+    // width: 850px;
+    // height: 511px;
     background-color: white;
     position: absolute;
     top: 20rem;
@@ -42,10 +42,11 @@
 }
 
 .block:has(.suggested-locations-container) {
-    width: 428px;
-    height: 500px;
-    top: 19.7rem;
-    left: 13.2rem;
+    // width: 428px;
+    // height: 500px;
+    top: 14rem;
+    left: 12.9rem;
+
 }
 
 .block:has(.guest-selector) {
