@@ -91,7 +91,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
                     onRemoveStay={onRemoveStay}
                     onUpdateStay={onUpdateStay}
                 />
-                <button className="show-map-btn" onClick={toggleMap}>
+                {/* <button className="show-map-btn" onClick={toggleMap}>
                     Show map <i class="fa-regular fa-map"></i>
                 </button>
                 {isMapVisible && (
@@ -99,7 +99,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
                         <h3>Map</h3>
                         <button onClick={toggleMap}>Close Map</button>
                     </div>
-                )}
+                )} */}
             </main>
             <AppFooter />
         </>
