@@ -1,6 +1,7 @@
 .suggested-locations-container {
     max-height: 59dvh;
-    overflow: scroll;
+    // overflow: scroll;
+    overflow: auto;
     overscroll-behavior: contain;
 
     // width: 428px;

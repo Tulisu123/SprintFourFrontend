@@ -28,7 +28,7 @@
     z-index: 210;
     position: relative;
     max-height: calc(100dvh - rem(52px));
-    overflow: scroll;
+    overflow: auto;
 
     .modal-header {
         position: fixed;
