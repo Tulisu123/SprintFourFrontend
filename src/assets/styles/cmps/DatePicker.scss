@@ -6,7 +6,7 @@
     flex-direction: column;
     // width: 773px;
     // height: 479px;
-    max-height: 59dvh;
+    // max-height: 59dvh;
 
     .rdrMonthAndYearWrapper {
         position: absolute;
@@ -88,6 +88,9 @@
     .rdrDayDisabled {
         background-color: inherit;
         cursor: auto;
+
+        text-decoration: line-through;
+        text-decoration-color: #AEB9BF;
     }
 
     .rdrDayToday {
