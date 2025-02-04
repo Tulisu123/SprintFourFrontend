@@ -83,8 +83,12 @@
 
             &.expanded {
                 margin-block-start: 64px;
-                position: relative;
+                // position: relative;
                 width: min(100%, 850px);
+
+                position: absolute;
+                left: 50%;
+                translate: -50%;
             }
 
             *:not(input) {
@@ -213,6 +217,9 @@
         }
 
         .not-expanded {
+            position: absolute;
+            left: 50%;
+            translate: -50%;
             width: max-content;
             padding-left: 20px;
             height: 48px;
@@ -301,6 +308,7 @@
     nav.expand {
         // height: 168px;
         align-items: unset;
-        margin-block-end: 23px;
+        // margin-block-end: 23px;
+        height: 150px;
     }
 }
