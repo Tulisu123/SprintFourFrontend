@@ -23,7 +23,7 @@
     z-index: 1000;
     /* Ensure it's above the backdrop */
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    // transform: translate(-50%, -50%) scale(1);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     /* Smooth opening/closing animation */
     // display: flex;
@@ -56,9 +56,8 @@
 .block:has(.suggested-locations-container) {
     // width: 428px;
     // height: 500px;
-    top: 14rem;
-    left: 12.9rem;
-
+    top: 24px;
+    left: 0;
 }
 
 .block:has(.guest-selector) {

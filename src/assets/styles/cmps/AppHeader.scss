@@ -68,10 +68,10 @@
             box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
             border-radius: 32px;
 
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 15px;
+            // position: absolute;
+            // left: 50%;
+            // transform: translateX(-50%);
+            // bottom: 15px;
 
             height: 66px;
             width: 850px;
@@ -80,6 +80,12 @@
             align-items: center;
 
             transition: 0.3s ease;
+
+            &.expanded {
+                margin-block-start: 64px;
+                position: relative;
+                width: min(100%, 850px);
+            }
 
             *:not(input) {
                 cursor: pointer;
@@ -293,8 +299,8 @@
     }
 
     nav.expand {
-        height: 168px;
+        // height: 168px;
         align-items: unset;
-        // margin-top: 30px;
+        margin-block-end: 23px;
     }
 }
