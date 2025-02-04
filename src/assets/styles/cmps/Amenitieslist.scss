@@ -29,8 +29,11 @@
 
         &.amenitie-modal {
             padding: rem(24px);
-            border-bottom: 1px solid $border-color;
             width: 100%;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-color;
+            }
         }
     }
 
