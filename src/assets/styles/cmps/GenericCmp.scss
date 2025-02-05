@@ -43,6 +43,11 @@
 
 .block:has(.date-picker) {
     /* display: grid; */
+
+    max-height: 65dvh;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+
     padding: 20px;
     width: 100%;
     display: flex;
