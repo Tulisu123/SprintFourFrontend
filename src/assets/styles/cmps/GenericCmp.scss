@@ -44,12 +44,10 @@
 .block:has(.date-picker) {
     /* display: grid; */
     padding: 20px;
-    max-height: 59dvh;
-    overflow-y: scroll;
-    overscroll-behavior: contain;
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 .block:has(.suggested-locations-container) {
