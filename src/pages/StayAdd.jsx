@@ -8,7 +8,7 @@ import { addStay } from "../store/actions/stay.actions";
 import { AddressSearch } from "../cmps/AddressSearch.jsx"
 
 export function StayAdd({ user }) {
-    const views = ['initial', 'placeType', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
+    const views = ['initial', 'labels', 'placeType', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
     const [selectedAmenities, setSelectedAmenities] = useState([])
@@ -229,6 +229,27 @@ export function StayAdd({ user }) {
                     </>
                 )}
 
+                {view === 'placeType' && (
+                    <div className="place-type-selection">
+                        <h2>What type of place will guests have?</h2>
+                        <div className="place-type-options">
+                            {placeTypes.map(({ type, description, icon }) => (
+                                <div
+                                    key={type}
+                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
+                                    onClick={() => handlePlaceTypeSelection(type)}
+                                >
+                                    <div className="place-type-info">
+                                        <h3>{type}</h3>
+                                        <p>{description}</p>
+                                    </div>
+                                    <span className="place-type-icon">{icon}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {view === 'labels' && (
                     <div className="labels-view">
                         <div className="desc-container">
@@ -252,29 +273,14 @@ export function StayAdd({ user }) {
                                 'Dome',
                                 'Earth home',
                             ].map((label) => (
-                                <div className={`label-item ${labels.includes(label) ? 'selected' : ''}`} key={label} onClick={() => onAddLabel(label)}>
-                                    <span>{label}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {view === 'placeType' && (
-                    <div className="place-type-selection">
-                        <h2>What type of place will guests have?</h2>
-                        <div className="place-type-options">
-                            {placeTypes.map(({ type, description, icon }) => (
                                 <div
-                                    key={type}
-                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
-                                    onClick={() => handlePlaceTypeSelection(type)}
+                                    className={`label-item ${labels.includes(label) ? 'selected' : ''}`}
+                                    key={label}
+                                    onClick={() => onAddLabel(label)}
                                 >
-                                    <div className="place-type-info">
-                                        <h3>{type}</h3>
-                                        <p>{description}</p>
-                                    </div>
-                                    <span className="place-type-icon">{icon}</span>
+                                    {label === 'House' && <i className="fa-sharp fa-light fa-house"></i>}
+                                    {label === 'Apartment' && <i class="fa-sharp fa-light fa-apartment"></i>}
+                                    <span>{label}</span>
                                 </div>
                             ))}
                         </div>
