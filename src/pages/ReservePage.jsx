@@ -66,8 +66,8 @@ export function ReservePage() {
     }
 
     async function onBookReserve() {
-        await book(finalReserve)
         navigate('/')
+        await book(finalReserve)
     }
 
     return (
