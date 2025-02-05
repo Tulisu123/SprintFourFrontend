@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../cmps/Logo";
 import { useState, useRef } from "react";
 import { GuestSelector } from "../cmps/GuestSelector";
@@ -17,7 +17,7 @@ export function StayAdd({ user }) {
     const [pricePerNight, setPricePerNight] = useState('')
     const [selectedPlaceType, setSelectedPlaceType] = useState('Entire place')
     const [labels, setLabels] = useState([])
-
+    const navigate = useNavigate()
     const placeTypes = [
         {
             type: 'Entire place',
@@ -101,7 +101,7 @@ export function StayAdd({ user }) {
         newPlace.reservedDates = []
 
         await addStay(newPlace)
-
+        navigate('/')
     }
 
     function handlePriceChange(event) {
@@ -475,9 +475,9 @@ export function StayAdd({ user }) {
                         </button>
                         :
                         view === 'location' ? (
-                            <Link to="/">
-                                <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                            </Link>) :
+                            <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
+                        )
+                            :
                             <button onClick={goToNextView} className="next-btn">
                                 Next
                             </button>
