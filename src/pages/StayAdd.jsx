@@ -97,7 +97,7 @@ export function StayAdd() {
         newPlace.capacity = getGuestsNumber()
         newPlace.amenities = selectedAmenities
         newPlace.roomType = ''
-        newPlace.host = user
+        newPlace.host = {...user}
         newPlace.loc = {
             country: location.country,
             countryCode: location.countryCode,
