@@ -363,7 +363,7 @@
     }
 
     @function px-to-em($px, $base) {
-        @return $px / $base +0em;
+        @return calc(1em * $px / $base);
     }
 
     .stay-reserve {
