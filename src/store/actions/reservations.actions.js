@@ -35,7 +35,7 @@ export async function book(reservation) {
 export async function addReservation(reservetion) {
     console.log('adding reserve in action', reservetion)
     try {
-        const newReserve = await reservationService.save(reservetion)
+        const newReserve = await reservationService.save(reservetion,'add')
         return newReserve
 
     } catch (err) {
@@ -48,7 +48,7 @@ export async function updateReservationStatus(id, status) {
     store.dispatch({ type: UPDATE_RESERVATION_STATUS, id, status })
     const reserve = await reservationService.getById(id)
     reserve.status = status
-    await reservationService.edit(reserve)
+    await reservationService.save(reserve,'edit')
 }
 
 export function setReservations(reservations) {

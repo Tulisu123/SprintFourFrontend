@@ -66,8 +66,8 @@ export function ReservePage() {
     }
 
     async function onBookReserve() {
-        await book(finalReserve)
         navigate('/')
+        await book(finalReserve)
     }
 
     return (
@@ -178,7 +178,7 @@ export function ReservePage() {
                                 <h2>Price details</h2>
                                 <div className="price-item">
                                     <p>₪ {stay && stay.price} x {days} nights</p>
-                                    <p>₪ 300.30</p>
+                                    <p>₪ {stay && price}</p>
                                 </div>
                                 <div className="price-item">
                                     <p>Airbnb service fee</p>
@@ -187,7 +187,7 @@ export function ReservePage() {
                                 <div className="border"></div>
                                 <div className="price-item total-price">
                                     <p>Total (₪)</p>
-                                    <p>₪ {stay && price}</p>
+                                    <p>₪ {stay && +price + 31}</p>
                                 </div>
                             </div>
                         </aside>

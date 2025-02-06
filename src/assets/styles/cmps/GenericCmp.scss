@@ -23,29 +23,43 @@
     z-index: 1000;
     /* Ensure it's above the backdrop */
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    // transform: translate(-50%, -50%) scale(1);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     /* Smooth opening/closing animation */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 
     border-radius: 32px;
-    width: 850px;
-    height: 511px;
+    // width: 850px;
+    // height: 511px;
     background-color: white;
     position: absolute;
-    top: 20rem;
-    left: 50%;
+    top: 64px;
+    // left: 50%;
     // transform: translate(-50%, -50%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.block:has(.date-picker) {
+    /* display: grid; */
+
+    max-height: 65dvh;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
 .block:has(.suggested-locations-container) {
-    width: 428px;
-    height: 500px;
-    top: 19.7rem;
-    left: 13.2rem;
+    // width: 428px;
+    // height: 500px;
+
+    left: 0;
 }
 
 .block:has(.guest-selector) {
@@ -54,8 +68,8 @@
     height: auto;
     padding-inline: 32px;
     padding-block: 16px;
-    top: 16.4rem;
-    left: 40.5rem;
+    right: 0;
+
 
 }
 

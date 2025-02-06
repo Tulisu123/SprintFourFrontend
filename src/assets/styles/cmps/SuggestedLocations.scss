@@ -1,10 +1,11 @@
 .suggested-locations-container {
-    width: 428px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+    // width: 428px;
+    // height: 500px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    padding-inline-start: 20px;
+    padding-block: 20px;
     border-radius: 32px;
 
     h1 {
@@ -28,7 +29,7 @@
     }
 
     .location {
-        height: 56px;
+        // height: 56px;
         width: 377px;
         display: flex;
         gap: 10px;
@@ -64,4 +65,24 @@
         /* Light gray hover effect */
         border-radius: 10px;
     }
+}
+
+.locations-list-container {
+    padding-inline-end: 20px;
+    max-height: 59dvh;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+
+.locations-list-container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+    // border-radius: 50px;
+}
+
+.locations-list-container::-webkit-scrollbar-thumb {
+    background: #8e8e8e;
+    border-radius: 50px;
+    // height: 4px;
 }

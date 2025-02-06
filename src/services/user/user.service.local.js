@@ -2,7 +2,7 @@ import { storageService } from '../async-storage.service';
 import { loadFromStorage } from "../util.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser';
-// createDemoData()
+createDemoData()
 export const userService = {
     login,
     logout,
@@ -49,9 +49,9 @@ async function update({ _id, score }) {
 async function addBookingToUser(bookingId, userId) {
     console.log('Adding booking id to reservations')
     const user = await getById(userId)
-    if (user.reservetions.find(bookId => bookId === bookingId)) return
+    if (user.reservations?.find(bookId => bookId === bookingId)) return
 
-    user.reservetions.push(bookingId)
+    user.reservations.push(bookingId)
 
     return await storageService.put('user', user)
 }
@@ -100,27 +100,67 @@ function saveLoggedinUser(user) {
 
 // Demo data creation function
 async function createDemoData() {
-    if (loadFromStorage('user')) return
-    const demoUsers = Array.from({ length: 10 }, (_, i) => ({
-        _id: `u10${i + 1}`,
-        fullname: `User ${i + 1}`,
-        imgUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        username: `user${i + 1}`,
-        password: `user${i + 1}`,
-        reservetions: [`r${i + 1}`],
-        isAdmin: false,
-    }))
+    if (loadFromStorage('user')) return;
 
-    // Combine all demo users
-    const allUsers = [...demoUsers];
+    const demoUsers = [
+        {
+            "_id": "S4dPn",
+            "username": "user1",
+            "password": "user1",
+            "fullname": "User 1",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "reservations": []
+        },
+        {
+            "_id": "pZFT4",
+            "username": "user2",
+            "password": "user2",
+            "fullname": "User 2",
+            "reservations": [],
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+        },
+        {
+            "_id": "cveg7",
+            "username": "user3",
+            "password": "user3",
+            "fullname": "User 3",
+            "reservations": [],
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+        },
+        {
+            "_id": "H3qQF",
+            "username": "user4",
+            "password": "user4",
+            "fullname": "User 4",
+            "reservations": [],
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+        },
+        {
+            "_id": "Wl0m8",
+            "username": "user5",
+            "password": "user5",
+            "fullname": "User 5",
+            "reservations": [],
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+        },
+        {
+            "_id": "hwTN9",
+            "username": "user6",
+            "password": "user6",
+            "fullname": "User 6",
+            "reservations": ["xFAoIi"],
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+        }
+    ];
 
-    // Store in localStorage using storageService
-    for (const user of allUsers) {
-        await storageService.post('user', user);
+    // Store each user in localStorage using storageService
+    for (const user of demoUsers) {
+        await storageService.postWithoutIds('user', user);
     }
 
-    console.log('Demo data created successfully!');
+    console.log('Demo user data created successfully!');
 }
+
 
 // Helper function to generate unique IDs
 function generateId(length = 6) {

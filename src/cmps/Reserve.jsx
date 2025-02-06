@@ -164,6 +164,7 @@ export function Reserve() {
             guests: reserveDetails.guests,
             price: reserveDetails.price,
             days: reserveDetails.days,
+            totalPrice: reserveDetails.totalPrice
         }).toString()
 
         navigate(`/reservation-summary?${urlParams}`)

@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../cmps/Logo";
 import { useState, useRef } from "react";
 import { GuestSelector } from "../cmps/GuestSelector";
@@ -6,17 +6,26 @@ import { stayService } from "../services/stay";
 import { useSelector } from "react-redux";
 import { addStay } from "../store/actions/stay.actions";
 import { AddressSearch } from "../cmps/AddressSearch.jsx"
+import { LoginSignup } from "../cmps/LoginSignup.jsx";
 
 export function StayAdd({ user }) {
     const views = ['initial', 'labels', 'placeType', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
     const [selectedAmenities, setSelectedAmenities] = useState([])
-    const [imgUrls, setImgUrls] = useState([])
+    const [imgUrls, setImgUrls] = useState([
+        "https://coralhomes.com.au/wp-content/uploads/Grange-258Q-Harmony-Lodge-Facade-2-1190x680.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV6Qvul25rQHGYB8Kg_j3Tph4X21zHkqzH_w&s",
+        "https://www.thespruce.com/thmb/S1aye-s9z6VRA58-V8oRLSQwKCc=/5100x0/filters:no_upscale():max_bytes(150000):strip_icc()/SPR-luxury-kitchens-5211364-hero-688d716970544978bc12abdf17ce6f83.jpg",
+        "https://www.houselogic.com/wp-content/uploads/2023/08/easy-clean-modern-bathroom-hero.jpg?crop&resize=2048%2C1365&quality=80",
+        "https://media-cdn.tripadvisor.com/media/photo-s/0e/a2/00/d7/graden-at-centre-de-la.jpg"
+    ])
     const fileInputRef = useRef(null)
     const [pricePerNight, setPricePerNight] = useState('')
     const [selectedPlaceType, setSelectedPlaceType] = useState('Entire place')
     const [labels, setLabels] = useState([])
+    const user = useSelector((storeState) => storeState.userModule.user);
+    const navigate = useNavigate()
 
     const placeTypes = [
         {
@@ -57,13 +66,16 @@ export function StayAdd({ user }) {
     ]
 
     const [location, setLocation] = useState({
-        name: '',
-        summary: '',
-        address: '',
-        city: '',
-        country: '',
-        countryCode: '',
+        name: 'Generic Beautiful place',
+        summary: 'This place was created by our application as part of a demonstration to showcase its capabilities. It represents an example location that highlights how our platform can dynamically generate content, manage data, and deliver a personalized experience. The information provided here, including images, descriptions, and user-generated content, is intended solely for demonstration purposes and does not reflect any real location. As part of the demo, you can explore how booking details, user profiles, and interactive features work seamlessly within the system. Our goal is to provide an engaging and user-friendly environment to simulate a real-world experience.',
+        address: 'Tel Aviv, 34, Israel',
+        city: 'Tel Aviv',
+        country: 'Israel',
+        countryCode: '99750',
     })
+
+
+    /////////////
 
     function isLocationComplete() {
         return (
@@ -84,7 +96,7 @@ export function StayAdd({ user }) {
         newPlace.capacity = getGuestsNumber()
         newPlace.amenities = selectedAmenities
         newPlace.roomType = ''
-        newPlace.host = user
+        newPlace.host = {...user}
         newPlace.loc = {
             country: location.country,
             countryCode: location.countryCode,
@@ -101,7 +113,7 @@ export function StayAdd({ user }) {
         newPlace.reservedDates = []
 
         await addStay(newPlace)
-
+        navigate('/')
     }
 
     function handlePriceChange(event) {
@@ -181,6 +193,13 @@ export function StayAdd({ user }) {
         }
     }
 
+    if(!user){
+        setTimeout(() => {
+            navigate('/')
+        }, 3000)
+        return <div className="redirect">You are not logged in, Please log in/signup from the main page</div>
+    }
+
     return (
         <section className="add-flow main-container add-stay full">
             {/* Header */}
@@ -194,7 +213,7 @@ export function StayAdd({ user }) {
                     </div>
                 </Link>
             </header>
-
+            
             {/* Main Content */}
             <main className={`main-content ${view}`}>
                 {view === 'initial' && (
