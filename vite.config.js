@@ -8,4 +8,7 @@ export default defineConfig({
 		outDir: '../backend/public',
 		emptyOutDir: true,
 	},
+	css: {
+		devSourcemap: true
+	}
 })
