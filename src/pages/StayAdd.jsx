@@ -8,7 +8,7 @@ import { addStay } from "../store/actions/stay.actions";
 import { AddressSearch } from "../cmps/AddressSearch.jsx"
 import { LoginSignup } from "../cmps/LoginSignup.jsx";
 
-export function StayAdd({ user }) {
+export function StayAdd() {
     const views = ['initial', 'labels', 'placeType', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
@@ -96,7 +96,7 @@ export function StayAdd({ user }) {
         newPlace.capacity = getGuestsNumber()
         newPlace.amenities = selectedAmenities
         newPlace.roomType = ''
-        newPlace.host = {...user}
+        newPlace.host = { ...user }
         newPlace.loc = {
             country: location.country,
             countryCode: location.countryCode,
@@ -193,7 +193,7 @@ export function StayAdd({ user }) {
         }
     }
 
-    if(!user){
+    if (!user) {
         setTimeout(() => {
             navigate('/')
         }, 3000)
@@ -213,7 +213,7 @@ export function StayAdd({ user }) {
                     </div>
                 </Link>
             </header>
-            
+
             {/* Main Content */}
             <main className={`main-content ${view}`}>
                 {view === 'initial' && (
