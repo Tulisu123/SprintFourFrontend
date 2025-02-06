@@ -497,12 +497,12 @@ export function StayAdd({ user }) {
 
                     {/* Next Button */}
                     {view === 'initial' ? (
-                        <button className="next-btn" onClick={goToNextView}>
+                        <button className="reserve-btn" onClick={goToNextView}>
                             Get Started
                         </button>
                     ) : view === 'location' ? (
                         <Link to="/">
-                            <button className="next-btn" onClick={onAddPlace}>Publish</button>
+                            <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
                         </Link>
                     ) : (
                         <button onClick={goToNextView} className="next-btn">
