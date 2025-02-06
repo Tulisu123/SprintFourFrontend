@@ -9,7 +9,7 @@ import { AddressSearch } from "../cmps/AddressSearch.jsx"
 import { LoginSignup } from "../cmps/LoginSignup.jsx";
 
 export function StayAdd() {
-    const views = ['initial', 'placeType', 'labels', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
+    const views = ['initial', 'labels', 'placeType', 'guests', 'amenities', 'photos', 'pricing', 'location'] // Define ordered views
     const [view, setView] = useState('initial', 'placeType');
     const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
     const [selectedAmenities, setSelectedAmenities] = useState([])
@@ -55,14 +55,14 @@ export function StayAdd() {
     }
 
     const amenitiesList = [
-        { name: 'Wifi' },
-        { name: 'TV' },
-        { name: 'Kitchen' },
-        { name: 'Washer' },
-        { name: 'Free parking on premises' },
-        { name: 'Paid parking on premises' },
-        { name: 'Air conditioning' },
-        { name: 'Dedicated workspace' },
+        { name: 'Wifi', icon: <i className="fa-solid fa-wifi"></i> },
+        { name: 'TV', icon: <i className="fa-solid fa-tv"></i> },
+        { name: 'Kitchen', icon: <i className="fa-solid fa-utensils"></i> },
+        { name: 'Washer', icon: <i className="fa-solid fa-soap"></i> },
+        { name: 'Free parking on premises', icon: <i className="fa-solid fa-square-parking"></i> },
+        { name: 'Paid parking on premises', icon: <i className="fa-solid fa-circle-dollar-to-slot"></i> },
+        { name: 'Air conditioning', icon: <i className="fa-solid fa-snowflake"></i> },
+        { name: 'Dedicated workspace', icon: <i className="fa-solid fa-laptop-house"></i> },
     ]
 
     const [location, setLocation] = useState({
@@ -96,7 +96,7 @@ export function StayAdd() {
         newPlace.capacity = getGuestsNumber()
         newPlace.amenities = selectedAmenities
         newPlace.roomType = ''
-        newPlace.host = {...user}
+        newPlace.host = { ...user }
         newPlace.loc = {
             country: location.country,
             countryCode: location.countryCode,
@@ -193,7 +193,7 @@ export function StayAdd() {
         }
     }
 
-    if(!user){
+    if (!user) {
         setTimeout(() => {
             navigate('/')
         }, 3000)
@@ -212,9 +212,8 @@ export function StayAdd() {
                         <button>Exit</button>
                     </div>
                 </Link>
-
             </header>
-            
+
             {/* Main Content */}
             <main className={`main-content ${view}`}>
                 {view === 'initial' && (
@@ -248,6 +247,27 @@ export function StayAdd() {
                     </>
                 )}
 
+                {view === 'placeType' && (
+                    <div className="place-type-selection">
+                        <h2>What type of place will guests have?</h2>
+                        <div className="place-type-options">
+                            {placeTypes.map(({ type, description, icon }) => (
+                                <div
+                                    key={type}
+                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
+                                    onClick={() => handlePlaceTypeSelection(type)}
+                                >
+                                    <div className="place-type-info">
+                                        <h3>{type}</h3>
+                                        <p>{description}</p>
+                                    </div>
+                                    <span className="place-type-icon">{icon}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {view === 'labels' && (
                     <div className="labels-view">
                         <div className="desc-container">
@@ -271,29 +291,27 @@ export function StayAdd() {
                                 'Dome',
                                 'Earth home',
                             ].map((label) => (
-                                <div className={`label-item ${labels.includes(label) ? 'selected' : ''}`} key={label} onClick={() => onAddLabel(label)}>
-                                    <span>{label}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {view === 'placeType' && (
-                    <div className="place-type-selection">
-                        <h2>What type of place will guests have?</h2>
-                        <div className="place-type-options">
-                            {placeTypes.map(({ type, description, icon }) => (
                                 <div
-                                    key={type}
-                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
-                                    onClick={() => handlePlaceTypeSelection(type)}
+                                    className={`label-item ${labels.includes(label) ? 'selected' : ''}`}
+                                    key={label}
+                                    onClick={() => onAddLabel(label)}
                                 >
-                                    <div className="place-type-info">
-                                        <h3>{type}</h3>
-                                        <p>{description}</p>
-                                    </div>
-                                    <span className="place-type-icon">{icon}</span>
+                                    {label === 'House' && <i className="fa-sharp fa-light fa-house"></i>}
+                                    {label === 'Apartment' && <i class="fa-sharp fa-light fa-apartment"></i>}
+                                    {label === 'Barn' && <i class="fa-light fa-farm"></i>}
+                                    {label === 'Bed & breakfast' && <i class="fa-light fa-mug-saucer"></i>}
+                                    {label === 'Boat' && <i class="fa-light fa-sailboat"></i>}
+                                    {label === 'Cabin' && <i class="fa-sharp fa-light fa-cabin"></i>}
+                                    {label === 'Camper/RV' && <i class="fa-light fa-caravan"></i>}
+                                    {label === 'Casa particular' && <img src="/src/assets/icons/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
+                                    {label === 'Castle' && <i class="fa-sharp fa-light fa-castle"></i>}
+                                    {label === 'Cave' && <img src="/src/assets/icons/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
+                                    {label === 'Container' && <i class="fa-light fa-container-storage"></i>}
+                                    {label === 'Cycladic home' && <img src="/src/assets/icons/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
+                                    {label === 'Dammuso' && <img src="/src/assets/icons/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
+                                    {label === 'Dome' && <i class="fa-sharp fa-light fa-landmark-dome"></i>}
+                                    {label === 'Earth home' && <i class="fa-sharp fa-light fa-house-tree"></i>}
+                                    <span>{label}</span>
                                 </div>
                             ))}
                         </div>
@@ -480,27 +498,36 @@ export function StayAdd() {
                 )}
             </main>
 
-            {/* Footer */}
             <div className="full main-container add-stay stay-add-footer-wrapper">
-                <footer className={'stay-add-footer'}>
+                <div className="progress-bar">
+                    {views.map((step, index) => (
+                        <div
+                            key={step}
+                            className={`progress-step ${index <= views.indexOf(view) ? 'active' : ''}`}
+                        />
+                    ))}
+                </div>
 
-                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: (view === 'initial') && 'hidden' }}>
+                <footer className="stay-add-footer">
+                    {/* Back Button */}
+                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: view === 'initial' ? 'hidden' : 'visible' }}>
                         Back
                     </button>
 
-                    {view === 'initial' ?
+                    {/* Next Button */}
+                    {view === 'initial' ? (
                         <button className="reserve-btn" onClick={goToNextView}>
                             Get Started
                         </button>
-                        :
-                        view === 'location' ? (
+                    ) : view === 'location' ? (
+                        <Link to="/">
                             <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                        )
-                            :
-                            <button onClick={goToNextView} className="next-btn">
-                                Next
-                            </button>
-                    }
+                        </Link>
+                    ) : (
+                        <button onClick={goToNextView} className="next-btn">
+                            Next
+                        </button>
+                    )}
                 </footer>
             </div>
         </section >
