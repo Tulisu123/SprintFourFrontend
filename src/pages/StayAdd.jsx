@@ -46,14 +46,14 @@ export function StayAdd({ user }) {
     }
 
     const amenitiesList = [
-        { name: 'Wifi' },
-        { name: 'TV' },
-        { name: 'Kitchen' },
-        { name: 'Washer' },
-        { name: 'Free parking on premises' },
-        { name: 'Paid parking on premises' },
-        { name: 'Air conditioning' },
-        { name: 'Dedicated workspace' },
+        { name: 'Wifi', icon: <i className="fa-solid fa-wifi"></i> },
+        { name: 'TV', icon: <i className="fa-solid fa-tv"></i> },
+        { name: 'Kitchen', icon: <i className="fa-solid fa-utensils"></i> },
+        { name: 'Washer', icon: <i className="fa-solid fa-soap"></i> },
+        { name: 'Free parking on premises', icon: <i className="fa-solid fa-square-parking"></i> },
+        { name: 'Paid parking on premises', icon: <i className="fa-solid fa-circle-dollar-to-slot"></i> },
+        { name: 'Air conditioning', icon: <i className="fa-solid fa-snowflake"></i> },
+        { name: 'Dedicated workspace', icon: <i className="fa-solid fa-laptop-house"></i> },
     ]
 
     const [location, setLocation] = useState({
@@ -280,6 +280,19 @@ export function StayAdd({ user }) {
                                 >
                                     {label === 'House' && <i className="fa-sharp fa-light fa-house"></i>}
                                     {label === 'Apartment' && <i class="fa-sharp fa-light fa-apartment"></i>}
+                                    {label === 'Barn' && <i class="fa-light fa-farm"></i>}
+                                    {label === 'Bed & breakfast' && <i class="fa-light fa-mug-saucer"></i>}
+                                    {label === 'Boat' && <i class="fa-light fa-sailboat"></i>}
+                                    {label === 'Cabin' && <i class="fa-sharp fa-light fa-cabin"></i>}
+                                    {label === 'Camper/RV' && <i class="fa-light fa-caravan"></i>}
+                                    {label === 'Casa particular' && <img src="/src/assets/icons/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
+                                    {label === 'Castle' && <i class="fa-sharp fa-light fa-castle"></i>}
+                                    {label === 'Cave' && <img src="/src/assets/icons/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
+                                    {label === 'Container' && <i class="fa-light fa-container-storage"></i>}
+                                    {label === 'Cycladic home' && <img src="/src/assets/icons/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
+                                    {label === 'Dammuso' && <img src="/src/assets/icons/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
+                                    {label === 'Dome' && <i class="fa-sharp fa-light fa-landmark-dome"></i>}
+                                    {label === 'Earth home' && <i class="fa-sharp fa-light fa-house-tree"></i>}
                                     <span>{label}</span>
                                 </div>
                             ))}

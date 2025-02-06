@@ -1,3 +1,9 @@
+$primary-color: rgb(34, 34, 34);
+$border-color: lightgray;
+$hover-border-color: black;
+$hover-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$selected-bg: rgba(0, 0, 0, 0.05);
+
 .add-flow {
     // display: flex;
     // flex-direction: column;
@@ -124,55 +130,64 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding: 20px;
+
+    .desc-container {
+        .desc {
+            font-size: 24px;
+            font-weight: 600;
+            color: $primary-color;
+        }
+    }
 
     .labels-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
+        max-width: 600px;
+
+        .label-item {
+            width: 180px;
+            height: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $border-color;
+            border-radius: 8px;
+            padding: 18px;
+            cursor: pointer;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+
+            i {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 500;
+                color: $primary-color;
+            }
+
+            &:hover {
+                border: 1px solid $hover-border-color;
+                box-shadow: $hover-shadow;
+            }
+
+            &.selected {
+                border: 1px solid $hover-border-color;
+                background-color: $selected-bg;
+            }
+        }
     }
 
-    .label-item span {
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-        color: rgb(34, 34, 34);
+    .label-icon {
+        width: 45px;
+        height: 45px;
     }
-
-    .label-item img {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    .label-item:hover {
-        border: 1px solid black;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .label-item.selected {
-        border: 1px solid black;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .label-item {
-        width: 202px;
-        height: 100px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid lightgray;
-        border-radius: 8px;
-        padding: 20px;
-        cursor: pointer;
-        transition: border 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .desc {
-        font-size: 32px;
-        font-weight: 500;
-    }
-
 }
 
 .guests-view {
@@ -231,6 +246,7 @@
     align-items: flex-start;
     justify-content: center;
     padding: 16px;
+    gap: 5px;
     border: 1px solid #ddd;
     border-radius: 12px;
     cursor: pointer;
@@ -245,11 +261,13 @@
 }
 
 .amenity-item.selected {
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: $selected-bg;
 }
 
 .amenity-item .icon {
     font-size: 24px;
+    color: #222222;
     margin-bottom: 4px;
 }
 
