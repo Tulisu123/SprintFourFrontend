@@ -193,7 +193,6 @@ export function StayAdd({ user }) {
                         <button>Exit</button>
                     </div>
                 </Link>
-
             </header>
 
             {/* Main Content */}
@@ -480,27 +479,36 @@ export function StayAdd({ user }) {
                 )}
             </main>
 
-            {/* Footer */}
             <div className="full main-container add-stay stay-add-footer-wrapper">
-                <footer className={'stay-add-footer'}>
+                <div className="progress-bar">
+                    {views.map((step, index) => (
+                        <div
+                            key={step}
+                            className={`progress-step ${index <= views.indexOf(view) ? 'active' : ''}`}
+                        />
+                    ))}
+                </div>
 
-                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: (view === 'initial') && 'hidden' }}>
+                <footer className="stay-add-footer">
+                    {/* Back Button */}
+                    <button onClick={goToPreviousView} className="back-btn" style={{ visibility: view === 'initial' ? 'hidden' : 'visible' }}>
                         Back
                     </button>
 
-                    {view === 'initial' ?
-                        <button className="reserve-btn" onClick={goToNextView}>
+                    {/* Next Button */}
+                    {view === 'initial' ? (
+                        <button className="next-btn" onClick={goToNextView}>
                             Get Started
                         </button>
-                        :
-                        view === 'location' ? (
-                            <Link to="/">
-                                <button className="reserve-btn" onClick={onAddPlace}>Publish</button>
-                            </Link>) :
-                            <button onClick={goToNextView} className="next-btn">
-                                Next
-                            </button>
-                    }
+                    ) : view === 'location' ? (
+                        <Link to="/">
+                            <button className="next-btn" onClick={onAddPlace}>Publish</button>
+                        </Link>
+                    ) : (
+                        <button onClick={goToNextView} className="next-btn">
+                            Next
+                        </button>
+                    )}
                 </footer>
             </div>
         </section >
