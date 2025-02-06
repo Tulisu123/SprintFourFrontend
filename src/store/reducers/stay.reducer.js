@@ -9,7 +9,7 @@ export const ADD_STAY_MSG = 'ADD_STAY_MSG'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const initialState = {
-    stays: [],
+    stays: null,
     stay: null,
     filterBy: stayService.getDefaultFilter(),
 }
@@ -22,7 +22,7 @@ export function stayReducer(state = initialState, action) {
             newState = { ...state, stays: action.stays }
             break
         case SET_STAY:
-            console.log('action stay',  action.stay )
+            console.log('action stay', action.stay)
             newState = { ...state, stay: action.stay }
             break
         case REMOVE_STAY:
@@ -45,10 +45,10 @@ export function stayReducer(state = initialState, action) {
                 ...state.filterBy,
                 ...action.filterBy, // Merge the incoming updates
             }
-                    
+
             // Save to localStorage for persistence
             localStorage.setItem('filterBy', JSON.stringify(updatedFilterBy))
-        
+
             // Update state with the new filterBy
             newState = {
                 ...state,

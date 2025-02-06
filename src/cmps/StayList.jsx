@@ -12,9 +12,17 @@ export function StayList({ stays, onRemoveStay, onUpdateStay, onToggleWishlist }
         return stay.owner?._id === user._id
     }
 
-    if (!stays || !stays.length) return <div>Loading...</div>
+    if (!stays) return <div>Loading...</div>
+    else if (stays.length === 0) return (
+        <section className='no-matches'>
+            <h1>No exact matches</h1>
+            <p>Try changing or removing some of your filters or adjusting your search area.</p>
+        </section>
+    )
 
     return <section >
+
+
         <ul className="stay-list">
             {stays.map(stay =>
                 <li key={stay._id}>
