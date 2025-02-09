@@ -14,6 +14,7 @@ import { StayFilter } from '../cmps/StayFilter'
 
 import { AppFooter } from '../cmps/AppFooter.jsx'
 import { AppHeader } from '../cmps/AppHeader.jsx';
+import { StayMaps } from './StayMaps.jsx';
 
 export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, isLoginSignupOpen, setIsLoginSignupOpen, user, handleClose }) {
     const stays = useSelector(storeState => storeState.stayModule.stays)
@@ -85,21 +86,20 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
             )}
 
             <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
-            <main className="stay-index">
-                <StayList
-                    stays={stays}
-                    onRemoveStay={onRemoveStay}
-                    onUpdateStay={onUpdateStay}
-                />
-                {/* <button className="show-map-btn" onClick={toggleMap}>
-                    Show map <i class="fa-regular fa-map"></i>
-                </button>
+            <main className={`stay-index ${isMapVisible ? 'map-visible' : ''}`}>
+                {!isMapVisible && (
+                    <StayList
+                        stays={stays}
+                        onRemoveStay={onRemoveStay}
+                        onUpdateStay={onUpdateStay}
+                    />
+                )}
                 {isMapVisible && (
-                    <div className="map-overlay">
-                        <h3>Map</h3>
-                        <button onClick={toggleMap}>Close Map</button>
-                    </div>
-                )} */}
+                    <StayMaps />
+                )}
+                <button className="show-map-btn" onClick={toggleMap}>
+                    {`${isMapVisible ? 'Close Map' : 'Show Map'}`} <i class="fa-regular fa-map"></i>
+                </button>
             </main>
             {/* <AppFooter /> */}
         </>
