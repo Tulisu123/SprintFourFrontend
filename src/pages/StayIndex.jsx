@@ -72,11 +72,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
 
     return (
         <>
-            {inputModal && !isClosing && <div
-                className={`backdrop-container ${isClosing ? 'closing' : ''}`}
-                onClick={handleClose}
-            >
-            </div>}
+
 
             {isLoginSignupOpen.isOpen && !user && <div className="modal-backdrop login" onClick={() => setIsLoginSignupOpen(false)} />}
 
@@ -85,7 +81,15 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
             )}
 
             <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
-            <main className="stay-index">
+
+            <main className="stay-index main-container full">
+
+                {inputModal && !isClosing && <div
+                    className={`backdrop-container full ${isClosing ? 'closing' : ''}`}
+                    onClick={handleClose}
+                >
+                </div>}
+
                 <StayList
                     stays={stays}
                     onRemoveStay={onRemoveStay}

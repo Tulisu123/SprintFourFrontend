@@ -1,4 +1,6 @@
 .stay-index {
+    position: relative;
+
     header {
         display: flex;
         align-items: center;
@@ -14,6 +16,7 @@
         margin-inline-end: 0;
     }
 }
+
 .modal-backdrop {
     background-color: rgb(34, 34, 34);
     opacity: 0.4;
