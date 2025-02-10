@@ -10,5 +10,8 @@ export default defineConfig({
 	},
 	css: {
 		devSourcemap: true
+	},
+	optimizeDeps: {
+		exclude: ['js-big-decimal']
 	}
 })
