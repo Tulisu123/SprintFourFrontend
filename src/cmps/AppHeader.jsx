@@ -137,7 +137,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 					<nav className={`${isExpanded ? 'expand' : ''} ${!isHomepage ? 'in-stay-details' : ''}`}>
 						<NavLink to="/" className="logo" onClick={onLogoClick}>
 							<Logo />
-							<h1>airbnb</h1>
+							<h1>TravelNest</h1>
 						</NavLink>
 						<HeaderFilter
 							isExpanded={isExpanded}

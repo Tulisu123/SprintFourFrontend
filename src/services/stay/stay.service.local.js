@@ -99,7 +99,8 @@ async function addStayMsg(stayId, txt) {
 function _createStays() {
     let stays = loadFromStorage(STORAGE_KEY) || []
     if (stays && stays.length) return
-    stays = [{
+    stays = [
+      {
         "_id": "622f337a75c7d36e498aaaf8",
         "name": "Siam Stay",
         "type": "National parks",
@@ -187,9 +188,9 @@ function _createStays() {
           "country": "Thailand",
           "countryCode": "US",
           "city": "Bangkok",
-          "address": "Lahaina, HI, United States",
-          "lat": -156.6917,
-          "lan": 20.93792
+          "address": "Bangkok",
+          "lat": 13.7563,
+          "lan": 100.5018
         },
         "reviews": [
           {
@@ -324,7 +325,7 @@ function _createStays() {
           "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437327/epcnh2tzpafwmvi3srcp.jpg"
         ],
         "price": "2,000",
-        "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Cartier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
+        "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est ferm\u00e9e avec une lit double. Vous aurez acc\u00e8s \u00e0 une salle de bain avec une douche, terrasse. L'appartement est climatis\u00e9.  Votre chambre est \u00e9quip\u00e9 d'une connexion Wi-Fi illimit\u00e9. Vous serez proche du centre ville, au pied du pont Jacques Cartier et \u00e0 distance de marche de toutes les commodit\u00e9s (m\u00e9tro, supermarch\u00e9, pharmacie",
         "capacity": 2,
         "amenities": [
           "TV",
@@ -347,7 +348,7 @@ function _createStays() {
         "host": {
           "_id": "pZFT4",
           "fullname": "User 2",
-          "location": "Montreal, Québec, Canada",
+          "location": "Montreal, Qu\u00e9bec, Canada",
           "thumbnailUrl": "https://a0.muscache.com/im/pictures/12be1141-74de-4f04-bf28-82c3ed589d11.jpg?aki_policy=profile_small",
           "pictureUrl": "https://randomuser.me/api/portraits/men/1.jpg",
           "isSuperhost": false,
@@ -358,9 +359,9 @@ function _createStays() {
           "country": "Australia",
           "countryCode": "CA",
           "city": "Sydney",
-          "address": "Montréal, QC, Canada",
-          "lat": -73.54985,
-          "lan": 45.52797
+          "address": "Montr\u00e9al, QC, Canada",
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [
           {
@@ -382,7 +383,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "64310987"
             },
-            "txt": "J'ai adoré rester là. Très acceuillant.",
+            "txt": "J'ai ador\u00e9 rester l\u00e0. Tr\u00e8s acceuillant.",
             "rate": 4
           },
           {
@@ -393,7 +394,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg",
               "id": "23709900"
             },
-            "txt": "Angel est un hôte très sympa et arrangeant ! L'appartement est agréable à vivre et propre. Proche du métro et du centre ville. Nous avons passé un très bon séjour !",
+            "txt": "Angel est un h\u00f4te tr\u00e8s sympa et arrangeant ! L'appartement est agr\u00e9able \u00e0 vivre et propre. Proche du m\u00e9tro et du centre ville. Nous avons pass\u00e9 un tr\u00e8s bon s\u00e9jour !",
             "rate": 4
           },
           {
@@ -436,7 +437,7 @@ function _createStays() {
           "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436912/xle8ueqxjeazbs4bp09p.jpg"
         ],
         "price": "1,340",
-        "summary": "O apartamento fica perto de arte e cultura e dos mais belos monumentos da cidade. Belos jardins e paisagens da cidade e do rio Douro ficam perto e podem ser apreciadas.  Existem restaurantes típicos e de comida internacional ao redor do apartamento.   O espaço fica numa rua típica da cidade, cheia da sua magia e magnetismo e é muito pratico e confortável. O espaço é excelente para quem pretende visitar e conhecer a zona histórica e turística do Porto. Transportes públicos ficam próximos.",
+        "summary": "O apartamento fica perto de arte e cultura e dos mais belos monumentos da cidade. Belos jardins e paisagens da cidade e do rio Douro ficam perto e podem ser apreciadas.  Existem restaurantes t\u00edpicos e de comida internacional ao redor do apartamento.   O espa\u00e7o fica numa rua t\u00edpica da cidade, cheia da sua magia e magnetismo e \u00e9 muito pratico e confort\u00e1vel. O espa\u00e7o \u00e9 excelente para quem pretende visitar e conhecer a zona hist\u00f3rica e tur\u00edstica do Porto. Transportes p\u00fablicos ficam pr\u00f3ximos.",
         "capacity": 4,
         "amenities": [
           "TV",
@@ -503,15 +504,15 @@ function _createStays() {
           "pictureUrl": "https://randomuser.me/api/portraits/women/3.jpg",
           "isSuperhost": true,
           "id": "78704763",
-          "description": "Simples, muito comunicativa, mas de elevado sentido de responsabilidade, de organização e de confiança.\r\nGosto muito de contacto humano, sem o qual não me sinto estável. Adoro conhecer pessoas de culturas diferentes.\r\nFaço várias viagens, mas de curta duração, pois tenho necessidade de sentir o lar e a família. Por ser assim, tento fazer tudo para que os meus hospedes se sintam confortáveis como em suas casas."
+          "description": "Simples, muito comunicativa, mas de elevado sentido de responsabilidade, de organiza\u00e7\u00e3o e de confian\u00e7a.\r\nGosto muito de contacto humano, sem o qual n\u00e3o me sinto est\u00e1vel. Adoro conhecer pessoas de culturas diferentes.\r\nFa\u00e7o v\u00e1rias viagens, mas de curta dura\u00e7\u00e3o, pois tenho necessidade de sentir o lar e a fam\u00edlia. Por ser assim, tento fazer tudo para que os meus hospedes se sintam confort\u00e1veis como em suas casas."
         },
         "loc": {
           "country": "Egypt",
           "countryCode": "PT",
           "city": "Cairo",
           "address": "Porto, Porto, Portugal",
-          "lat": -8.60154,
-          "lan": 41.14834
+          "lat": 30.0444,
+          "lan": 31.2357
         },
         "reviews": [
           {
@@ -522,7 +523,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
               "id": "19177194"
             },
-            "txt": "Mes parents ont passé un excellent séjour à Porto dans l'appartement de Maria qui est bien équipé, confortable et très propre. Il est situé au coeur du centre ville et tout est accessible à pied. Si vous venez en voiture, prévoir de se garer dans le parking souterrain payant juste à côté. Mes parents remercient chaudement Maria et son mari qui ont été adorables, notamment par leur accueil chaleureux.",
+            "txt": "Mes parents ont pass\u00e9 un excellent s\u00e9jour \u00e0 Porto dans l'appartement de Maria qui est bien \u00e9quip\u00e9, confortable et tr\u00e8s propre. Il est situ\u00e9 au coeur du centre ville et tout est accessible \u00e0 pied. Si vous venez en voiture, pr\u00e9voir de se garer dans le parking souterrain payant juste \u00e0 c\u00f4t\u00e9. Mes parents remercient chaudement Maria et son mari qui ont \u00e9t\u00e9 adorables, notamment par leur accueil chaleureux.",
             "rate": 3
           },
           {
@@ -533,7 +534,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg",
               "id": "81211152"
             },
-            "txt": "El apartamento es perfecto para una  estancia, esta perfectamente dotado para cubrir las necesidades de un viaje de recreo, situado perfectamente para acceder a pie a las zonas más interesantes de Oporto. María una perfecta anfitriona que te facilitará una inolvidable estancia en Oporto. Ha sido una gran experiencia.",
+            "txt": "El apartamento es perfecto para una  estancia, esta perfectamente dotado para cubrir las necesidades de un viaje de recreo, situado perfectamente para acceder a pie a las zonas m\u00e1s interesantes de Oporto. Mar\u00eda una perfecta anfitriona que te facilitar\u00e1 una inolvidable estancia en Oporto. Ha sido una gran experiencia.",
             "rate": 4
           },
           {
@@ -544,7 +545,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
               "id": "16580426"
             },
-            "txt": "Thierry, Patricia, Anaïs et Manon,\r\nMaria et son mari nous attendaient avec gentillesse et sourires, Maria a toujours répondu à mes mails et SMS en cours de voyage.   Ils nous ont aidé à monter les valises, Il y avait une bouteille d'eau au frais, très appréciable ainsi que des petits gâteaux et une bouteille de vin dans le frigo...L'appartement était très propre rien ne manquait, conforme à la description, bien situé, nous avons tout fait à pieds ...Très à l'écoute de nos demandes Maria et son mari sont charmants, nous nous sommes sentis en famille, nous reviendrons et je recommande fortement ce logement ...Nous avons pu apprécier notre séjour sans tracas.  ",
+            "txt": "Thierry, Patricia, Ana\u00efs et Manon,\r\nMaria et son mari nous attendaient avec gentillesse et sourires, Maria a toujours r\u00e9pondu \u00e0 mes mails et SMS en cours de voyage.   Ils nous ont aid\u00e9 \u00e0 monter les valises, Il y avait une bouteille d'eau au frais, tr\u00e8s appr\u00e9ciable ainsi que des petits g\u00e2teaux et une bouteille de vin dans le frigo...L'appartement \u00e9tait tr\u00e8s propre rien ne manquait, conforme \u00e0 la description, bien situ\u00e9, nous avons tout fait \u00e0 pieds ...Tr\u00e8s \u00e0 l'\u00e9coute de nos demandes Maria et son mari sont charmants, nous nous sommes sentis en famille, nous reviendrons et je recommande fortement ce logement ...Nous avons pu appr\u00e9cier notre s\u00e9jour sans tracas.  ",
             "rate": 5
           },
           {
@@ -588,7 +589,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "113337848"
             },
-            "txt": "Appartement très bien situé, tout le vieux porto se fait à pied. Très propre, indépendant et fonctionnel. Metro au pied en venant de l'aéroport, ligne directe 15 minutes environ.\nRestaurants et épiceries typiques au pied de l'immeuble. Climatisation et télé dans toutes les pièces, calme et quartier pittoresque. À recommander pour 3 ou 4. Accueil simple, gentil et efficace comme Maria la propriétaire.\n",
+            "txt": "Appartement tr\u00e8s bien situ\u00e9, tout le vieux porto se fait \u00e0 pied. Tr\u00e8s propre, ind\u00e9pendant et fonctionnel. Metro au pied en venant de l'a\u00e9roport, ligne directe 15 minutes environ.\nRestaurants et \u00e9piceries typiques au pied de l'immeuble. Climatisation et t\u00e9l\u00e9 dans toutes les pi\u00e8ces, calme et quartier pittoresque. \u00c0 recommander pour 3 ou 4. Accueil simple, gentil et efficace comme Maria la propri\u00e9taire.\n",
             "rate": 4
           },
           {
@@ -610,7 +611,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "123999116"
             },
-            "txt": "Appartement très propre et très bien situé, bien agencé. Quartier très vivant mais appartement calme car ne donne pas sur la rue. Nous avons passé un très bon séjour chez Maria qui nous a très bien accueilli.",
+            "txt": "Appartement tr\u00e8s propre et tr\u00e8s bien situ\u00e9, bien agenc\u00e9. Quartier tr\u00e8s vivant mais appartement calme car ne donne pas sur la rue. Nous avons pass\u00e9 un tr\u00e8s bon s\u00e9jour chez Maria qui nous a tr\u00e8s bien accueilli.",
             "rate": 3
           },
           {
@@ -632,7 +633,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
               "id": "137603514"
             },
-            "txt": "Нам очень понравилась квартира,светлая,уютная,на 3-м этаже,с большим балконом,в квартире есть все самое необходимое,стиральная машина,утюг,кровати очень удобные,красивое постельное белье,вся обстановка в квартире сделана с душой,все время прибывания чувствовали себя как дома.\nМария по приезду подарила нам бутылку вина из долины реки Дору,из красивых бокалов мы его с удовольствием выпили,спасибо за презент.\nВ этой маленькой уютной квартире -3 телевизора!!!!Смотреть было некогда,наслаждались красивым городом и окрестностями Порту.",
+            "txt": "\u041d\u0430\u043c \u043e\u0447\u0435\u043d\u044c \u043f\u043e\u043d\u0440\u0430\u0432\u0438\u043b\u0430\u0441\u044c \u043a\u0432\u0430\u0440\u0442\u0438\u0440\u0430,\u0441\u0432\u0435\u0442\u043b\u0430\u044f,\u0443\u044e\u0442\u043d\u0430\u044f,\u043d\u0430 3-\u043c \u044d\u0442\u0430\u0436\u0435,\u0441 \u0431\u043e\u043b\u044c\u0448\u0438\u043c \u0431\u0430\u043b\u043a\u043e\u043d\u043e\u043c,\u0432 \u043a\u0432\u0430\u0440\u0442\u0438\u0440\u0435 \u0435\u0441\u0442\u044c \u0432\u0441\u0435 \u0441\u0430\u043c\u043e\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0435,\u0441\u0442\u0438\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u043c\u0430\u0448\u0438\u043d\u0430,\u0443\u0442\u044e\u0433,\u043a\u0440\u043e\u0432\u0430\u0442\u0438 \u043e\u0447\u0435\u043d\u044c \u0443\u0434\u043e\u0431\u043d\u044b\u0435,\u043a\u0440\u0430\u0441\u0438\u0432\u043e\u0435 \u043f\u043e\u0441\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u0431\u0435\u043b\u044c\u0435,\u0432\u0441\u044f \u043e\u0431\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0432 \u043a\u0432\u0430\u0440\u0442\u0438\u0440\u0435 \u0441\u0434\u0435\u043b\u0430\u043d\u0430 \u0441 \u0434\u0443\u0448\u043e\u0439,\u0432\u0441\u0435 \u0432\u0440\u0435\u043c\u044f \u043f\u0440\u0438\u0431\u044b\u0432\u0430\u043d\u0438\u044f \u0447\u0443\u0432\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 \u0441\u0435\u0431\u044f \u043a\u0430\u043a \u0434\u043e\u043c\u0430.\n\u041c\u0430\u0440\u0438\u044f \u043f\u043e \u043f\u0440\u0438\u0435\u0437\u0434\u0443 \u043f\u043e\u0434\u0430\u0440\u0438\u043b\u0430 \u043d\u0430\u043c \u0431\u0443\u0442\u044b\u043b\u043a\u0443 \u0432\u0438\u043d\u0430 \u0438\u0437 \u0434\u043e\u043b\u0438\u043d\u044b \u0440\u0435\u043a\u0438 \u0414\u043e\u0440\u0443,\u0438\u0437 \u043a\u0440\u0430\u0441\u0438\u0432\u044b\u0445 \u0431\u043e\u043a\u0430\u043b\u043e\u0432 \u043c\u044b \u0435\u0433\u043e \u0441 \u0443\u0434\u043e\u0432\u043e\u043b\u044c\u0441\u0442\u0432\u0438\u0435\u043c \u0432\u044b\u043f\u0438\u043b\u0438,\u0441\u043f\u0430\u0441\u0438\u0431\u043e \u0437\u0430 \u043f\u0440\u0435\u0437\u0435\u043d\u0442.\n\u0412 \u044d\u0442\u043e\u0439 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u043e\u0439 \u0443\u044e\u0442\u043d\u043e\u0439 \u043a\u0432\u0430\u0440\u0442\u0438\u0440\u0435 -3 \u0442\u0435\u043b\u0435\u0432\u0438\u0437\u043e\u0440\u0430!!!!\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0431\u044b\u043b\u043e \u043d\u0435\u043a\u043e\u0433\u0434\u0430,\u043d\u0430\u0441\u043b\u0430\u0436\u0434\u0430\u043b\u0438\u0441\u044c \u043a\u0440\u0430\u0441\u0438\u0432\u044b\u043c \u0433\u043e\u0440\u043e\u0434\u043e\u043c \u0438 \u043e\u043a\u0440\u0435\u0441\u0442\u043d\u043e\u0441\u0442\u044f\u043c\u0438 \u041f\u043e\u0440\u0442\u0443.",
             "rate": 4
           },
           {
@@ -643,7 +644,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg",
               "id": "144054479"
             },
-            "txt": "Muy contentos con todo. El piso estaba bastante cerca del centro, Maria y su marido estaban incluso antes de la hora de nuestra llegada. El piso esta muy bien equipado: cafetera, botiquín, lavadora etc. Super super limpio todo y las camas muy comodas y acogedores. Y al ser un piso interior, no se oia nada de ruido. Recomendable!",
+            "txt": "Muy contentos con todo. El piso estaba bastante cerca del centro, Maria y su marido estaban incluso antes de la hora de nuestra llegada. El piso esta muy bien equipado: cafetera, botiqu\u00edn, lavadora etc. Super super limpio todo y las camas muy comodas y acogedores. Y al ser un piso interior, no se oia nada de ruido. Recomendable!",
             "rate": 4
           },
           {
@@ -654,7 +655,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
               "id": "151785573"
             },
-            "txt": "Eu e minha amiga ficamos um mês no apartamento e foi uma otima experiencia!\nMuito bem localizado, perto de tudo! Não tivemos nenhuma dificuldade em encontrar o local, que fica a minutos da estação do metrô e é muito perto da região central.\nÓtima infraestrutura, limpeza e organização.\nFomos muito bem recebidas e bem auxiliadas pela Maria, que com certeza é uma ótima anfitriã!\nRecomendo muito a estadia, não poderia ter sido melhor!",
+            "txt": "Eu e minha amiga ficamos um m\u00eas no apartamento e foi uma otima experiencia!\nMuito bem localizado, perto de tudo! N\u00e3o tivemos nenhuma dificuldade em encontrar o local, que fica a minutos da esta\u00e7\u00e3o do metr\u00f4 e \u00e9 muito perto da regi\u00e3o central.\n\u00d3tima infraestrutura, limpeza e organiza\u00e7\u00e3o.\nFomos muito bem recebidas e bem auxiliadas pela Maria, que com certeza \u00e9 uma \u00f3tima anfitri\u00e3!\nRecomendo muito a estadia, n\u00e3o poderia ter sido melhor!",
             "rate": 3
           },
           {
@@ -665,14 +666,14 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/5.jpg",
               "id": "169584809"
             },
-            "txt": "Respostas sempre rápidas; excelente recepção ; sempre simpática e disponível.",
+            "txt": "Respostas sempre r\u00e1pidas; excelente recep\u00e7\u00e3o ; sempre simp\u00e1tica e dispon\u00edvel.",
             "rate": 3
           },
           {
             "at": "2018-06-24T04:00:00.000Z",
             "by": {
               "_id": "622f3402e36c59e6164fad10",
-              "fullname": "João",
+              "fullname": "Jo\u00e3o",
               "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg",
               "id": "43281546"
             },
@@ -687,7 +688,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/1.jpg",
               "id": "22956972"
             },
-            "txt": "O Espaço de Maria é de extremo bom gosto. Tudo extremamente limpo, pratico e organizado nos mínimos detalhes.  Boa localização perto de tudo.  Sem falar na Simpatia e disponibilidade da Maria que com suas dicas tornou nossa estadia em Porto melhor do que esperávamos. Recomendadíssimo !",
+            "txt": "O Espa\u00e7o de Maria \u00e9 de extremo bom gosto. Tudo extremamente limpo, pratico e organizado nos m\u00ednimos detalhes.  Boa localiza\u00e7\u00e3o perto de tudo.  Sem falar na Simpatia e disponibilidade da Maria que com suas dicas tornou nossa estadia em Porto melhor do que esper\u00e1vamos. Recomendad\u00edssimo !",
             "rate": 4
           },
           {
@@ -698,7 +699,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "3708225"
             },
-            "txt": "Alojamiento coqueto y acogedor, muy limpio y bien ubicado, tiene 2 habitaciones y todo lo necesario para poder pasar unos días en Oporto, buena ubicación cerca de Sta Catarina. Nos ha gustado mucho la estancia, la atención de María inmejorable. Muchas gracias por su atención y amabilidad",
+            "txt": "Alojamiento coqueto y acogedor, muy limpio y bien ubicado, tiene 2 habitaciones y todo lo necesario para poder pasar unos d\u00edas en Oporto, buena ubicaci\u00f3n cerca de Sta Catarina. Nos ha gustado mucho la estancia, la atenci\u00f3n de Mar\u00eda inmejorable. Muchas gracias por su atenci\u00f3n y amabilidad",
             "rate": 3
           },
           {
@@ -709,7 +710,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg",
               "id": "38271990"
             },
-            "txt": "buena ubicación, piso acogedor, reformado, excelente servicio y recomendaciones",
+            "txt": "buena ubicaci\u00f3n, piso acogedor, reformado, excelente servicio y recomendaciones",
             "rate": 5
           }
         ],
@@ -781,8 +782,8 @@ function _createStays() {
           "countryCode": "US",
           "city": "Dubai",
           "address": "Brooklyn, NY, United States",
-          "lat": -73.92922,
-          "lan": 40.68683
+          "lat": 25.276987,
+          "lan": 55.296249
         },
         "reviews": [
           {
@@ -892,7 +893,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "7055720"
             },
-            "txt": "We really had a wonderful time in NYC thanks to Alex’s house. It’s just as big, beautiful and clean as it seems in the pictures. Alex has an incredible apartment in the basement that makes you feel like home after being out all day knowing the big city. All the furniture and the kitchen appliances are new.\r\n\r\nThe location is perfect for visiting Brooklyn and Manhattan (only 15-20 to Brooklyn Bridge and South Manhattan or 25-30 min to Times Square in the underground).\r\n\r\nAlso, Alex gave us some good advices the first day for having all we needed in the neighbourhood. Don’t miss Saraghina’s brunch (10 minutes walking from the house)! He even let us to keep our luggage in the house until we left to the airport in the evening on our last day in the city.",
+            "txt": "We really had a wonderful time in NYC thanks to Alex\u2019s house. It\u2019s just as big, beautiful and clean as it seems in the pictures. Alex has an incredible apartment in the basement that makes you feel like home after being out all day knowing the big city. All the furniture and the kitchen appliances are new.\r\n\r\nThe location is perfect for visiting Brooklyn and Manhattan (only 15-20 to Brooklyn Bridge and South Manhattan or 25-30 min to Times Square in the underground).\r\n\r\nAlso, Alex gave us some good advices the first day for having all we needed in the neighbourhood. Don\u2019t miss Saraghina\u2019s brunch (10 minutes walking from the house)! He even let us to keep our luggage in the house until we left to the airport in the evening on our last day in the city.",
             "rate": 3
           },
           {
@@ -1034,7 +1035,7 @@ function _createStays() {
           "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437017/gjyzgdjngyrhfrj2loxz.jpg"
         ],
         "price": "3,000",
-        "summary": "Mi piso está en el centro de Barcelona. Cerca del metro, las ramblas, los museos, el Portal del Ángel, Plaza Cataluña. Mi alojamiento es bueno para turistas, aventureros, y viajeros de negocios....y tiene ascensor.",
+        "summary": "Mi piso est\u00e1 en el centro de Barcelona. Cerca del metro, las ramblas, los museos, el Portal del \u00c1ngel, Plaza Catalu\u00f1a. Mi alojamiento es bueno para turistas, aventureros, y viajeros de negocios....y tiene ascensor.",
         "capacity": 2,
         "amenities": [
           "Wifi",
@@ -1065,8 +1066,8 @@ function _createStays() {
           "countryCode": "ES",
           "city": "Dubai",
           "address": "Barcelona, Catalunya, Spain",
-          "lat": 2.16685,
-          "lan": 41.38371
+          "lat": 25.276987,
+          "lan": 55.296249
         },
         "reviews": [
           {
@@ -1088,7 +1089,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg",
               "id": "50303773"
             },
-            "txt": "Nous avons passé un bon séjour, l'appartement est très bien situé. La chambre est agréable et plus grande que sur la photo. Seul point négatif pas de volets dans la chambre. ",
+            "txt": "Nous avons pass\u00e9 un bon s\u00e9jour, l'appartement est tr\u00e8s bien situ\u00e9. La chambre est agr\u00e9able et plus grande que sur la photo. Seul point n\u00e9gatif pas de volets dans la chambre. ",
             "rate": 3
           }
         ],
@@ -1151,15 +1152,15 @@ function _createStays() {
           "pictureUrl": "https://randomuser.me/api/portraits/men/5.jpg",
           "isSuperhost": false,
           "id": "35858044",
-          "description": "Mi nombre es Isabel, pero me llamo Isa. Nací en Vigo (Galicia). Con 20 años me fuí a vivir a Madrid con intención de ser actriz; ahora resido en Barcelona desde los 28. Soy una joven de 43 años, cantante de Jazz. Me gusta salir, pero también quedarme en casa a leer o ver alguna buena película.\r\nHe compartido piso muchos años, pero estas serán mis primeras experiencias como anfitriona.\r\n\r\n¡Sed bienvenidos!\r\n"
+          "description": "Mi nombre es Isabel, pero me llamo Isa. Nac\u00ed en Vigo (Galicia). Con 20 a\u00f1os me fu\u00ed a vivir a Madrid con intenci\u00f3n de ser actriz; ahora resido en Barcelona desde los 28. Soy una joven de 43 a\u00f1os, cantante de Jazz. Me gusta salir, pero tambi\u00e9n quedarme en casa a leer o ver alguna buena pel\u00edcula.\r\nHe compartido piso muchos a\u00f1os, pero estas ser\u00e1n mis primeras experiencias como anfitriona.\r\n\r\n\u00a1Sed bienvenidos!\r\n"
         },
         "loc": {
           "country": "Italy",
           "countryCode": "ES",
           "city": "Rome",
           "address": "Barcelona, Catalonia, Spain",
-          "lat": 2.17561,
-          "lan": 41.38701
+          "lat": 41.9028,
+          "lan": 12.4964
         },
         "reviews": [
           {
@@ -1170,7 +1171,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/5.jpg",
               "id": "58999873"
             },
-            "txt": "Una instancia muy céntrica en uno de estos edificios antiguos del Barri Gotic. No es poco haber conseguido estar en el centro de Barcelona en la misma semana del Mobile World Congress. Isabel es un encanto de anfitrión.",
+            "txt": "Una instancia muy c\u00e9ntrica en uno de estos edificios antiguos del Barri Gotic. No es poco haber conseguido estar en el centro de Barcelona en la misma semana del Mobile World Congress. Isabel es un encanto de anfitri\u00f3n.",
             "rate": 5
           },
           {
@@ -1188,11 +1189,11 @@ function _createStays() {
             "at": "2016-04-07T04:00:00.000Z",
             "by": {
               "_id": "622f3406e36c59e6164fbaf2",
-              "fullname": "Hélène",
+              "fullname": "H\u00e9l\u00e8ne",
               "imgUrl": "https://randomuser.me/api/portraits/women/1.jpg",
               "id": "46103953"
             },
-            "txt": "Chambre très bien située et hôtesse très sympathique. Merci encore Isabel pour l'accueil !",
+            "txt": "Chambre tr\u00e8s bien situ\u00e9e et h\u00f4tesse tr\u00e8s sympathique. Merci encore Isabel pour l'accueil !",
             "rate": 5
           },
           {
@@ -1214,7 +1215,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg",
               "id": "60712702"
             },
-            "txt": "Isabel est accueillante. L'appartement est charmant, correspond aux images. Très bien situé, à côté de Palau de la musica, dans un vieil immeuble plein de charme un peu désuet. Amateurs de confort et décor \"tendance\" s'abstenir. Chez Isabel on se trouve dans une authentique ambiance d'artiste. Merci beaucoup, je garderai le souvenir de cet accueil lié aux souvenirs de Barcelone.",
+            "txt": "Isabel est accueillante. L'appartement est charmant, correspond aux images. Tr\u00e8s bien situ\u00e9, \u00e0 c\u00f4t\u00e9 de Palau de la musica, dans un vieil immeuble plein de charme un peu d\u00e9suet. Amateurs de confort et d\u00e9cor \"tendance\" s'abstenir. Chez Isabel on se trouve dans une authentique ambiance d'artiste. Merci beaucoup, je garderai le souvenir de cet accueil li\u00e9 aux souvenirs de Barcelone.",
             "rate": 5
           },
           {
@@ -1225,7 +1226,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "53206905"
             },
-            "txt": "Es un piso con mucho encanto, muy tranquilo y en un lugar inmejorable. La anfitriona, Isabel, es amable y facilitadora. El piso es una construcción antigua, lo que le da un ambiente genial pero también hace que el agua de la ducha salga con poquísima presión y sea un poco incómodo a veces. A parte de esto, si tuviese que poner alguna queja sería la hora del chekout, ya que las diez de la mañana me parece un poco pronto. \r\nEn conjunto tuvimos una muy buena experiencia y repetiríamos sin duda.",
+            "txt": "Es un piso con mucho encanto, muy tranquilo y en un lugar inmejorable. La anfitriona, Isabel, es amable y facilitadora. El piso es una construcci\u00f3n antigua, lo que le da un ambiente genial pero tambi\u00e9n hace que el agua de la ducha salga con poqu\u00edsima presi\u00f3n y sea un poco inc\u00f3modo a veces. A parte de esto, si tuviese que poner alguna queja ser\u00eda la hora del chekout, ya que las diez de la ma\u00f1ana me parece un poco pronto. \r\nEn conjunto tuvimos una muy buena experiencia y repetir\u00edamos sin duda.",
             "rate": 3
           },
           {
@@ -1346,7 +1347,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/3.jpg",
               "id": "27060110"
             },
-            "txt": "Isa is a very lovely, sensitive, artistic and gorgeous person. She is respectful of one's privacy but always ready to give support when asked upon. Be it in spoken or written form I always got my answers from her within no times. She also proofed to be very flexible in terms of arrival and departure times which I appreciated a great deal. If you are a fan of jazz music (like I am), make sure to double check ahead of time about her current concert dates so as not to miss your hostess on stage like I did (grumble ;-)).\n\nThe room I occupied was the smaller one of two that Isabel rents out. So if her flat is fully rented out there can be a maximum of 4 guests plus your hostess in the flat, which can cause some bathroom jam, especially during the hot and humid summer times, when the need for a cool shower is inherent to everyone's desire. \nMy room was as depicted. If you plan on using it for double occupancy, I recommend taking Isa's larger room (unless the two of you are very much in love and want to cuddle up close ;-)). Also, if you need a table for writing, ask for the larger room as well, which comes along with one.\nThe flat itself is absolutely enchanting and furnished with love and an artistic eye to details. It's location is a dream for touristic explorations with anything within walking distance. \nTherefore, I can easily recommend both Isabel and her flat to anyone wishing to immerge himself into the local customs and get a good doze of what it is like \"to live like a true Barcelonian\".  \n\nQuerida Isa, muchas gracias por tu hospedalid génial! Volveré a ciencia cierta!\nSaludos y besos\nLiliana",
+            "txt": "Isa is a very lovely, sensitive, artistic and gorgeous person. She is respectful of one's privacy but always ready to give support when asked upon. Be it in spoken or written form I always got my answers from her within no times. She also proofed to be very flexible in terms of arrival and departure times which I appreciated a great deal. If you are a fan of jazz music (like I am), make sure to double check ahead of time about her current concert dates so as not to miss your hostess on stage like I did (grumble ;-)).\n\nThe room I occupied was the smaller one of two that Isabel rents out. So if her flat is fully rented out there can be a maximum of 4 guests plus your hostess in the flat, which can cause some bathroom jam, especially during the hot and humid summer times, when the need for a cool shower is inherent to everyone's desire. \nMy room was as depicted. If you plan on using it for double occupancy, I recommend taking Isa's larger room (unless the two of you are very much in love and want to cuddle up close ;-)). Also, if you need a table for writing, ask for the larger room as well, which comes along with one.\nThe flat itself is absolutely enchanting and furnished with love and an artistic eye to details. It's location is a dream for touristic explorations with anything within walking distance. \nTherefore, I can easily recommend both Isabel and her flat to anyone wishing to immerge himself into the local customs and get a good doze of what it is like \"to live like a true Barcelonian\".  \n\nQuerida Isa, muchas gracias por tu hospedalid g\u00e9nial! Volver\u00e9 a ciencia cierta!\nSaludos y besos\nLiliana",
             "rate": 3
           },
           {
@@ -1379,7 +1380,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
               "id": "2935800"
             },
-            "txt": "Isabel was an amazing host. She is incredible and super considerate. The apartment was by no means the best location in Barcelona, I walked everywhere and never needed a map or a taxi. Arriving late at night was always fine and there was never any disturbing street noise. The block is super cute with awesome little shops that are open during the day. Best neighborhood to be in and incredible city ! Muchísima gracias Isabel, estas invitada a visitar Los Ángeles, todo fue increíble !❤️",
+            "txt": "Isabel was an amazing host. She is incredible and super considerate. The apartment was by no means the best location in Barcelona, I walked everywhere and never needed a map or a taxi. Arriving late at night was always fine and there was never any disturbing street noise. The block is super cute with awesome little shops that are open during the day. Best neighborhood to be in and incredible city ! Much\u00edsima gracias Isabel, estas invitada a visitar Los \u00c1ngeles, todo fue incre\u00edble !\u2764\ufe0f",
             "rate": 3
           }
         ],
@@ -1518,7 +1519,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "5684819"
             },
-            "txt": "Kevin fue excelente anfitrión. Se mantuvo en contacto con nosotros y fue muy comprensivo aún cuando llegamos más tarde de la hora acordada para el check in porque nos perdimos en el subway. También fue muy comprensivo para acordar el check out de acuerdo a la hora que fue más conveniente para nosotros, aún cuando también se nos hizo tarde. Nos proveyó de un matress de aire para nuestra amiga que vino de M.A. y se quedó una noche con nosotros. El barrio nos pareció bien, no tuvimos ningún incidente. Muchos puertoriqueños y Dominicanos, así que nos sentimos como en casa. Todo fue muy cómodo y limpio. Los vecinos hicieron mucho ruido en las noches, pero no fue problema para nosotros. Una sugerencia sería poner un espejo de cuerpo completo en alguna parte del apartento. En resumen, el apartamento fue perfecto para nosotros, nos volveríamos a quedar y claro que lo recomendaría! Muchas Gracias Kevin por tu ayuda!",
+            "txt": "Kevin fue excelente anfitri\u00f3n. Se mantuvo en contacto con nosotros y fue muy comprensivo a\u00fan cuando llegamos m\u00e1s tarde de la hora acordada para el check in porque nos perdimos en el subway. Tambi\u00e9n fue muy comprensivo para acordar el check out de acuerdo a la hora que fue m\u00e1s conveniente para nosotros, a\u00fan cuando tambi\u00e9n se nos hizo tarde. Nos provey\u00f3 de un matress de aire para nuestra amiga que vino de M.A. y se qued\u00f3 una noche con nosotros. El barrio nos pareci\u00f3 bien, no tuvimos ning\u00fan incidente. Muchos puertorique\u00f1os y Dominicanos, as\u00ed que nos sentimos como en casa. Todo fue muy c\u00f3modo y limpio. Los vecinos hicieron mucho ruido en las noches, pero no fue problema para nosotros. Una sugerencia ser\u00eda poner un espejo de cuerpo completo en alguna parte del apartento. En resumen, el apartamento fue perfecto para nosotros, nos volver\u00edamos a quedar y claro que lo recomendar\u00eda! Muchas Gracias Kevin por tu ayuda!",
             "rate": 3
           },
           {
@@ -1789,7 +1790,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "52749020"
             },
-            "txt": "Muito simpáticos e atenciosos. O apartamento é muito confortável e com pequenos detalhes que fazem a diferença. Muito perto do metro, o que é óptimo para deslocações necessárias.",
+            "txt": "Muito simp\u00e1ticos e atenciosos. O apartamento \u00e9 muito confort\u00e1vel e com pequenos detalhes que fazem a diferen\u00e7a. Muito perto do metro, o que \u00e9 \u00f3ptimo para desloca\u00e7\u00f5es necess\u00e1rias.",
             "rate": 5
           },
           {
@@ -1800,7 +1801,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg",
               "id": "55700681"
             },
-            "txt": "Bonjour, Notre séjour a été très agréable. Nous avons été très bien accueillies. Nuno nous a donné de nombreux conseils, lieux de visites... Le logement était également très bien. Nous avons vraiment pu profiter de Porto. Le métro est tout proche du logement. C'était vraiment un très bon séjour. Merci encore. ",
+            "txt": "Bonjour, Notre s\u00e9jour a \u00e9t\u00e9 tr\u00e8s agr\u00e9able. Nous avons \u00e9t\u00e9 tr\u00e8s bien accueillies. Nuno nous a donn\u00e9 de nombreux conseils, lieux de visites... Le logement \u00e9tait \u00e9galement tr\u00e8s bien. Nous avons vraiment pu profiter de Porto. Le m\u00e9tro est tout proche du logement. C'\u00e9tait vraiment un tr\u00e8s bon s\u00e9jour. Merci encore. ",
             "rate": 3
           },
           {
@@ -1811,7 +1812,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "13478831"
             },
-            "txt": "Our stay at Heroísmo IV was the perfect Airbnb experience. When we got there, Francisca was waiting for us. She was extremely nice and accommodating, she showed us the apartment and gave us a map of the city and plenty of tips about what to visit, where to eat, etc. The apartment is really small but has absolutely everything you need. It's clean, new, has a really nice kitchen, a very comfortable bed and is near the city center (we walked everyday). I highly recommend staying at Nuno's place. ¡Gracias por todo, Francisca! Porto is a beautiful city, we hope to come back soon!",
+            "txt": "Our stay at Hero\u00edsmo IV was the perfect Airbnb experience. When we got there, Francisca was waiting for us. She was extremely nice and accommodating, she showed us the apartment and gave us a map of the city and plenty of tips about what to visit, where to eat, etc. The apartment is really small but has absolutely everything you need. It's clean, new, has a really nice kitchen, a very comfortable bed and is near the city center (we walked everyday). I highly recommend staying at Nuno's place. \u00a1Gracias por todo, Francisca! Porto is a beautiful city, we hope to come back soon!",
             "rate": 5
           },
           {
@@ -1829,11 +1830,11 @@ function _createStays() {
             "at": "2016-05-11T04:00:00.000Z",
             "by": {
               "_id": "622f3402e36c59e6164fae67",
-              "fullname": "Елизавета",
+              "fullname": "\u0415\u043b\u0438\u0437\u0430\u0432\u0435\u0442\u0430",
               "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
               "id": "20996941"
             },
-            "txt": "Квартира не большая и очень уютная. В ней есть все необходимое. Отличное расположение рядом с метро. Я получила много полезной информации при заселении. Во время сильного дождя в ней сыро, но это не испортило отдых.",
+            "txt": "\u041a\u0432\u0430\u0440\u0442\u0438\u0440\u0430 \u043d\u0435 \u0431\u043e\u043b\u044c\u0448\u0430\u044f \u0438 \u043e\u0447\u0435\u043d\u044c \u0443\u044e\u0442\u043d\u0430\u044f. \u0412 \u043d\u0435\u0439 \u0435\u0441\u0442\u044c \u0432\u0441\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0435. \u041e\u0442\u043b\u0438\u0447\u043d\u043e\u0435 \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0440\u044f\u0434\u043e\u043c \u0441 \u043c\u0435\u0442\u0440\u043e. \u042f \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u0430 \u043c\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u0435\u0437\u043d\u043e\u0439 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043f\u0440\u0438 \u0437\u0430\u0441\u0435\u043b\u0435\u043d\u0438\u0438. \u0412\u043e \u0432\u0440\u0435\u043c\u044f \u0441\u0438\u043b\u044c\u043d\u043e\u0433\u043e \u0434\u043e\u0436\u0434\u044f \u0432 \u043d\u0435\u0439 \u0441\u044b\u0440\u043e, \u043d\u043e \u044d\u0442\u043e \u043d\u0435 \u0438\u0441\u043f\u043e\u0440\u0442\u0438\u043b\u043e \u043e\u0442\u0434\u044b\u0445.",
             "rate": 4
           },
           {
@@ -1844,7 +1845,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg",
               "id": "5868654"
             },
-            "txt": "Desde o primeiro contacto, a comunicação foi muito fácil e clara. Colocaram à nossa disposição uma série de hipóteses de transporte a partir do aeroporto, bem como a possibilidade de termos em casa cabazes de alimentos. Assim que chegamos, com toda a sua simpatia, tinhamos a Mariana à nossa espera, recebeu-nos explicando os vários  pontos importantes para quem chega: locais a visitar, restaurantes, transportes...\r\nGostámos muito do espaço, do Porto, fazemos questão de voltar em breve. Local excelente!",
+            "txt": "Desde o primeiro contacto, a comunica\u00e7\u00e3o foi muito f\u00e1cil e clara. Colocaram \u00e0 nossa disposi\u00e7\u00e3o uma s\u00e9rie de hip\u00f3teses de transporte a partir do aeroporto, bem como a possibilidade de termos em casa cabazes de alimentos. Assim que chegamos, com toda a sua simpatia, tinhamos a Mariana \u00e0 nossa espera, recebeu-nos explicando os v\u00e1rios  pontos importantes para quem chega: locais a visitar, restaurantes, transportes...\r\nGost\u00e1mos muito do espa\u00e7o, do Porto, fazemos quest\u00e3o de voltar em breve. Local excelente!",
             "rate": 3
           },
           {
@@ -1888,7 +1889,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/1.jpg",
               "id": "60496781"
             },
-            "txt": "Estúdio muito simpático e limpo. Ideal para uma ou duas pessoas, para explorar o Porto durante um par de dias. Estação de metro à porta. Perto da zona histórica do Porto — faz-se bem a pé. Pastelaria ideal para pequeno almoço mesmo à porta.",
+            "txt": "Est\u00fadio muito simp\u00e1tico e limpo. Ideal para uma ou duas pessoas, para explorar o Porto durante um par de dias. Esta\u00e7\u00e3o de metro \u00e0 porta. Perto da zona hist\u00f3rica do Porto \u2014 faz-se bem a p\u00e9. Pastelaria ideal para pequeno almo\u00e7o mesmo \u00e0 porta.",
             "rate": 5
           },
           {
@@ -1899,7 +1900,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "106998486"
             },
-            "txt": "L'emplacement est parfait, dans un quartier calme et à proximité immédiate du métro et du centre-ville. Seul bémol: l'absence d'eau chaude à la douche (un seul ballon d'eau chaude disponible pour plusieurs appartements), franchement regrettable en plein coeur de l'hiver. Ce qui du coup entraîne un rapport qualité-prix un peu cher",
+            "txt": "L'emplacement est parfait, dans un quartier calme et \u00e0 proximit\u00e9 imm\u00e9diate du m\u00e9tro et du centre-ville. Seul b\u00e9mol: l'absence d'eau chaude \u00e0 la douche (un seul ballon d'eau chaude disponible pour plusieurs appartements), franchement regrettable en plein coeur de l'hiver. Ce qui du coup entra\u00eene un rapport qualit\u00e9-prix un peu cher",
             "rate": 5
           },
           {
@@ -1910,7 +1911,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg",
               "id": "115887917"
             },
-            "txt": "El apartamento esta genial, es pequeño pero tiene todo lo necesario, cama super grande y cómoda, el apartamento está en general como nuevo y se ve exactamente como las fotos, estaba todo suuuuper limpio y tienen un radiador que calienta el habitáculo en muy poco tiempo. Nos recibió Rita, y de maravilla, nos dio un montón de información sobre Porto en un momento y nos dejó un montón de mapas e info útil. la zona es tranquila y tiene un montos de aparcamiento seguro en la misma calle. Aun que no está en el mismo centro de la ciudad se llega a el en un paseo de poco más de 10 mins, además en la misma puerta hay una parada de metro. Ha sido una experiencia genial quedarnos aquí para visitar la ciudad. Muchas gracias por la amabilidad, si volvemos a la ciudad no dudaríamos en volver a quedarnos aquí.",
+            "txt": "El apartamento esta genial, es peque\u00f1o pero tiene todo lo necesario, cama super grande y c\u00f3moda, el apartamento est\u00e1 en general como nuevo y se ve exactamente como las fotos, estaba todo suuuuper limpio y tienen un radiador que calienta el habit\u00e1culo en muy poco tiempo. Nos recibi\u00f3 Rita, y de maravilla, nos dio un mont\u00f3n de informaci\u00f3n sobre Porto en un momento y nos dej\u00f3 un mont\u00f3n de mapas e info \u00fatil. la zona es tranquila y tiene un montos de aparcamiento seguro en la misma calle. Aun que no est\u00e1 en el mismo centro de la ciudad se llega a el en un paseo de poco m\u00e1s de 10 mins, adem\u00e1s en la misma puerta hay una parada de metro. Ha sido una experiencia genial quedarnos aqu\u00ed para visitar la ciudad. Muchas gracias por la amabilidad, si volvemos a la ciudad no dudar\u00edamos en volver a quedarnos aqu\u00ed.",
             "rate": 3
           },
           {
@@ -1932,7 +1933,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/3.jpg",
               "id": "9456078"
             },
-            "txt": "Небольшая, но очень уютная квартирка со всем необходимым! Завтракать на свежем воздухе очень приятно, в кухне можно приготовить все, что захочешь! Очень гостеприимная хозяйка, рассказала много интересного о местах поблизости и в городе!",
+            "txt": "\u041d\u0435\u0431\u043e\u043b\u044c\u0448\u0430\u044f, \u043d\u043e \u043e\u0447\u0435\u043d\u044c \u0443\u044e\u0442\u043d\u0430\u044f \u043a\u0432\u0430\u0440\u0442\u0438\u0440\u043a\u0430 \u0441\u043e \u0432\u0441\u0435\u043c \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u043c! \u0417\u0430\u0432\u0442\u0440\u0430\u043a\u0430\u0442\u044c \u043d\u0430 \u0441\u0432\u0435\u0436\u0435\u043c \u0432\u043e\u0437\u0434\u0443\u0445\u0435 \u043e\u0447\u0435\u043d\u044c \u043f\u0440\u0438\u044f\u0442\u043d\u043e, \u0432 \u043a\u0443\u0445\u043d\u0435 \u043c\u043e\u0436\u043d\u043e \u043f\u0440\u0438\u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u0432\u0441\u0435, \u0447\u0442\u043e \u0437\u0430\u0445\u043e\u0447\u0435\u0448\u044c! \u041e\u0447\u0435\u043d\u044c \u0433\u043e\u0441\u0442\u0435\u043f\u0440\u0438\u0438\u043c\u043d\u0430\u044f \u0445\u043e\u0437\u044f\u0439\u043a\u0430, \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u043b\u0430 \u043c\u043d\u043e\u0433\u043e \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u043e\u0433\u043e \u043e \u043c\u0435\u0441\u0442\u0430\u0445 \u043f\u043e\u0431\u043b\u0438\u0437\u043e\u0441\u0442\u0438 \u0438 \u0432 \u0433\u043e\u0440\u043e\u0434\u0435!",
             "rate": 4
           },
           {
@@ -1943,7 +1944,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
               "id": "32418543"
             },
-            "txt": "Excelente Studio, muito bem localizado e com todas as comodidades necessárias para uma pequena estadia.",
+            "txt": "Excelente Studio, muito bem localizado e com todas as comodidades necess\u00e1rias para uma pequena estadia.",
             "rate": 3
           },
           {
@@ -1965,7 +1966,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
               "id": "20010340"
             },
-            "txt": "Fantástica estancia en Oporto. Apartamento pequeño pero suficiente para pasar unos días en  Oporto una pareja. Situado un poco a las afueras pero muy buena comunicación  con el centro (parada de metro y autobús enfrente del apartamento).\nAtención inmejorable del anfitrión, respondiendo muy rápido a nuestras consultas y gestionando nuestra llegada. El único fallo es que la lavadora no se podía utilizar. Muy recomendable para pasar unos días en Oporto relación calidad-precio.\n",
+            "txt": "Fant\u00e1stica estancia en Oporto. Apartamento peque\u00f1o pero suficiente para pasar unos d\u00edas en  Oporto una pareja. Situado un poco a las afueras pero muy buena comunicaci\u00f3n  con el centro (parada de metro y autob\u00fas enfrente del apartamento).\nAtenci\u00f3n inmejorable del anfitri\u00f3n, respondiendo muy r\u00e1pido a nuestras consultas y gestionando nuestra llegada. El \u00fanico fallo es que la lavadora no se pod\u00eda utilizar. Muy recomendable para pasar unos d\u00edas en Oporto relaci\u00f3n calidad-precio.\n",
             "rate": 5
           },
           {
@@ -1983,11 +1984,11 @@ function _createStays() {
             "at": "2017-11-15T05:00:00.000Z",
             "by": {
               "_id": "622f3406e36c59e6164fba79",
-              "fullname": "Márcio",
+              "fullname": "M\u00e1rcio",
               "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg",
               "id": "50134628"
             },
-            "txt": "Excelente relação preço qualidade, muito boa comodidade e excelentes acessos. Muitas opções para as refeições por perto e metro à porta. Recomendo.",
+            "txt": "Excelente rela\u00e7\u00e3o pre\u00e7o qualidade, muito boa comodidade e excelentes acessos. Muitas op\u00e7\u00f5es para as refei\u00e7\u00f5es por perto e metro \u00e0 porta. Recomendo.",
             "rate": 4
           }
         ],
@@ -2092,7 +2093,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "66617047"
             },
-            "txt": "Une chambre très spacieuse et une salle de bain privée : au top ! \r\nChristian et Patricia ont été très accueillants et nous nous sommes tout de suite sentis comme chez nous ! ",
+            "txt": "Une chambre tr\u00e8s spacieuse et une salle de bain priv\u00e9e : au top ! \r\nChristian et Patricia ont \u00e9t\u00e9 tr\u00e8s accueillants et nous nous sommes tout de suite sentis comme chez nous ! ",
             "rate": 5
           },
           {
@@ -2103,7 +2104,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/women/3.jpg",
               "id": "78636529"
             },
-            "txt": "Des hôtes très accueillant et à l'écoute de leurs invités! De supers adresses à conseiller. \r\nUne maison décorée avec goût et avec une sublime salle de bain privée.\r\nLe centre est très facile d'accès en bus car inaccessible en voiture. \r\nTrès facile de se garer dans la rue de nos hôtes.\r\nUn excellent rapport qualité prix!",
+            "txt": "Des h\u00f4tes tr\u00e8s accueillant et \u00e0 l'\u00e9coute de leurs invit\u00e9s! De supers adresses \u00e0 conseiller. \r\nUne maison d\u00e9cor\u00e9e avec go\u00fbt et avec une sublime salle de bain priv\u00e9e.\r\nLe centre est tr\u00e8s facile d'acc\u00e8s en bus car inaccessible en voiture. \r\nTr\u00e8s facile de se garer dans la rue de nos h\u00f4tes.\r\nUn excellent rapport qualit\u00e9 prix!",
             "rate": 4
           },
           {
@@ -2114,7 +2115,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
               "id": "88496638"
             },
-            "txt": "Patricia et Casimir ont été très accueillants et nous ont donné toutes les informations pratiques pour se rendre au centre de Porto en bus. La chambre est spacieuse et la salle de bain privée est juste à coté. Le quartier est très calme et le séjour était très agréable.",
+            "txt": "Patricia et Casimir ont \u00e9t\u00e9 tr\u00e8s accueillants et nous ont donn\u00e9 toutes les informations pratiques pour se rendre au centre de Porto en bus. La chambre est spacieuse et la salle de bain priv\u00e9e est juste \u00e0 cot\u00e9. Le quartier est tr\u00e8s calme et le s\u00e9jour \u00e9tait tr\u00e8s agr\u00e9able.",
             "rate": 3
           }
         ],
@@ -2176,7 +2177,7 @@ function _createStays() {
           "country": "Brazil",
           "countryCode": "TR",
           "city": "Rio de Janeiro",
-          "address": "Taksim, Cihangir, Istanbul , Beyoğlu, Turkey",
+          "address": "Taksim, Cihangir, Istanbul , Beyo\u011flu, Turkey",
           "lat": 28.98648,
           "lan": 41.03376
         },
@@ -2189,7 +2190,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
               "id": "12424603"
             },
-            "txt": "I greatly appreciated both the location of the place (very central) and the appartment per se (clean and comfortable, with a very cosy room and with Wi-Fi). \r\n\r\nNihat was perfect host, quite welcoming and helpful about places to go (or avoid) and things to do in town. \r\n\r\nHosça kal!\r\n\r\n\r\n",
+            "txt": "I greatly appreciated both the location of the place (very central) and the appartment per se (clean and comfortable, with a very cosy room and with Wi-Fi). \r\n\r\nNihat was perfect host, quite welcoming and helpful about places to go (or avoid) and things to do in town. \r\n\r\nHos\u00e7a kal!\r\n\r\n\r\n",
             "rate": 4
           },
           {
@@ -2343,7 +2344,7 @@ function _createStays() {
               "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
               "id": "2072593"
             },
-            "txt": "I totally recommend this place. Great experience staying at Nihat’s apartment. To start with, Nihat is a wonderful friendly person who I was happy to meet. He was very friendly at house, and we had the chance to spend time together outside. Staying with him reflects the true meaning of this website, which is living as a local with a local person. Thank you Nihat. \nRegarding the apartment, it is exactly as described. The room is nice and bed is comfortable. It was clean and well prepared for us. \nRegarding the neighborhood, it is very close to Taksim square and Istiklal Street with few minutes walk. As normal as it is in Istanbul, there is a short hill you need to walk to get to the square, which was totally fine with us. \n\nIn general, next time I visit Istanbul I would first check the availability with Nihat before searching others.",
+            "txt": "I totally recommend this place. Great experience staying at Nihat\u2019s apartment. To start with, Nihat is a wonderful friendly person who I was happy to meet. He was very friendly at house, and we had the chance to spend time together outside. Staying with him reflects the true meaning of this website, which is living as a local with a local person. Thank you Nihat. \nRegarding the apartment, it is exactly as described. The room is nice and bed is comfortable. It was clean and well prepared for us. \nRegarding the neighborhood, it is very close to Taksim square and Istiklal Street with few minutes walk. As normal as it is in Istanbul, there is a short hill you need to walk to get to the square, which was totally fine with us. \n\nIn general, next time I visit Istanbul I would first check the availability with Nihat before searching others.",
             "rate": 5
           },
           {
@@ -2361,7 +2362,7 @@ function _createStays() {
             "at": "2018-03-05T05:00:00.000Z",
             "by": {
               "_id": "622f3405e36c59e6164fb8b8",
-              "fullname": "Gökçe",
+              "fullname": "G\u00f6k\u00e7e",
               "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
               "id": "64172965"
             },
@@ -2566,8 +2567,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Cairo",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 30.0444,
+          "lan": 31.2357
         },
         "reviews": [],
         "likedByUsers": [],
@@ -2622,8 +2623,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Sydney",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [],
         "likedByUsers": [],
@@ -2734,8 +2735,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Sydney",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [],
         "likedByUsers": [],
@@ -2790,8 +2791,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Rome",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 41.9028,
+          "lan": 12.4964
         },
         "reviews": [],
         "likedByUsers": [],
@@ -2846,8 +2847,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Sydney",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [],
         "likedByUsers": [],
@@ -2958,8 +2959,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Dubai",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 25.276987,
+          "lan": 55.296249
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3035,62 +3036,6 @@ function _createStays() {
         ]
       },
       {
-        "_id": "622f337a75c7d36e498aaaf21",
-        "name": "Grand Palace Escape",
-        "type": "Hotel",
-        "imgUrls": [
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436376/phpltehcr6uq9lh5jlax.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436460/qi3vkpts37b4k0dedosc.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437310/tus71yfpnvgulenrli6a.jpg"
-        ],
-        "price": "4,072",
-        "summary": "Description for New Stay 12",
-        "capacity": 4,
-        "amenities": [
-          "TV",
-          "Wifi",
-          "Air conditioning",
-          "Kitchen",
-          "Heating"
-        ],
-        "roomType": "Entire home/apt",
-        "host": {
-          "_id": "pZFT4",
-          "fullname": "User 2",
-          "location": "Somewhere, Earth",
-          "responseTime": "within a day",
-          "thumbnailUrl": "http://example.com/host.jpg",
-          "pictureUrl": "https://randomuser.me/api/portraits/women/5.jpg",
-          "isSuperhost": false
-        },
-        "loc": {
-          "country": "Thailand",
-          "countryCode": "XX",
-          "city": "Bangkok",
-          "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
-        },
-        "reviews": [],
-        "likedByUsers": [],
-        "labels": [
-          "Luxe"
-        ],
-        "equipment": {
-          "bedsNum": 2,
-          "bathNum": 1,
-          "bedroomNum": 1
-        },
-        "reservedDates": [
-          {
-            "start": "2025-03-13",
-            "end": "2025-03-15"
-          }
-        ]
-      },
-      {
         "_id": "622f337a75c7d36e498aaaf22",
         "name": "Trevi Fountain Stay",
         "type": "Hotel",
@@ -3126,8 +3071,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Rome",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 41.9028,
+          "lan": 12.4964
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3350,8 +3295,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Sydney",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3462,8 +3407,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Cairo",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 30.0444,
+          "lan": 31.2357
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3574,8 +3519,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Sydney",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": -33.8688,
+          "lan": 151.2093
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3630,8 +3575,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Dubai",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 25.276987,
+          "lan": 55.296249
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3686,8 +3631,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Rome",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 41.9028,
+          "lan": 12.4964
         },
         "reviews": [],
         "likedByUsers": [],
@@ -3875,62 +3820,6 @@ function _createStays() {
         ]
       },
       {
-        "_id": "622f337a75c7d36e498aaaf36",
-        "name": "Grand Palace Escape",
-        "type": "Hotel",
-        "imgUrls": [
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436553/hbkx9lwxjd0wabqk0bmo.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
-          "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436453/ndl8odasqgnyquvsbalp.jpg"
-        ],
-        "price": "1,298",
-        "summary": "Description for New Stay 27",
-        "capacity": 4,
-        "amenities": [
-          "TV",
-          "Wifi",
-          "Air conditioning",
-          "Kitchen",
-          "Heating"
-        ],
-        "roomType": "Entire home/apt",
-        "host": {
-          "_id": "G95CU",
-          "fullname": "User 7",
-          "location": "Somewhere, Earth",
-          "responseTime": "within a day",
-          "thumbnailUrl": "http://example.com/host.jpg",
-          "pictureUrl": "https://randomuser.me/api/portraits/men/3.jpg",
-          "isSuperhost": false
-        },
-        "loc": {
-          "country": "Thailand",
-          "countryCode": "XX",
-          "city": "Bangkok",
-          "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
-        },
-        "reviews": [],
-        "likedByUsers": [],
-        "labels": [
-          "Off-the-grid"
-        ],
-        "equipment": {
-          "bedsNum": 2,
-          "bathNum": 1,
-          "bedroomNum": 1
-        },
-        "reservedDates": [
-          {
-            "start": "2025-07-09",
-            "end": "2025-07-13"
-          }
-        ]
-      },
-      {
         "_id": "622f337a75c7d36e498aaaf37",
         "name": "Colosseum Retreat",
         "type": "Hotel",
@@ -3966,8 +3855,8 @@ function _createStays() {
           "countryCode": "XX",
           "city": "Rome",
           "address": "123 Example Street",
-          "lat": 0,
-          "lan": 0
+          "lat": 41.9028,
+          "lan": 12.4964
         },
         "reviews": [],
         "likedByUsers": [],
@@ -4097,6 +3986,7 @@ function _createStays() {
             "end": "2025-09-07"
           }
         ]
-      }]
+      }
+    ]
     saveToStorage(STORAGE_KEY, stays)
 }
