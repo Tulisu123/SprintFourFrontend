@@ -9,7 +9,7 @@ import { StayPreview } from '../cmps/StayPreview';
 const mapContainerStyle = {
     width: '100%',
     height: '100%',
-    gridColumn:'1/-1',
+    gridColumn: '1/-1',
 }
 
 const center = { lat: 0, lng: 0 }; // Default center if no stays are available
@@ -21,10 +21,10 @@ export function StayMaps() {
     const validStays = stays.filter(stay => stay.loc && stay.loc.lat !== undefined && stay.loc.lan !== undefined);
 
     // Automatically center on the first valid stay or use default center
-    const mapCenter =  center;
+    const mapCenter = center;
 
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: import.meta.env.GOOGLE_MAPS_API_KEY// Replace with your actual API key
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY// Replace with your actual API key
     });
 
     const [selectedStay, setSelectedStay] = useState(null);
@@ -62,7 +62,7 @@ export function StayMaps() {
                         onCloseClick={() => setSelectedStay(null)}
                     >
                         <div className='stay-panel-map'>
-                            <StayPreview stay={selectedStay}/>
+                            <StayPreview stay={selectedStay} />
                             <Link to={`/stay/${selectedStay._id}`} className='visit-btn'>Visit</Link>
                         </div>
                     </InfoWindow>

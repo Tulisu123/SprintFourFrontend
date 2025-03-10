@@ -5,7 +5,7 @@ import {
     fromAddress,
 } from "react-geocode";
 
-const API_KEY = 'AIzaSyDkzO6s6YGwc3GuJIuADmZoM2xyyZrvAiE';
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 export const DetailsMap = ({ address, coordinates }) => {
     return (

@@ -8,7 +8,7 @@ import {
 export function LocationDetails({ stay }) {
     const [coordinates, setCoordinates] = useState(null);
 
-    setKey("AIzaSyDkzO6s6YGwc3GuJIuADmZoM2xyyZrvAiE")
+    setKey(`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`)
 
     useEffect(() => {
         fromAddress(`${stay.loc.address}`)
