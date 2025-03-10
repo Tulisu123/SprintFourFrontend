@@ -88,6 +88,11 @@ $selected-bg: rgba(0, 0, 0, 0.05);
     flex: 1;
     transition: opacity 0.5s ease, transform 0.5s ease;
     min-height: inherit;
+
+    input[type="radio"] {
+        position: absolute;
+        scale: 0;
+    }
 }
 
 .main-content.initial {
@@ -204,7 +209,7 @@ $selected-bg: rgba(0, 0, 0, 0.05);
                 box-shadow: $hover-shadow;
             }
 
-            &.selected {
+            &:has(input[type="radio"]:checked) {
                 border: 1px solid $hover-border-color;
                 background-color: $selected-bg;
             }
@@ -487,14 +492,14 @@ $selected-bg: rgba(0, 0, 0, 0.05);
     font-weight: 500;
 }
 
-.location-form input,
-.summary-input {
-    // padding: 8px;
-    // width: 400px;
-    // max-width: 400px;
-    // border: 1px solid #ccc;
-    // border-radius: 4px;
-}
+// .location-form input,
+// .summary-input {
+// padding: 8px;
+// width: 400px;
+// max-width: 400px;
+// border: 1px solid #ccc;
+// border-radius: 4px;
+// }
 
 .warning-text {
     color: #e63946;
