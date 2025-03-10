@@ -82,7 +82,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
             )}
 
             <AppHeader isHomepage={true} inputModal={inputModal} setInputModal={setInputModal} isClosing={isClosing} setIsClosing={setIsClosing} user={user} isLoginSignupOpen={isLoginSignupOpen} setIsLoginSignupOpen={setIsLoginSignupOpen}></AppHeader>
-            <main className={`stay-index main-container full ${isMapVisible ? 'map-visible' : ''}`}>
+            <div className={`stay-index main-container full ${isMapVisible ? 'map-visible' : ''}`}>
                 {inputModal && !isClosing && <div
                     className={`backdrop-container full ${isClosing ? 'closing' : ''}`}
                     onClick={handleClose}
@@ -102,7 +102,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
                 <button className="show-map-btn" onClick={toggleMap}>
                     {`${isMapVisible ? 'Close Map' : 'Show Map'}`} <i class="fa-regular fa-map"></i>
                 </button>
-            </main>
+            </div>
             {/* <AppFooter /> */}
         </>
     )
