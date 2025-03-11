@@ -209,9 +209,9 @@ export function StayAdd() {
                     <Logo className="logo" />
                 </Link>
                 <Link to="/">
-                    <div className="exit">
-                        <button>Exit</button>
-                    </div>
+                    {/* <div className="exit"> */}
+                    <button className="exit">Exit</button>
+                    {/* </div> */}
                 </Link>
             </header>
 
