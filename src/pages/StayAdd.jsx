@@ -218,7 +218,8 @@ export function StayAdd() {
             {/* Main Content */}
             <Formik
                 initialValues={{
-                    placeType: '',
+                    type: '',
+                    roomType: '',
                 }}
             >
 
@@ -259,18 +260,24 @@ export function StayAdd() {
                                 <h2>What type of place will guests have?</h2>
                                 <div className="place-type-options">
                                     {placeTypes.map(({ type, description, icon }) => (
-                                        <label>
+                                        <label key={type}>
+
                                             <div
-                                                key={type}
+
                                                 className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
-                                            // onClick={() => handlePlaceTypeSelection(type)}
+                                                onClick={() => handlePlaceTypeSelection(type)}
                                             >
                                                 <div className="place-type-info">
                                                     <h3>{type}</h3>
                                                     <p>{description}</p>
                                                 </div>
+                                                <Field
+                                                    type="radio"
+                                                    name="roomType"
+                                                    value={type}></Field>
                                                 <span className="place-type-icon">  {icon}</span>
                                             </div>
+
                                         </label>
                                     ))}
                                 </div>
@@ -327,7 +334,7 @@ export function StayAdd() {
                                                 {/* <span>{label}</span> */}
                                                 <Field
                                                     type="radio"
-                                                    name="placeType"
+                                                    name="type"
                                                     value={label}>
                                                 </Field>
                                                 <span>{label}</span>
