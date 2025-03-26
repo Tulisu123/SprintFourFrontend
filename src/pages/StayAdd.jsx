@@ -224,7 +224,7 @@ export function StayAdd() {
             >
 
                 <main className={`main-content ${view}`}>
-                    <Form>
+                    <Form className="add-stay-form">
                         {view === 'initial' && (
                             <>
                                 <div className="desc-container">
