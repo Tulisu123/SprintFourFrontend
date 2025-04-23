@@ -100,7 +100,7 @@ export function StayIndex({ inputModal, setInputModal, isClosing, setIsClosing, 
                     <StayMaps />
                 )}
                 <button className="show-map-btn" onClick={toggleMap}>
-                    {`${isMapVisible ? 'Close Map' : 'Show Map'}`} <i class="fa-regular fa-map"></i>
+                    {` ${(isMapVisible) ? 'Hide map' : 'Show map'}  `} <i className="fa-regular fa-map"></i>
                 </button>
             </div>
             {/* <AppFooter /> */}
