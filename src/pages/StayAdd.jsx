@@ -67,12 +67,12 @@ export function StayAdd() {
     ]
 
     const [location, setLocation] = useState({
-        name: 'Generic Beautiful place',
-        summary: 'This place was created by our application as part of a demonstration to showcase its capabilities. It represents an example location that highlights how our platform can dynamically generate content, manage data, and deliver a personalized experience. The information provided here, including images, descriptions, and user-generated content, is intended solely for demonstration purposes and does not reflect any real location. As part of the demo, you can explore how booking details, user profiles, and interactive features work seamlessly within the system. Our goal is to provide an engaging and user-friendly environment to simulate a real-world experience.',
-        address: 'Tel Aviv, 34, Israel',
-        city: 'Tel Aviv',
-        country: 'Israel',
-        countryCode: '99750',
+        name: '',
+        summary: '',
+        address: '',
+        city: '',
+        country: '',
+        countryCode: '',
     })
 
 
@@ -444,18 +444,41 @@ export function StayAdd() {
                                 <div className="location-form">
                                     {/* <div className="address"> */}
                                     {/* <div className="map"></div> */}
-                                    <label>
-                                        Address:
+                                    <label className="label-address">
+
+                                        <div>Address:</div>
                                         {/* <AddressSearch /> */}
                                         {/* <input /> */}
                                         {/* </div> */}
-                                        <input
-                                            type="text"
-                                            name="address"
-                                            value={location.address}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter address"
-                                        />
+
+                                        <div /* className="flex" */>
+                                            <input
+                                                type="text"
+                                                name="address"
+                                                value={location.address}
+                                                onChange={handleLocationInputChange}
+                                                placeholder="Enter address"
+                                            />
+                                            <button
+                                                className="exit"
+                                                type="button"
+                                                onClick={
+                                                    () => setLocation(
+                                                        {
+                                                            name: 'Generic Beautiful place',
+                                                            summary: 'This place was created by our application as part of a demonstration to showcase its capabilities. It represents an example location that highlights how our platform can dynamically generate content, manage data, and deliver a personalized experience. The information provided here, including images, descriptions, and user-generated content, is intended solely for demonstration purposes and does not reflect any real location. As part of the demo, you can explore how booking details, user profiles, and interactive features work seamlessly within the system. Our goal is to provide an engaging and user-friendly environment to simulate a real-world experience.',
+                                                            address: 'Tel Aviv, 34, Israel',
+                                                            city: 'Tel Aviv',
+                                                            country: 'Israel',
+                                                            countryCode: '99750',
+                                                        }
+                                                    )
+                                                }
+                                            >
+                                                Auto-fill
+                                            </button>
+                                        </div>
+
                                     </label>
                                     <label>
                                         City:
