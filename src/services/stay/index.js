@@ -15,15 +15,15 @@ function getEmptyStay() {
             lat: 0,
             lng: 0,
         },
-        amenities:[],
-        imgUrls:[],
+        amenities: [],
+        imgUrls: [],
         price: getRandomIntInclusive(200, 1500),
         capacity: getRandomIntInclusive(1, 10),
         msgs: [],
-        host:{_id:'', fullname:'', pictureUrl:'https://randomuser.me/api/portraits/men/1.jpg'},
-        type:'',
-        name:'',
-        summary:''
+        host: { _id: '', fullname: '', pictureUrl: 'https://randomuser.me/api/portraits/men/1.jpg' },
+        type: '',
+        name: '',
+        summary: ''
     }
 }
 
@@ -39,7 +39,10 @@ function getDefaultFilter() {
     }
 }
 
-const service = VITE_LOCAL === 'true' ? local : remote
+// const service = VITE_LOCAL === 'true' ? local : remote
+// previous line is commented out for frontend purpuses
+// for now we set the service to local:
+const service = local
 export const stayService = { getEmptyStay, getDefaultFilter, ...service }
 
 // Easy access to this service from the dev tools console
