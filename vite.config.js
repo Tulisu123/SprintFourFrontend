@@ -6,7 +6,6 @@ export default defineConfig({
 	plugins: [react()],
 	build: {
 		// outDir: '../backend/public',
-		assetsInclude: ['**/*.svg'],
 		emptyOutDir: true,
 	},
 	css: {
