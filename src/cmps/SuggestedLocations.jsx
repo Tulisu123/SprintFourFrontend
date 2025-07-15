@@ -1,5 +1,5 @@
 import React from 'react';
-import locations from 'https://res.cloudinary.com/dzm5wsscb/raw/upload/v1750262113/suggested-locations.json'
+import locations from '../assets/files/suggested-locations/suggested-locations.json'
 
 export function SuggestedLocations({ setWhere, onClose }) {
     return (
