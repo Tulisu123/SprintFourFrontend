@@ -6,7 +6,7 @@ export function ReviewSection({ stay, handleShowMore, isModalActive, setReviewId
     return (
         <div className="stay-review-container">
             <section className="stay-review-header">
-                <img src='../../src/assets/assets/icons/general icons/asset 158.svg' />
+                <img src='https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261995/asset_158.svg' />
                 <p>5.0 · {stay.reviews.length} review{stay.reviews.length > 1 && 's'}</p>
             </section>
 

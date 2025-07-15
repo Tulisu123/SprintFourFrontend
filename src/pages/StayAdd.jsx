@@ -303,12 +303,12 @@ export function StayAdd() {
                                     {label === 'Boat' && <i class="fa-light fa-sailboat"></i>}
                                     {label === 'Cabin' && <i class="fa-sharp fa-light fa-cabin"></i>}
                                     {label === 'Camper/RV' && <i class="fa-light fa-caravan"></i>}
-                                    {label === 'Casa particular' && <img src="/src/assets/icons/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
+                                    {label === 'Casa particular' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261814/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
                                     {label === 'Castle' && <i class="fa-sharp fa-light fa-castle"></i>}
-                                    {label === 'Cave' && <img src="/src/assets/icons/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
+                                    {label === 'Cave' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261815/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
                                     {label === 'Container' && <i class="fa-light fa-container-storage"></i>}
-                                    {label === 'Cycladic home' && <img src="/src/assets/icons/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
-                                    {label === 'Dammuso' && <img src="/src/assets/icons/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
+                                    {label === 'Cycladic home' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261818/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
+                                    {label === 'Dammuso' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261817/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
                                     {label === 'Dome' && <i class="fa-sharp fa-light fa-landmark-dome"></i>}
                                     {label === 'Earth home' && <i class="fa-sharp fa-light fa-house-tree"></i>}
                                     <span>{label}</span>
