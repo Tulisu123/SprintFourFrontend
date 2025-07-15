@@ -35,7 +35,7 @@ export function FilterSlider({ filters, onChange, filterBy }) {
                 onClick={() => onScrollFilters(-1)}
                 className={`filters-nav-btn prev-filters-btn ${!isStart ? 'shown' : ''}`}
             >
-                <img src="../../src/assets/assets/icons/general icons/asset 151.svg" alt="previous" />
+                <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261978/asset_151.svg" alt="previous" />
             </button>
             <div className="filter-items flex" ref={filterItemsRef}>
                 {filters.map(filter => (
@@ -60,7 +60,7 @@ export function FilterSlider({ filters, onChange, filterBy }) {
                 onClick={() => onScrollFilters(1)}
                 className={`filters-nav-btn next-filters-btn ${!isEnd ? 'shown' : ''}`}
             >
-                <img src="../../src/assets/assets/icons/general icons/asset 152.svg" alt="next" />
+                <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261978/asset_152.svg" alt="next" />
             </button>
         </section>
     )
