@@ -41,7 +41,7 @@ export function AmenitiesList({ stay, amenities, isModalActive }) {
                         <li key={makeId()} className={`amenity ${isModalActive ? 'amenitie-modal' : ''}`}>
 
 
-                            <img src={`https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261885/${amenity}.svg`} />
+                            <img src={`https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261885/${amenity.replaceAll(' ', '_')}.svg`} />
 
 
                             <span className="regular-text">{amenity}</span>
