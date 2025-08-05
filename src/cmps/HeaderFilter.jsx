@@ -79,7 +79,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
         let totalInfants = guests.infants || 0
         let totalPets = guests.pets || 0
 
-        let result = `${totalGuests} guests`
+        let result = `${totalGuests} guest${(filterBy.minCapacity > 1) ? `s` : ``}`
 
         if (totalInfants > 0) result += `, ${totalInfants} infants`
 

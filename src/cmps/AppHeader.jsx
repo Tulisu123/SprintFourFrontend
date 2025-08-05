@@ -27,7 +27,7 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 
 	const [checkInDate, setCheckInDate] = useState('')
 	const [checkOutDate, setCheckOutDate] = useState('')
-	const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
+	const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 	const [where, setWhere] = useState('')
 
 	useEffect(() => {
