@@ -161,9 +161,9 @@ export function AppHeader({ isHomepage, inputModal, setInputModal, isClosing, se
 
 					</nav>
 				</header >
-				{!isExpanded && isHomepage && (
+				{/* {!isExpanded && isHomepage && (
 					<StayFilter />
-				)}
+				)} */}
 			</div>
 
 		</>
