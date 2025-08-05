@@ -191,7 +191,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                             </label>
                         </div>
                         <div className="filter-action-container short anyweek">
-                            <label className="filter-label">Any week</label>
+                            <label className="filter-label">Anytime</label>
                         </div>
                         <div className="filter-action-container short who">
                             <label className="filter-label add-guests">
