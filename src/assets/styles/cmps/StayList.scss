@@ -1,6 +1,16 @@
 .stay-list {
+    --breakpoint-grid_columns: 1;
+
+    @media (min-width:550px) {
+        --breakpoint-grid_columns: 2
+    }
+
+    @media (min-width:945px) {
+        --breakpoint-grid_columns: 3
+    }
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(239px, 1fr));
+    grid-template-columns: repeat(var(--breakpoint-grid_columns), minmax(0, 1fr));
     gap: 24px;
 
     li {
