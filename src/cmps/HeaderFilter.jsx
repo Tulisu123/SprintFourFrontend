@@ -79,7 +79,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
         let totalInfants = guests.infants || 0
         let totalPets = guests.pets || 0
 
-        let result = `${totalGuests} guest${(filterBy.minCapacity > 1) ? `s` : ``}`
+        let result = (totalGuests) ? `${totalGuests} guest${(totalGuests > 1) ? `s` : ``}` : 'Add guests'
 
         if (totalInfants > 0) result += `, ${totalInfants} infants`
 
@@ -108,7 +108,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                         <label className="filter-label">Check in</label>
                         <input
                             className="filter-action filter-checkin"
-                            value={formatDate(checkInDate) || 'Add Dates'}
+                            value={formatDate(checkInDate) || 'Add dates'}
                             required
                             readOnly
                         ></input>
@@ -117,7 +117,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                         <label className="filter-label" >Check out</label>
                         <input
                             className="filter-action filter-checkout"
-                            value={formatDate(checkOutDate) || 'Add Dates'}
+                            value={formatDate(checkOutDate) || 'Add dates'}
                             required
                             readOnly
                         ></input>
@@ -126,7 +126,7 @@ export function HeaderFilter({ isExpanded, setIsExpanded, toggleIsFilterOpen, gu
                         <label className="filter-label">Who</label>
                         <input
                             className="filter-action filter-who"
-                            value={formGuests(guests) || "Add guests"}
+                            value={formGuests(guests)}
                             readOnly
                         ></input>
                     </div>
