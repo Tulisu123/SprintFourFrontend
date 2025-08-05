@@ -1,12 +1,20 @@
 .main-container {
     // margin-inline: 40px;
     display: grid;
-    grid-template-columns: minmax(80px, 1fr) minmax(auto, 2560px) minmax(80px, 1fr);
+    grid-template-columns: minmax(24px, 1fr) minmax(auto, 2560px) minmax(24px, 1fr);
     grid-template-rows: auto 1fr;
+
+    @media (min-width: 768px) {
+        grid-template-columns: minmax(32px, 1fr) minmax(auto, 2560px) minmax(32px, 1fr);
+    }
+
+    @media (min-width: 1440px) {
+        grid-template-columns: minmax(48px, 1fr) minmax(auto, 2560px) minmax(48px, 1fr);
+    }
 
     // margin-inline: 40px;
     &.stay {
-        grid-template-columns: minmax(80px, 1fr) minmax(auto, 1120px) minmax(80px, 1fr);
+        grid-template-columns: minmax(24px, 1fr) minmax(auto, 1120px) minmax(24px, 1fr);
     }
 
     &.add-stay {
