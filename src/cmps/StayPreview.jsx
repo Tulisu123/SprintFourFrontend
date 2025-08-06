@@ -1,11 +1,19 @@
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import HeartIcon from './HeartIcon'
+import { replace } from 'react-router'
 
 export function StayPreview({ stay }) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [wishlistName, setWishlistName] = useState('')
     const maxChars = 50
+    let roomTypeString = stay.roomType
+    let presentedPrice = ((stay.price.replaceAll(',', '')) * 5).toLocaleString()
+    if (stay.roomType === 'Entire home/apt') {
+        roomTypeString = 'Apartment'
+    } else if (stay.roomType === 'Private room') {
+        roomTypeString = 'Room'
+    }
 
     function formatDateRange(startDate, endDate) {
         if (!startDate || !endDate) return ''
@@ -66,7 +74,7 @@ export function StayPreview({ stay }) {
 
     function calculateAverageRating(reviews) {
         const total = reviews.reduce((sum, review) => sum + review.rate, 0)
-        return (total / reviews.length).toFixed(2)
+        return (total / reviews.length).toLocaleString('en-US', { maximumFractionDigits: 2 })
     }
 
     return (
@@ -119,28 +127,31 @@ export function StayPreview({ stay }) {
                 </div>
                 <div className="info-container">
                     <header className="location-header">
-                        <span>{stay.loc.city}, {stay.loc.country}</span>
+                        <span>{roomTypeString} in {stay.loc.city}, {stay.loc.country}</span>
                         {stay.reviews && stay.reviews.length > 0 && (
                             <p className="stay-rating">
                                 <i className="fas fa-star"></i>
                                 <span>
                                     {calculateAverageRating(stay.reviews)}
                                 </span>
+                                <span>
+                                    {(stay.reviews.length) ? `(${stay.reviews.length})` : `New`}
+                                </span>
                             </p>
                         )}
                     </header>
 
-                    <h3 className="stay-name"> {stay.name} </h3>
-                    <p className="stay-dates">
+                    <div className="stay-name"> {stay.name} </div>
+                    <div className="stay-name"> {stay.equipment.bedsNum} bed{stay.equipment.bedsNum > 1 && 's'} </div>
+                    <div className="stay-name">
                         {stay.reservedDates?.length > 0 && (
                             <span className="date-range">
                                 {formatDateRange(stay.reservedDates[0].start, stay.reservedDates[0].end)}
                             </span>
                         )}
-                    </p>
-                    <p className="stay-price">
-                        ₪{stay.price} <span>night</span>
-                    </p>
+                    </div>
+                    <div className="stay-price">₪{presentedPrice}</div>
+                    <div className="stay-name">for 5 nights</div>
                 </div>
             </article>
 
