@@ -216,327 +216,288 @@ export function StayAdd() {
             </header>
 
             {/* Main Content */}
-            <Formik
-                initialValues={{
-                    type: '',
-                    roomType: '',
-                }}
-            >
-
-                <main className={`main-content ${view}`}>
-                    <Form className="add-stay-form">
-                        {view === 'initial' && (
-                            <>
-                                <div className="desc-container">
-                                    <p className="desc">It’s easy to get started on Airbnb</p>
+            <main className={`main-content ${view}`}>
+                {view === 'initial' && (
+                    <>
+                        <div className="desc-container">
+                            <p className="desc">It’s easy to get started on Airbnb</p>
+                        </div>
+                        <div className="details">
+                            <div className="item item-one">
+                                <div className="item-desc">
+                                    <h1><span>1</span> Tell us about your place</h1>
+                                    <p>Share some basic info, like where it is and how many guests can stay.</p>
                                 </div>
-                                <div className="details">
-                                    <div className="item item-one">
-                                        <div className="item-desc">
-                                            <h1><span>1</span> Tell us about your place</h1>
-                                            <p>Share some basic info, like where it is and how many guests can stay.</p>
-                                        </div>
-                                        <img src="https://a0.muscache.com/4ea/air/v2/pictures/da2e1a40-a92b-449e-8575-d8208cc5d409.jpg" alt="" />
+                                <img src="https://a0.muscache.com/4ea/air/v2/pictures/da2e1a40-a92b-449e-8575-d8208cc5d409.jpg" alt="" />
+                            </div>
+                            <div className="item item-two">
+                                <div className="item-desc">
+                                    <h1><span>2</span> Make it stand out</h1>
+                                    <p>Add 5 or more photos plus a title and description—we’ll help you out.</p>
+                                </div>
+                                <img src="https://a0.muscache.com/4ea/air/v2/pictures/bfc0bc89-58cb-4525-a26e-7b23b750ee00.jpg" alt="" />
+                            </div>
+                            <div className="item item-three">
+                                <div className="item-desc">
+                                    <h1><span>3</span> Finish up and publish</h1>
+                                    <p>Choose a starting price, verify a few details, then publish your listing.</p>
+                                </div>
+                                <img src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg" alt="" />
+                            </div>
+                        </div>
+                    </>
+                )}
+
+                {view === 'placeType' && (
+                    <div className="place-type-selection">
+                        <h2>What type of place will guests have?</h2>
+                        <div className="place-type-options">
+                            {placeTypes.map(({ type, description, icon }) => (
+                                <div
+                                    key={type}
+                                    className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
+                                    onClick={() => handlePlaceTypeSelection(type)}
+                                >
+                                    <div className="place-type-info">
+                                        <h3>{type}</h3>
+                                        <p>{description}</p>
                                     </div>
-                                    <div className="item item-two">
-                                        <div className="item-desc">
-                                            <h1><span>2</span> Make it stand out</h1>
-                                            <p>Add 5 or more photos plus a title and description—we’ll help you out.</p>
-                                        </div>
-                                        <img src="https://a0.muscache.com/4ea/air/v2/pictures/bfc0bc89-58cb-4525-a26e-7b23b750ee00.jpg" alt="" />
-                                    </div>
-                                    <div className="item item-three">
-                                        <div className="item-desc">
-                                            <h1><span>3</span> Finish up and publish</h1>
-                                            <p>Choose a starting price, verify a few details, then publish your listing.</p>
-                                        </div>
-                                        <img src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg" alt="" />
-                                    </div>
+                                    <span className="place-type-icon">{icon}</span>
                                 </div>
-                            </>
-                        )}
-                        {view === 'placeType' && (
-                            <div className="place-type-selection">
-                                <h2>What type of place will guests have?</h2>
-                                <div className="place-type-options">
-                                    {placeTypes.map(({ type, description, icon }) => (
-                                        <label key={type}>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
-                                            <div
+                {view === 'labels' && (
+                    <div className="labels-view">
+                        <div className="desc-container">
+                            <p className="desc">Which of these best describes your place?</p>
+                        </div>
+                        <div className="labels-grid">
+                            {[
+                                'House',
+                                'Apartment',
+                                'Barn',
+                                'Bed & breakfast',
+                                'Boat',
+                                'Cabin',
+                                'Camper/RV',
+                                'Casa particular',
+                                'Castle',
+                                'Cave',
+                                'Container',
+                                'Cycladic home',
+                                'Dammuso',
+                                'Dome',
+                                'Earth home',
+                            ].map((label) => (
+                                <div
+                                    className={`label-item ${labels.includes(label) ? 'selected' : ''}`}
+                                    key={label}
+                                    onClick={() => onAddLabel(label)}
+                                >
+                                    {label === 'House' && <i className="fa-sharp fa-light fa-house"></i>}
+                                    {label === 'Apartment' && <i class="fa-sharp fa-light fa-apartment"></i>}
+                                    {label === 'Barn' && <i class="fa-light fa-farm"></i>}
+                                    {label === 'Bed & breakfast' && <i class="fa-light fa-mug-saucer"></i>}
+                                    {label === 'Boat' && <i class="fa-light fa-sailboat"></i>}
+                                    {label === 'Cabin' && <i class="fa-sharp fa-light fa-cabin"></i>}
+                                    {label === 'Camper/RV' && <i class="fa-light fa-caravan"></i>}
+                                    {label === 'Casa particular' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261814/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
+                                    {label === 'Castle' && <i class="fa-sharp fa-light fa-castle"></i>}
+                                    {label === 'Cave' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261815/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
+                                    {label === 'Container' && <i class="fa-light fa-container-storage"></i>}
+                                    {label === 'Cycladic home' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261818/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
+                                    {label === 'Dammuso' && <img src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261817/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
+                                    {label === 'Dome' && <i class="fa-sharp fa-light fa-landmark-dome"></i>}
+                                    {label === 'Earth home' && <i class="fa-sharp fa-light fa-house-tree"></i>}
+                                    <span>{label}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
-                                                className={`place-type-card ${selectedPlaceType === type ? 'selected' : ''}`}
-                                                onClick={() => handlePlaceTypeSelection(type)}
-                                            >
-                                                <div className="place-type-info">
-                                                    <h3>{type}</h3>
-                                                    <p>{description}</p>
-                                                </div>
-                                                <Field
-                                                    type="radio"
-                                                    name="roomType"
-                                                    value={type}></Field>
-                                                <span className="place-type-icon">  {icon}</span>
-                                            </div>
+                {view === 'guests' && (
+                    <div className="guests-view">
+                        <div className="desc-container">
+                            <h2>Share some basics about your place</h2>
+                            <p>You’ll add more details later, like bed types.</p>
+                        </div>
+                        <GuestSelector guests={guests} setGuests={setGuests} />
 
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        {view === 'labels' && (
-                            <div className="labels-view">
-                                <div className="desc-container">
-                                    <p className="desc">Which of these best describes your place?</p>
-                                </div>
-                                <div className="labels-grid">
-                                    {[
-                                        'House',
-                                        'Apartment',
-                                        'Barn',
-                                        'Bed & breakfast',
-                                        'Boat',
-                                        'Cabin',
-                                        'Camper/RV',
-                                        'Casa particular',
-                                        'Castle',
-                                        'Cave',
-                                        'Container',
-                                        'Cycladic home',
-                                        'Dammuso',
-                                        'Dome',
-                                        'Earth home',
-                                    ].map((label) => (
-                                        <label key={label}>
+                    </div>
+                )}
+                {view === 'amenities' && (
+                    <div className="amenities-view">
+                        <div className="desc-container">
+                            <h2>Tell guests what your place has to offer</h2>
+                            <p>You can add more amenities after you publish your listing.</p>
+                        </div>
 
+                        <h3>What about these guest favorites?</h3>
 
-                                            <div
+                        <div className="amenities-grid">
+                            {amenitiesList.map(({ name, icon }) => (
+                                <div
+                                    key={name}
+                                    className={`amenity-item ${selectedAmenities.includes(name) ? 'selected' : ''}`}
+                                    onClick={() => toggleAmenity(name)}
+                                >
+                                    <span className="icon">{icon}</span>
+                                    <span>{name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                {view === 'photos' && (
+                    <div className="photos-view">
+                        <div className="desc-container">
+                            <h2>Add some photos of your place</h2>
+                            <p>You’ll need 5 photos to get started. You can add more or make changes later.</p>
+                        </div>
 
-                                                className={`label-item 
-                                                    ${labels.includes(label) ? 'selected' : ''}`}
-
-                                                onClick={() => onAddLabel(label)}
-                                            >
-                                                {label === 'House' && <i className="fa-sharp fa-light fa-house"></i>}
-                                                {label === 'Apartment' && <i className="fa-sharp fa-light fa-apartment"></i>}
-                                                {label === 'Barn' && <i className="fa-light fa-farm"></i>}
-                                                {label === 'Bed & breakfast' && <i className="fa-light fa-mug-saucer"></i>}
-                                                {label === 'Boat' && <i className="fa-light fa-sailboat"></i>}
-                                                {label === 'Cabin' && <i className="fa-sharp fa-light fa-cabin"></i>}
-                                                {label === 'Camper/RV' && <i className="fa-light fa-caravan"></i>}
-                                                {label === 'Casa particular' && <img src="/src/assets/icons/icons8-casa-batllo-48.png" alt="Casa Icon" className="label-icon" />}
-                                                {label === 'Castle' && <i className="fa-sharp fa-light fa-castle"></i>}
-                                                {label === 'Cave' && <img src="/src/assets/icons/icons8-cave-64.png" alt="Cave Icon" className="label-icon" />}
-                                                {label === 'Container' && <i className="fa-light fa-container-storage"></i>}
-                                                {label === 'Cycladic home' && <img src="/src/assets/icons/icons8-home-64.png" alt="Home Icon" className="label-icon" />}
-                                                {label === 'Dammuso' && <img src="/src/assets/icons/icons8-duomo-di-milano-66.png" alt="Duomo Icon" className="label-icon" />}
-                                                {label === 'Dome' && <i className="fa-sharp fa-light fa-landmark-dome"></i>}
-                                                {label === 'Earth home' && <i className="fa-sharp fa-light fa-house-tree"></i>}
-                                                {/* <span>{label}</span> */}
-                                                <Field
-                                                    type="radio"
-                                                    name="type"
-                                                    value={label}>
-                                                </Field>
-                                                <span>{label}</span>
-                                            </div>
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        {view === 'guests' && (
-                            <div className="guests-view">
-                                <div className="desc-container">
-                                    <h2>Share some basics about your place</h2>
-                                    <p>You’ll add more details later, like bed types.</p>
-                                </div>
-                                <GuestSelector guests={guests} setGuests={setGuests} />
-                            </div>
-                        )}
-                        {view === 'amenities' && (
-                            <div className="amenities-view">
-                                <div className="desc-container">
-                                    <h2>Tell guests what your place has to offer</h2>
-                                    <p>You can add more amenities after you publish your listing.</p>
-                                </div>
-                                <h3>What about these guest favorites?</h3>
-                                <div className="amenities-grid">
-                                    {amenitiesList.map(({ name, icon }) => (
-                                        <div
-                                            key={name}
-                                            className={`amenity-item ${selectedAmenities.includes(name) ? 'selected' : ''}`}
-                                            onClick={() => toggleAmenity(name)}
-                                        >
-                                            <span className="icon">{icon}</span>
-                                            <span>{name}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        {view === 'photos' && (
-                            <div className="photos-view">
-                                <div className="desc-container">
-                                    <h2>Add some photos of your place</h2>
-                                    <p>You’ll need 5 photos to get started. You can add more or make changes later.</p>
-                                </div>
-                                <div className="photo-upload-container">
-                                    <div className="photo-upload-box">
-                                        <input
-                                            type="file"
-                                            ref={fileInputRef}
-                                            accept="image/*"
-                                            multiple
-                                            style={{ display: "none" }}
-                                            onChange={handleFileChange}
+                        <div className="photo-upload-container">
+                            <div className="photo-upload-box">
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    accept="image/*"
+                                    multiple
+                                    style={{ display: "none" }}
+                                    onChange={handleFileChange}
+                                />
+                                {imgUrls.length <= 5 && (
+                                    <>
+                                        <img
+                                            src="https://a0.muscache.com/im/pictures/mediaverse/mys-amenities-n8/original/c83b2a87-3be4-43c9-ad47-12dd2aee24c4.jpeg"
+                                            alt="Camera Icon"
+                                            className="camera-icon"
                                         />
-                                        {imgUrls.length <= 5 && (
-                                            <>
-                                                <img
-                                                    src="https://a0.muscache.com/im/pictures/mediaverse/mys-amenities-n8/original/c83b2a87-3be4-43c9-ad47-12dd2aee24c4.jpeg"
-                                                    alt="Camera Icon"
-                                                    className="camera-icon"
-                                                />
-                                                <button className="upload-btn" onClick={handleAddPhotos}>
-                                                    Add photos
-                                                </button>
-                                                <div className="uploaded-images">
-                                                    {imgUrls.map((url, index) => (
-                                                        <div key={index} className="photo-item">
-                                                            <img src={url} alt={`Uploaded ${index}`} className="uploaded-img" />
-                                                        </div>
-                                                    ))}
+                                        <button className="upload-btn" onClick={handleAddPhotos}>
+                                            Add photos
+                                        </button>
+                                        <div className="uploaded-images">
+                                            {imgUrls.map((url, index) => (
+                                                <div key={index} className="photo-item">
+                                                    <img src={url} alt={`Uploaded ${index}`} className="uploaded-img" />
                                                 </div>
-                                            </>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        {view === 'pricing' && (
-                            <div className="pricing-view">
-                                <div className="desc-container">
-                                    <h2>Set a price for your place</h2>
-                                    <p>Guests will see this price per night when they book your place.</p>
-                                </div>
-                                <div className="price-input-container">
-                                    <label htmlFor="price-input">Price per night ($)</label>
-                                    <input
-                                        id="price-input"
-                                        type="number"
-                                        min="1"
-                                        placeholder="Enter a price"
-                                        value={pricePerNight}
-                                        onChange={handlePriceChange}
-                                    />
-                                </div>
-                                {pricePerNight === '' && (
-                                    <p className="warning-text">Please set a price to proceed.</p>
+                                            ))}
+                                        </div>
+                                    </>
                                 )}
                             </div>
+                        </div>
+                    </div>
+                )}
+                {view === 'pricing' && (
+                    <div className="pricing-view">
+                        <div className="desc-container">
+                            <h2>Set a price for your place</h2>
+                            <p>Guests will see this price per night when they book your place.</p>
+                        </div>
+
+                        <div className="price-input-container">
+                            <label htmlFor="price-input">Price per night ($)</label>
+                            <input
+                                id="price-input"
+                                type="number"
+                                min="1"
+                                placeholder="Enter a price"
+                                value={pricePerNight}
+                                onChange={handlePriceChange}
+                            />
+                        </div>
+
+                        {pricePerNight === '' && (
+                            <p className="warning-text">Please set a price to proceed.</p>
                         )}
-                        {view === 'location' && (
-                            <div className="location-view">
-                                <div className="desc-container">
-                                    <h2>Add more details about your place</h2>
-                                    <p>Guests will see these details when they book your place.</p>
-                                </div>
-                                <div className="location-form">
-                                    {/* <div className="address"> */}
-                                    {/* <div className="map"></div> */}
-                                    <label className="label-address">
+                    </div>
+                )}
+                {view === 'location' && (
+                    <div className="location-view">
+                        <div className="desc-container">
+                            <h2>Add more details about your place</h2>
+                            <p>Guests will see these details when they book your place.</p>
+                        </div>
 
-                                        <div>Address:</div>
-                                        {/* <AddressSearch /> */}
-                                        {/* <input /> */}
-                                        {/* </div> */}
+                        <div className="location-form">
+                            {/* <div className="address"> */}
+                            {/* <div className="map"></div> */}
+                            <label>
+                                Address:
+                                {/* <AddressSearch /> */}
+                                {/* <input /> */}
+                                {/* </div> */}
+                                <input
+                                    type="text"
+                                    name="address"
+                                    value={location.address}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter address"
+                                />
+                            </label>
 
-                                        <div /* className="flex" */>
-                                            <input
-                                                type="text"
-                                                name="address"
-                                                value={location.address}
-                                                onChange={handleLocationInputChange}
-                                                placeholder="Enter address"
-                                            />
-                                            <button
-                                                className="exit"
-                                                type="button"
-                                                onClick={
-                                                    () => setLocation(
-                                                        {
-                                                            name: 'Generic Beautiful place',
-                                                            summary: 'This place was created by our application as part of a demonstration to showcase its capabilities. It represents an example location that highlights how our platform can dynamically generate content, manage data, and deliver a personalized experience. The information provided here, including images, descriptions, and user-generated content, is intended solely for demonstration purposes and does not reflect any real location. As part of the demo, you can explore how booking details, user profiles, and interactive features work seamlessly within the system. Our goal is to provide an engaging and user-friendly environment to simulate a real-world experience.',
-                                                            address: 'Tel Aviv, 34, Israel',
-                                                            city: 'Tel Aviv',
-                                                            country: 'Israel',
-                                                            countryCode: '99750',
-                                                        }
-                                                    )
-                                                }
-                                            >
-                                                Auto-fill
-                                            </button>
-                                        </div>
+                            <label>
+                                City:
+                                <input
+                                    type="text"
+                                    name="city"
+                                    value={location.city}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter city"
+                                />
+                            </label>
 
-                                    </label>
-                                    <label>
-                                        City:
-                                        <input
-                                            type="text"
-                                            name="city"
-                                            value={location.city}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter city"
-                                        />
-                                    </label>
-                                    <label>
-                                        Country:
-                                        <input
-                                            type="text"
-                                            name="country"
-                                            value={location.country}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter country"
-                                        />
-                                    </label>
-                                    <label>
-                                        Country Code:
-                                        <input
-                                            type="text"
-                                            name="countryCode"
-                                            value={location.countryCode}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter country code"
-                                        />
-                                    </label>
-                                    <label>
-                                        Name:
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={location.name}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter name"
-                                        />
-                                    </label>
-                                    <label>
-                                        Summary:
-                                        <textarea
-                                            type="text"
-                                            name="summary"
-                                            value={location.summary}
-                                            onChange={handleLocationInputChange}
-                                            placeholder="Enter summary"
-                                            className="summary-input"
-                                        />
-                                    </label>
-                                </div>
-                            </div>
-                        )}
-                    </Form>
-                </main>
-            </Formik>
+                            <label>
+                                Country:
+                                <input
+                                    type="text"
+                                    name="country"
+                                    value={location.country}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter country"
+                                />
+                            </label>
+
+                            <label>
+                                Country Code:
+                                <input
+                                    type="text"
+                                    name="countryCode"
+                                    value={location.countryCode}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter country code"
+                                />
+                            </label>
+
+                            <label>
+                                Name:
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={location.name}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter name"
+                                />
+                            </label>
+                            <label>
+                                Summary:
+                                <textarea
+                                    type="text"
+                                    name="summary"
+                                    value={location.summary}
+                                    onChange={handleLocationInputChange}
+                                    placeholder="Enter summary"
+                                    className="summary-input"
+                                />
+                            </label>
+                        </div>
+                    </div>
+                )}
+            </main>
 
             <div className="full main-container add-stay stay-add-footer-wrapper">
                 <div className="progress-bar">

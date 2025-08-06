@@ -145,7 +145,7 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
             onClick={handleShowAllPhotos}
           >
             <img
-              src="/src/assets/icons/apps_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
+              src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261806/apps_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
               className="icon"
               alt="Show All Photos"
             />
@@ -163,7 +163,7 @@ export function StayDetails({ inputModal, setInputModal, isClosing, setIsClosing
                 {stay.capacity} guest{stay.capacity > 1 && 's'}  · {stay.equipment.bedroomNum} bedroom{stay.equipment.bedroomNum > 1 && 's'}  ·  {stay.equipment.bedsNum} bed{stay.equipment.bedsNum > 1 && 's'}  ·  {stay.equipment.bathNum} bath{stay.equipment.bathNum > 1 && 's'}
               </h3>
               <h4 className='bold-text reviews-summary'>
-                <img src='../../src/assets/assets/icons/general icons/asset 158.svg' />
+                <img src='https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261995/asset_158.svg' />
                 <span>{stay.reviews.length ? '5.0  · ' : 'New'}</span>
                 {stay.reviews.length > 0 &&
                   <a className='nostyle underline' onClick={() => { handleShowMore(SET_APP_MODAL_REVIEWS) }}>{stay.reviews.length} review{stay.reviews.length > 1 && 's'}</a>}

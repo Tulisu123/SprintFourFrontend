@@ -43,7 +43,7 @@ export function PhotosPage() {
             <header className="app-header">
                 <button className="back-btn" onClick={() => navigate(-1)}>
                     <img
-                        src="/src/assets/icons/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
+                        src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261807/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
                         className="icon"
                         alt="Back"
                     />
@@ -87,7 +87,7 @@ export function PhotosPage() {
                     <button className="navigation prev" onClick={navigatePrev}>
                         {/* Left arrow */}
                         <img
-                            src="/src/assets/icons/chevron_left_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png"
+                            src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261809/chevron_left_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png"
                             className="icon"
                             alt="Left arrow"
                         />
@@ -95,7 +95,7 @@ export function PhotosPage() {
                     <button className="navigation next" onClick={navigateNext}>
                         {/* Right arrow */}
                         <img
-                            src="/src/assets/icons/chevron_right_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png"
+                            src="https://res.cloudinary.com/dzm5wsscb/image/upload/v1750261812/chevron_right_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png"
                             className="icon"
                             alt="Right arrow"
                         />
