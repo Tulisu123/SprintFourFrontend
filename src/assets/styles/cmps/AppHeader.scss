@@ -60,6 +60,10 @@
                 font-size: 22px;
                 margin: 0;
                 margin-left: 4px;
+
+                @media (max-width: 950px) {
+                    display: none;
+                }
             }
         }
 
@@ -274,6 +278,9 @@
                 background-color: #f7f7f7;
             }
 
+            @media (max-width: 950px) {
+                display: none;
+            }
         }
 
         .auth-menu {
